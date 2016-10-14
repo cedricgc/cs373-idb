@@ -1,0 +1,12 @@
+# See http://www.kennethreitz.org/essays/a-better-pip-workflow for motivation
+
+alembic
+autopep8
+Flask
+Flask-HTTPAuth
+flask-marshmallow
+Flask-SQLAlchemy
+gunicorn
+marshmallow-sqlalchemy
+pytest
+psycopg2
