@@ -1,0 +1,18 @@
+sudo: required
+dist: trusty
+
+language: python
+python:
+  - 3.5
+
+addons:
+  apt:
+    sources:
+      - deadsnakes
+
+before_install:
+  - sudo apt-get update -q
+  - make pkgs
+
+script:
+  - make test
