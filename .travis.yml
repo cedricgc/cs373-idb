@@ -16,3 +16,8 @@ before_install:
 
 script:
   - make test
+
+notifications:
+  slack:
+    rooms:
+      - cs373-idb:CaojsymuHi3OqnMrrh92Owxa#general
