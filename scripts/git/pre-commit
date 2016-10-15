@@ -51,7 +51,7 @@ make test || exit 1
 
 touched_python_files=`git diff --cached --name-only | egrep '\.py$' || true`
 if [ -n "$touched_python_files" ]; then
-	autopep8 \
+	venv/bin/autopep8 \
 		--in-place \
 		--jobs=0 \
 		--max-line-length=80 \

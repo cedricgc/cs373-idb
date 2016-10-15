@@ -21,18 +21,18 @@ test:
 # localhost instead of 0.0.0.0
 run: venv/bin/gunicorn
 	venv/bin/gunicorn \
-	  -w 5 \
-	  -b localhost:5000 \
-	  --log-level=debug \
-	  website:app
+		-w 5 \
+		-b localhost:5000 \
+		--log-level=debug \
+		website:app
 
 dev_server: venv/bin/python
 	venv/bin/gunicorn \
-	  -w 5 \
-	  -b 0.0.0.0:5000 \
-	  --log-level=debug \
-	  --reload \
-	  website:app
+		-w 5 \
+		-b 0.0.0.0:5000 \
+		--log-level=debug \
+		--reload \
+		website:app
 
 # Ensure environment vars are set
 db_migrations: venv/bin/alembic
