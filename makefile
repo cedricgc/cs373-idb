@@ -1,7 +1,9 @@
 # Space separated list of git hook paths
-GIT_HOOKS = scripts/git/pre-commit
+GIT_HOOKS := scripts/git/pre-commit
 # Set options like proxies here
-PIPOPTS =
+PIPOPTS :=
+# Port number to bind gunicorn to; can be overidden in environment
+PORT ?= 5000
 
 init: hooks venv
 
@@ -22,14 +24,14 @@ test:
 run: venv/bin/gunicorn
 	venv/bin/gunicorn \
 		-w 5 \
-		-b localhost:5000 \
+		-b localhost:$(PORT) \
 		--log-level=debug \
 		website:app
 
 dev_server: venv/bin/python
 	venv/bin/gunicorn \
 		-w 5 \
-		-b 0.0.0.0:5000 \
+		-b 0.0.0.0:$(PORT) \
 		--log-level=debug \
 		--reload \
 		website:app
