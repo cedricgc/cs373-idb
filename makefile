@@ -9,7 +9,7 @@ venv:
 	python3.5 -m venv --copies venv
 	venv/bin/pip install --upgrade pip
 
-install: venv pkgs
+install: venv
 	venv/bin/pip install -r requirements.txt $(PIPOPTS)
 
 # Set up testing commands here; will be used in git hook
