@@ -24,6 +24,12 @@ def upgrade():
         sa.Column('official_name', sa.Text, nullable=False),
         sa.Column('region', sa.Text, nullable=False),
         sa.Column('description', sa.Text, nullable=False),
+
+        sa.Column('inserted_at', sa.DateTime,
+                  default=sa.func.current_timestamp(), nullable=False),
+        sa.Column('updated_at', sa.DateTime,
+                  default=sa.func.current_timestamp(),
+                  onupdate=sa.func.current_timestamp(), nullable=False)
     )
 
 

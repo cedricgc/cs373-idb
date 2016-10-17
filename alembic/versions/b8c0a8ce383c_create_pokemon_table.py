@@ -24,7 +24,13 @@ def upgrade():
         sa.Column('flavor_text', sa.Text, nullable=False),
         sa.Column('habitat', sa.Text, nullable=False),
         sa.Column('color', sa.Text, nullable=False),
-        sa.Column('shape', sa.Text, nullable=False)
+        sa.Column('shape', sa.Text, nullable=False),
+
+        sa.Column('inserted_at', sa.DateTime,
+                  default=sa.func.current_timestamp(), nullable=False),
+        sa.Column('updated_at', sa.DateTime,
+                  default=sa.func.current_timestamp(),
+                  onupdate=sa.func.current_timestamp(), nullable=False)
     )
 
 

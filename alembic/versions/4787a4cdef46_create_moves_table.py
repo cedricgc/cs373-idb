@@ -27,7 +27,13 @@ def upgrade():
         sa.Column('damage_class', sa.Text, nullable=False),
         sa.Column('power_points', sa.Integer, nullable=False),
         sa.Column('power', sa.Integer, nullable=False),
-        sa.Column('accuracy', sa.Integer, nullable=False)
+        sa.Column('accuracy', sa.Integer, nullable=False),
+
+        sa.Column('inserted_at', sa.DateTime,
+                  default=sa.func.current_timestamp(), nullable=False),
+        sa.Column('updated_at', sa.DateTime,
+                  default=sa.func.current_timestamp(),
+                  onupdate=sa.func.current_timestamp(), nullable=False)
     )
 
 
