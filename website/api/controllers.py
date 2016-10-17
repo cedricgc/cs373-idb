@@ -14,7 +14,7 @@ flask converts return values to Response objects.
 import flask
 import sqlalchemy
 
-from website import api, app, db, ma
+from website import api_bp, app, db, ma
 
 app.url_map.strict_slashes = False
 """Disables Werkzeug's strict route interpretation
@@ -27,6 +27,6 @@ See: http://flask.pocoo.org/docs/latest/quickstart/#variable-rules
 """
 
 
-@api.route('/hello/', methods=['GET'])
+@api_bp.route('/hello/', methods=['GET'])
 def hello():
     return "Hello!"
