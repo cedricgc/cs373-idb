@@ -16,13 +16,13 @@ The Flask object handles the application routing, configuration, and HTTP
 Middleware through WSGI.
 """
 
-api = flask.Blueprint('api', 'website.pokemon_api', url_prefix='/api/v1')
+api_bp = flask.Blueprint('api', 'website.pokemon_api', url_prefix='/api/v1')
 """Flask.Blueprint: Web API
 
 Initilize API as flask.Blueprint to keep it a modular part of the application
 """
 
-front = flask.Blueprint('frontend', 'website.frontend')
+frontend_bp = flask.Blueprint('frontend', 'website.frontend')
 """Flask.Blueprint: Client facing website
 
 Client facing pages scoped to flask.Blueprint with a configurable asset location
@@ -47,8 +47,8 @@ generation of validators for API inputs directly from a SQLAlchemy model
 # We import controllers after top level object or interpreter would crash
 # due to circular dependencies
 # Ensure route controllers are executed by interpreter
-import website.pokemon_api.controllers
+import website.api.controllers
 
 
-app.register_blueprint(api)
-app.register_blueprint(front)
+app.register_blueprint(api_bp)
+app.register_blueprint(frontend_bp)
