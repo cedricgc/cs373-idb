@@ -8,16 +8,24 @@ import flask_sqlalchemy
 
 app = flask.Flask(__name__)
 app.config.from_object('config')
+app.static_folder = app.config['STATIC_FILES']
+app.template_folder = app.config['TEMPLATES']
 """Flask: project application instance
 
 The Flask object handles the application routing, configuration, and HTTP
 Middleware through WSGI.
 """
 
-api = flask.Blueprint('api', __name__, url_prefix='/api/v1')
-"""Api: flask.Blueprint
+api = flask.Blueprint('api', 'website.pokemon_api', url_prefix='/api/v1')
+"""Flask.Blueprint: Web API
 
 Initilize API as flask.Blueprint to keep it a modular part of the application
+"""
+
+front = flask.Blueprint('frontend', 'website.frontend')
+"""Flask.Blueprint: Client facing website
+
+Client facing pages scoped to flask.Blueprint with a configurable asset location
 """
 
 db = flask_sqlalchemy.SQLAlchemy(app)
@@ -43,3 +51,4 @@ import website.pokemon_api.controllers
 
 
 app.register_blueprint(api)
+app.register_blueprint(front)
