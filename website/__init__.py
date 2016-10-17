@@ -48,6 +48,7 @@ generation of validators for API inputs directly from a SQLAlchemy model
 # due to circular dependencies
 # Ensure route controllers are executed by interpreter
 import website.api.controllers
+import website.frontend.controllers
 
 
 app.register_blueprint(api_bp)
