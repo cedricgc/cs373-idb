@@ -2,5 +2,31 @@
 {% block title %}Pokemon{% endblock %}
 {% block content %}
 <p>Information about pokemon {{ id }}</p>
-
+<div ng-app="pokemonInfoApp">
+  <div ng-controller="pokemonInfoController">
+  <table class="table table-bordered table-striped table-responsive" ng-init="initInstance({{id}})">
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Flavor Text</th>
+      <th>Habitat</th>
+      <th>Color</th>
+      <th>Shape</th>
+    </tr>
+    <tr ng-repeat="p in instance">
+      <td>{{ '{{p.id}}' }}</td>
+      <td>{{ '{{p.name}}' }}</td>
+      <td>{{ '{{p.flavor_text}}' }}</td>
+      <td>{{ '{{p.habitat}}' }}</td>
+      <td>{{ '{{p.color}}' }}</td>
+      <td>{{ '{{p.shape}}' }}</td>
+      </tr>
+  </table>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+{{ super() }}
+<!-- Download our scripts after vendor libs -->
+<script src="/static/js/pokemon_info.js"></script>
 {% endblock %}
