@@ -13,6 +13,7 @@ addons:
 before_install:
   - sudo apt-get update -q
   - make pkgs
+  - make install
 
 script:
   - make test
