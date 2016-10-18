@@ -1,4 +1,29 @@
 {% extends "layout.html" %}
-{% block body %}
-  <p>This is our page about pokedexes</p>
+{% block title %}Moves{% endblock %}
+{% block content %}
+<p>This is our page about pokedexes</p>
+<div ng-app="pokedexesApp">
+	<div ng-controller="pokedexesController">
+	<table class="table table-bordered table-striped table-responsive">
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Official Name</th>
+      <th>Region</th>
+      <th>Description</th>
+    </tr>
+    <tr ng-repeat="p in pokedexes">
+      <td>{{ '{{p.id}}' }}</td>
+      <td>{{ '{{p.name}}' }}</a></td>
+      <td>{{ '{{p.official_name}}' }}</td>
+      <td>{{ '{{p.region}}' }}</td>
+      <td>{{ '{{p.description}}' }}</td>
+	</table>
+	</div>
+</div>
+{% endblock %}
+{% block scripts %}
+{{ super() }}
+<!-- Download our scripts after vendor libs -->
+<script src="/static/js/pokedexes.js"></script>
 {% endblock %}
