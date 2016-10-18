@@ -1,4 +1,32 @@
 {% extends "layout.html" %}
-{% block body %}
-  <p>This is our page about pokemon</p>
+{% block title %}Pokemon{% endblock %}
+{% block content %}
+<p>This is our page about pokemon</p>
+<div ng-app="pokemonApp">
+	<div ng-controller="pokemonController">
+	<table class="table table-bordered table-striped table-responsive">
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Flavor Text</th>
+      <th>Habitat</th>
+      <th>Color</th>
+      <th>Shape</th>
+    </tr>
+    <tr ng-repeat="p in pokemon">
+      <td>{{ '{{p.id}}' }}</td>
+      <td>{{ '{{p.name}}' }}</td>
+      <td>{{ '{{p.flavor_text}}' }}</td>
+      <td>{{ '{{p.habitat}}' }}</td>
+      <td>{{ '{{p.color}}' }}</td>
+      <td>{{ '{{p.shape}}' }}</td>
+      </tr>
+	</table>
+	</div>
+</div>
+{% endblock %}
+{% block scripts %}
+{{ super() }}
+<!-- Download our scripts after vendor libs -->
+<script src="/static/js/pokemon.js"></script>
 {% endblock %}
