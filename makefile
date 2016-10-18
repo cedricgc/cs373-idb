@@ -5,6 +5,12 @@ PIPOPTS :=
 # Port number to bind gunicorn to; can be overidden in environment
 PORT ?= 5000
 
+ifeq ($(TRAVIS_CI_BUILD), 1)
+	PYTEST = py.test
+else
+	PYTEST = venv/bin/py.test
+endif
+
 FILES :=                              \
     .gitignore                        \
     .travis.yml                       \
@@ -26,7 +32,7 @@ install: venv
 
 # Set up testing commands here; will be used in git hook
 test:
-	PYTHONPATH="." venv/bin/py.test --cov=website tests/unit/*
+	PYTHONPATH="." $(PYTEST) --cov=website tests/unit/*
 
 # run in production mode, meant to run behind nginx proxy so bind to
 # localhost instead of 0.0.0.0
@@ -90,7 +96,7 @@ check:
     echo "success";
 
 clean:
-	rm -f  .coverage
+	rm -f .coverage
 	find . -type f -name "*.py[co]" -delete
 	find . -type d -name "__pycache__" -delete
 
