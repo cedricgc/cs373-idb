@@ -9,4 +9,5 @@ Flask-SQLAlchemy
 gunicorn
 marshmallow-sqlalchemy
 pytest
+pytest-cov
 psycopg2
