@@ -97,3 +97,6 @@ clean:
 
 IDB1.log:
 	git log > IDB1.log
+
+models.html:
+	venv/bin/python -m pydoc -w website/api/models.py
