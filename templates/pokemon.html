@@ -15,7 +15,7 @@
     </tr>
     <tr ng-repeat="p in pokemon">
       <td>{{ '{{p.id}}' }}</td>
-      <td>{{ '{{p.name}}' }}</td>
+      <td><a ng-click="goToPokemonInstance(p.id)">{{ '{{p.name}}' }}</a></td>
       <td>{{ '{{p.flavor_text}}' }}</td>
       <td>{{ '{{p.habitat}}' }}</td>
       <td>{{ '{{p.color}}' }}</td>
