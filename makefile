@@ -26,8 +26,7 @@ install: venv
 
 # Set up testing commands here; will be used in git hook
 test:
-	echo 'dummy check always passes; replace with tests when ready'
-	# venv/bin/py.test tests/
+	PYTHONPATH="." venv/bin/py.test --cov=website tests/unit/*
 
 # run in production mode, meant to run behind nginx proxy so bind to
 # localhost instead of 0.0.0.0
