@@ -37,6 +37,11 @@ def pokedexes():
     return flask.render_template('pokedexes.html')
 
 
+@frontend_bp.route('/pokedex/<id>', methods=['GET'])
+def pokedex(id=None):
+    return flask.render_template('pokedex.html', id=id)
+
+
 @frontend_bp.route('/pokemon', methods=['GET'])
 def pokemon():
     return flask.render_template('pokemon.html')
@@ -50,3 +55,8 @@ def pokemon_info(id=None):
 @frontend_bp.route('/moves', methods=['GET'])
 def moves():
     return flask.render_template('moves.html')
+
+
+@frontend_bp.route('/move/<id>', methods=['GET'])
+def move(id=None):
+    return flask.render_template('move.html', id=id)

@@ -1,10 +1,10 @@
 {% extends "layout.html" %}
-{% block title %}Pokedexes{% endblock %}
+{% block title %}Pokedex{% endblock %}
 {% block content %}
-<p>This is our page about pokedexes</p>
-<div ng-app="pokedexesApp">
-	<div ng-controller="pokedexesController">
-	<table class="table table-bordered table-striped table-responsive">
+<p>Information about pokedex {{ id }}</p>
+<div ng-app="pokedexApp">
+  <div ng-controller="pokedexController">
+  <table class="table table-bordered table-striped table-responsive" ng-init="initInstance({{id}})">
     <tr>
       <th>Id</th>
       <th>Name</th>
@@ -12,18 +12,18 @@
       <th>Region</th>
       <th>Description</th>
     </tr>
-    <tr ng-repeat="p in pokedexes">
+    <tr ng-repeat="p in instance">
       <td>{{ '{{p.id}}' }}</td>
-      <td><a ng-click="goToPokedex(p.id)">{{ '{{p.name}}' }}</a></td>
+      <td>{{ '{{p.name}}' }}</a></td>
       <td>{{ '{{p.official_name}}' }}</td>
       <td>{{ '{{p.region}}' }}</td>
       <td>{{ '{{p.description}}' }}</td>
-	</table>
-	</div>
+  </table>
+  </div>
 </div>
 {% endblock %}
 {% block scripts %}
 {{ super() }}
 <!-- Download our scripts after vendor libs -->
-<script src="/static/js/pokedexes.js"></script>
+<script src="/static/js/pokedex.js"></script>
 {% endblock %}

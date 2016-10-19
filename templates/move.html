@@ -1,10 +1,10 @@
 {% extends "layout.html" %}
-{% block title %}Moves{% endblock %}
+{% block title %}Move{% endblock %}
 {% block content %}
-<p>This is our page about moves</p>
-<div ng-app="movesApp">
-	<div ng-controller="movesController">
-	<table class="table table-bordered table-striped table-responsive">
+<p>Information about move {{ id }}</p>
+<div ng-app="moveApp">
+  <div ng-controller="moveController">
+  <table class="table table-bordered table-striped table-responsive" ng-init="initInstance({{id}})">
     <tr>
       <th>Id</th>
       <th>Name</th>
@@ -16,9 +16,9 @@
       <th>Power Points</th>
       <th>Accuracy</th>
     </tr>
-    <tr ng-repeat="m in moves">
+    <tr ng-repeat="m in instance">
       <td>{{ '{{m.id}}' }}</td>
-      <td><a ng-click="goToMove(m.id)">{{ '{{m.name}}' }}</a></td>
+      <td>{{ '{{m.name}}' }}</td>
       <td>{{ '{{m.flavor_text}}' }}</td>
       <td>{{ '{{m.short_effect}}' }}</td>
       <td>{{ '{{m.effect}}' }}</td>
@@ -26,13 +26,14 @@
       <td>{{ '{{m.power}}' }}</td>
       <td>{{ '{{m.power_points}}' }}</td>
       <td>{{ '{{m.accuracy}}' }}</td>
-      </tr>
-	</table>
-	</div>
+    </tr>
+  </table>
+  </div>
 </div>
 {% endblock %}
 {% block scripts %}
 {{ super() }}
 <!-- Download our scripts after vendor libs -->
-<script src="/static/js/moves.js"></script>
+<script src="/static/js/move.js"></script>
 {% endblock %}
+
