@@ -13,14 +13,36 @@
       <th>Color</th>
       <th>Shape</th>
     </tr>
-    <tr ng-repeat="p in instance">
+    <tr ng-repeat="p in pokemon">
       <td>{{ '{{p.id}}' }}</td>
       <td>{{ '{{p.name}}' }}</td>
       <td>{{ '{{p.flavor_text}}' }}</td>
       <td>{{ '{{p.habitat}}' }}</td>
       <td>{{ '{{p.color}}' }}</td>
       <td>{{ '{{p.shape}}' }}</td>
-      </tr>
+    </tr>
+  </table>
+  <table class="table table-bordered table-striped table-responsive">
+    <tr>
+      <th>Id</th>
+      <th>Pokedex Name</th>
+    </tr>
+    <tr ng-repeat="p in pokedexes">
+      <td>{{ '{{p.id}}' }}</td>
+      <td>{{ '{{p.official_name}}' }}</td>
+    </tr>
+  </table>
+  <table class="table table-bordered table-striped table-responsive">
+    <tr>
+      <th>Id</th>
+      <th>Move Name</th>
+      <th>Effect</th>
+    </tr>
+    <tr ng-repeat="m in moves">
+      <td>{{ '{{m.id}}' }}</td>
+      <td>{{ '{{m.name}}' }}</td>
+      <td>{{ '{{m.effect}}' }}</td>
+    </tr>
   </table>
   </div>
 </div>
