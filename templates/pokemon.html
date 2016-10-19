@@ -6,14 +6,14 @@
 	<div ng-controller="pokemonController">
 	<table class="table table-bordered table-striped table-responsive">
     <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Flavor Text</th>
-      <th>Habitat</th>
-      <th>Color</th>
-      <th>Shape</th>
+      <th><a href="#" ng-click="sortPokemon='id'">Id</a><span ng-show="sortPokemon =='id'" class="fa fa-sort-desc"></span></th>
+      <th><a href="#" ng-click="sortPokemon='name'">Name<span ng-show="sortPokemon =='name'" class="fa fa-sort-desc"></span></th>
+      <th><a href="#" ng-click="sortPokemon='flavor_text'">Flavor Text<span ng-show="sortPokemon =='flavor_text'" class="fa fa-sort-desc"></span></th>
+      <th><a href="#" ng-click="sortPokemon='habitat'">Habitat<span ng-show="sortPokemon =='habitat'" class="fa fa-sort-desc"></span></th>
+      <th><a href="#" ng-click="sortPokemon='color'">Color<span ng-show="sortPokemon =='color'" class="fa fa-sort-desc"></span></th>
+      <th><a href="#" ng-click="sortPokemon='shape'">Shape<span ng-show="sortPokemon =='shape'" class="fa fa-sort-desc"></span></th>
     </tr>
-    <tr ng-repeat="p in pokemon">
+    <tr ng-repeat="p in pokemon | orderBy:sortPokemon:reversePokemon">
       <td>{{ '{{p.id}}' }}</td>
       <td><a href="pokemon_info/{{ '{{p.id}}' }}">{{ '{{p.name}}' }}</a></td>
       <td>{{ '{{p.flavor_text}}' }}</td>
