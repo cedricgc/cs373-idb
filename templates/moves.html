@@ -18,7 +18,7 @@
     </tr>
     <tr ng-repeat="m in moves">
       <td>{{ '{{m.id}}' }}</td>
-      <td><a ng-click="goToMove(m.id)">{{ '{{m.name}}' }}</a></td>
+      <td><a href="move/{{ '{{m.id}}' }}">{{ '{{m.name}}' }}</a></td>
       <td>{{ '{{m.flavor_text}}' }}</td>
       <td>{{ '{{m.short_effect}}' }}</td>
       <td>{{ '{{m.effect}}' }}</td>

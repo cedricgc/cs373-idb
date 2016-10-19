@@ -14,7 +14,7 @@
     </tr>
     <tr ng-repeat="p in pokedexes">
       <td>{{ '{{p.id}}' }}</td>
-      <td><a ng-click="goToPokedex(p.id)">{{ '{{p.name}}' }}</a></td>
+      <td><a href="pokedex/{{ '{{p.id}}' }}">{{ '{{p.name}}' }}</a></td>
       <td>{{ '{{p.official_name}}' }}</td>
       <td>{{ '{{p.region}}' }}</td>
       <td>{{ '{{p.description}}' }}</td>
