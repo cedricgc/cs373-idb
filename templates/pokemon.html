@@ -6,14 +6,38 @@
 	<div ng-controller="pokemonController">
 	<table class="table table-bordered table-striped table-responsive">
     <tr>
-      <th class="row-id"><a href="#" ng-click="sortPokemon='id'">Id</a><span ng-show="sortPokemon =='id'" class="fa fa-caret-down"></span></th>
-      <th><a href="#" ng-click="sortPokemon='name'">Name<span ng-show="sortPokemon =='name'" class="fa fa-caret-down"></span></th>
-      <th><a href="#" ng-click="sortPokemon='flavor_text'">Flavor Text<span ng-show="sortPokemon =='flavor_text'" class="fa fa-caret-down"></span></th>
-      <th><a href="#" ng-click="sortPokemon='habitat'">Habitat<span ng-show="sortPokemon =='habitat'" class="fa fa-caret-down"></span></th>
-      <th class="row-color"><a href="#" ng-click="sortPokemon='color'">Color<span ng-show="sortPokemon =='color'" class="fa fa-caret-down"></span></th>
-      <th><a href="#" ng-click="sortPokemon='shape'">Shape<span ng-show="sortPokemon =='shape'" class="fa fa-caret-down"></span></th>
+      <th class="table-id-row">
+        <a href="#" ng-click="switch('id')">
+          Id<span ng-show="isDescending('id')" class="fa fa-caret-down"></span><span ng-show="isAscending('id')" class="fa fa-caret-up"></span>
+        </a>
+        </th>
+      <th>
+        <a href="#" ng-click="switch('name')">
+          Name<span ng-show="isDescending('name')" class="fa fa-caret-down"></span><span ng-show="isAscending('name')" class="fa fa-caret-up"></span>
+        </a>
+      </th>
+      <th>
+        <a href="#" ng-click="switch('flavor_text')">
+          Flavor Text<span ng-show="isDescending('flavor_text')" class="fa fa-caret-down"></span><span ng-show="isAscending('flavor_text')" class="fa fa-caret-up"></span>
+        </a>
+      </th>
+      <th>
+        <a href="#" ng-click="switch('habitat')">
+          Habitat<span ng-show="isDescending('habitat')" class="fa fa-caret-down"></span><span ng-show="isAscending('habitat')" class="fa fa-caret-up"></span>
+        </a>
+      </th>
+      <th class="table-color-row">
+        <a href="#" ng-click="switch('color')">
+          Color<span ng-show="isDescending('color')" class="fa fa-caret-down"></span><span ng-show="isAscending('color')" class="fa fa-caret-up"></span>
+        </a>
+      </th>
+      <th>
+        <a href="#" ng-click="switch('shape')">
+          Shape<span ng-show="isDescending('shape')" class="fa fa-caret-down"></span><span ng-show="isAscending('shape')" class="fa fa-caret-up"></span>
+        </a>
+      </th>
     </tr>
-    <tr ng-repeat="p in pokemon | orderBy:sortPokemon:reversePokemon">
+    <tr ng-repeat="p in pokemon | orderBy:sortTerm:reverse">
       <td>{{ '{{p.id}}' }}</td>
       <td><a href="pokemon_info/{{ '{{p.id}}' }}">{{ '{{p.name}}' }}</a></td>
       <td>{{ '{{p.flavor_text}}' }}</td>
