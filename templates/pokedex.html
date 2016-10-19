@@ -4,7 +4,7 @@
 <p>Information about pokedex {{ id }}</p>
 <div ng-app="pokedexApp">
   <div ng-controller="pokedexController">
-  <table class="table table-bordered table-striped table-responsive" ng-init="initInstance({{id}})">
+  <table class="table table-bordered table-striped table-responsive" ng-init="getData({{id}})">
     <tr>
       <th>Id</th>
       <th>Name</th>

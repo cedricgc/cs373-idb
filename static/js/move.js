@@ -2,7 +2,7 @@ angular.module('moveApp', [])
     .controller('moveController', function($scope, $http, $window) {
         $scope.moves = [];
         $scope.pokemon = [];
-        $scope.initInstance = function (move_id){
+        $scope.getData = function (move_id){
             $http.get('../static/testdata.json')
                 .success(function(data) {
                 var all_moves = data["moves"];
