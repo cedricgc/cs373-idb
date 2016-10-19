@@ -12,12 +12,22 @@
       <th>Region</th>
       <th>Description</th>
     </tr>
-    <tr ng-repeat="p in instance">
+    <tr ng-repeat="p in pokedex">
       <td>{{ '{{p.id}}' }}</td>
       <td>{{ '{{p.name}}' }}</a></td>
       <td>{{ '{{p.official_name}}' }}</td>
       <td>{{ '{{p.region}}' }}</td>
       <td>{{ '{{p.description}}' }}</td>
+    </tr>
+  </table>
+    <table class="table table-bordered table-striped table-responsive">
+    <tr>
+      <th>Id</th>
+      <th>Pokemon Name</th>
+    </tr>
+    <tr ng-repeat="p in pokemon">
+      <td>{{ '{{p.id}}' }}</td>
+      <td>{{ '{{p.name}}' }}</td>
     </tr>
   </table>
   </div>
