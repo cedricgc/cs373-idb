@@ -4,4 +4,4 @@ angular.module('movesApp', [])
         $http.get('static/testdata.json').success(function(data) {
     		$scope.moves = data["moves"];
     	});
-});
+	});

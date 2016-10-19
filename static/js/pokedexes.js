@@ -4,4 +4,4 @@ angular.module('pokedexesApp', [])
     		$scope.pokedexes = data["pokedexes"];
     	});
 
-});
+	});

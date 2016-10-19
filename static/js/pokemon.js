@@ -5,4 +5,4 @@ angular.module('pokemonApp', [])
     	$http.get('static/testdata.json').success(function(data) {
     		$scope.pokemon = data["pokemon"];
     	});
-});
+	});
