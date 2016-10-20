@@ -2,8 +2,8 @@
 {% block title %}Pokemon{% endblock %}
 {% block content %}
 <div ng-app="pokemonApp">
-	<div ng-controller="pokemonController">
-	<table class="table table-bordered table-striped table-responsive">
+  <div ng-controller="pokemonController">
+  <table class="table table-bordered table-striped table-responsive">
     <tr>
       <th class="table-id-row">
         <a href="#" ng-click="switch('id')">
@@ -38,19 +38,19 @@
     </tr>
     <tr ng-repeat="p in pokemon | orderBy:getSortTerm():getReverse()">
       <td>{{ '{{p.id}}' }}</td>
-      <td><a href="pokemon_info/{{ '{{p.id}}' }}">{{ '{{p.name}}' }}</a></td>
+      <td><a href="pokemon/{{ '{{p.id}}' }}">{{ '{{p.name}}' }}</a></td>
       <td>{{ '{{p.flavor_text}}' }}</td>
       <td>{{ '{{p.habitat}}' }}</td>
       <td>{{ '{{p.color}}' }}</td>
       <td>{{ '{{p.shape}}' }}</td>
       </tr>
-	</table>
-	</div>
+  </table>
+  </div>
 </div>
 {% endblock %}
 {% block scripts %}
 {{ super() }}
 <!-- Download our scripts after vendor libs -->
-<script src="/static/js/pokemon.js"></script>
+<script src="/static/js/index_pokemon.js"></script>
 <script src="/static/js/tables.js"></script>
 {% endblock %}

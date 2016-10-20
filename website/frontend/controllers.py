@@ -34,29 +34,29 @@ def about():
 
 @frontend_bp.route('/pokedexes', methods=['GET'])
 def pokedexes():
-    return flask.render_template('pokedexes.html')
+    return flask.render_template('index_pokedexes.html')
 
 
-@frontend_bp.route('/pokedex/<id>', methods=['GET'])
+@frontend_bp.route('/pokedexes/<id>', methods=['GET'])
 def pokedex(id=None):
-    return flask.render_template('pokedex.html', id=id)
+    return flask.render_template('show_pokedexes.html', id=id)
 
 
 @frontend_bp.route('/pokemon', methods=['GET'])
 def pokemon():
-    return flask.render_template('pokemon.html')
+    return flask.render_template('index_pokemon.html')
 
 
-@frontend_bp.route('/pokemon_info/<id>', methods=['GET'])
+@frontend_bp.route('/pokemon/<id>', methods=['GET'])
 def pokemon_info(id=None):
-    return flask.render_template('pokemon_info.html', id=id)
+    return flask.render_template('show_pokemon.html', id=id)
 
 
 @frontend_bp.route('/moves', methods=['GET'])
 def moves():
-    return flask.render_template('moves.html')
+    return flask.render_template('index_moves.html')
 
 
-@frontend_bp.route('/move/<id>', methods=['GET'])
+@frontend_bp.route('/moves/<id>', methods=['GET'])
 def move(id=None):
-    return flask.render_template('move.html', id=id)
+    return flask.render_template('show_moves.html', id=id)

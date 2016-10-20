@@ -1,13 +1,9 @@
 {% extends "layout.html" %}
 {% block title %}Pokedexes{% endblock %}
 {% block content %}
-<<<<<<< HEAD
-<p>This is our page about pokedexessss</p>
-=======
->>>>>>> f0f8f496fbf83c3e264ada6dbd4e3399b99bfff5
 <div ng-app="pokedexesApp">
-	<div ng-controller="pokedexesController">
-	<table class="table table-bordered table-striped table-responsive">
+  <div ng-controller="pokedexesController">
+  <table class="table table-bordered table-striped table-responsive">
     <tr>
       <th class="table-id-row">
         <a href="#" ng-click="switch('id')">
@@ -37,17 +33,17 @@
     </tr>
     <tr ng-repeat="p in pokedexes | orderBy:getSortTerm():getReverse()">
       <td>{{ '{{p.id}}' }}</td>
-      <td><a href="pokedex/{{ '{{p.id}}' }}">{{ '{{p.name}}' }}</a></td>
+      <td><a href="pokedexes/{{ '{{p.id}}' }}">{{ '{{p.name}}' }}</a></td>
       <td>{{ '{{p.official_name}}' }}</td>
       <td>{{ '{{p.region}}' }}</td>
       <td>{{ '{{p.description}}' }}</td>
-	</table>
-	</div>
+  </table>
+  </div>
 </div>
 {% endblock %}
 {% block scripts %}
 {{ super() }}
 <!-- Download our scripts after vendor libs -->
-<script src="/static/js/pokedexes.js"></script>
+<script src="/static/js/index_pokedexes.js"></script>
 <script src="/static/js/tables.js"></script>
 {% endblock %}
