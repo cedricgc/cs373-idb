@@ -11,7 +11,7 @@ angular.module('pokemonApp', ['tableApp'])
     }
 
     $scope.isAscending = function(column_name) {
-       return tableService.isAscending(column_name, tableVars);
+      return tableService.isAscending(column_name, tableVars);
     }
 
     $scope.isDescending = function(column_name) {
