@@ -4,7 +4,7 @@ angular.module('pokemonInfoApp', [])
         $scope.pokedexes = [];
         $scope.moves = [];
         $scope.getData = function (pokemon_id){
-            $http.get('../static/testdata.json')
+            $http.get('/static/testdata.json')
                 .success(function(data) {
                 var all_pokemon = data["pokemon"];
                 var all_pokedexes = data["pokedexes"];

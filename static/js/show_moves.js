@@ -3,7 +3,7 @@ angular.module('moveApp', [])
         $scope.moves = [];
         $scope.pokemon = [];
         $scope.getData = function (move_id){
-            $http.get('../static/testdata.json')
+            $http.get('/static/testdata.json')
                 .success(function(data) {
                 var all_moves = data["moves"];
                 var all_pokemon = data["pokemon"];
