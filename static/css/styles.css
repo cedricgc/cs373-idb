@@ -34,14 +34,13 @@ table th span {
 	width: 7%;
 }
 
-<<<<<<< HEAD
 .boxed {
 	padding: 1;
 	padding-left: 2;
 	margin-left: 2;
   border: 1px  solid gray ;
 }
-=======
+
 .navbar-default {
     background-color: #5fa3ee;
     border-color: #4c81bb;
@@ -57,4 +56,3 @@ table th span {
 .navbar-default .navbar-brand {
   color: #ecf0f1;
 }
->>>>>>> d9c7f97ea24e414e3ae5a3a87d12636a336d9546
