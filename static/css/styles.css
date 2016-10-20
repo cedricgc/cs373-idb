@@ -29,3 +29,10 @@ table th span {
 .table-accuracy-row {
 	width: 7%;
 }
+
+.boxed {
+	padding: 1;
+	padding-left: 2;
+	margin-left: 2;
+  border: 1px  solid gray ;
+}
