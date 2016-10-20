@@ -2,6 +2,10 @@ table th span {
     padding: 0px 0px 0px 2px;
 }
 
+.header-centered {
+	text-align: center;
+}
+
 .table-color-row {
 	width: 5%;
 }
@@ -28,4 +32,20 @@ table th span {
 
 .table-accuracy-row {
 	width: 7%;
+}
+
+.navbar-default {
+    background-color: #5fa3ee;
+    border-color: #4c81bb;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #ecf0f1;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    background-color: #4c81bb;
+    color: #99bde5;
+}
+
+.navbar-default .navbar-brand {
+  color: #ecf0f1;
 }

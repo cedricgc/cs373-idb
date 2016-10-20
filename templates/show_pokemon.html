@@ -42,7 +42,7 @@
           <th>Name</th>
         </tr>
         <tr ng-repeat="p in pokedexes">
-          <td><a href="../pokedex/{{ '{{p.id}}' }}">{{ '{{p.official_name}}' }}</td>
+          <td><a href="../pokedexes/{{ '{{p.id}}' }}">{{ '{{p.official_name}}' }}</td>
         </tr>
       </table>
   </div>
@@ -54,7 +54,7 @@
           <th>Effect</th>
         </tr>
         <tr ng-repeat="m in moves">
-          <td><a href="../move/{{ '{{m.id}}' }}">{{ '{{m.name}}' }}</td>
+          <td><a href="../moves/{{ '{{m.id}}' }}">{{ '{{m.name}}' }}</td>
           <td>{{ '{{m.effect}}' }}</td>
         </tr>
       </table>
@@ -65,5 +65,5 @@
 {% block scripts %}
 {{ super() }}
 <!-- Download our scripts after vendor libs -->
-<script src="/static/js/pokemon_info.js"></script>
+<script src="/static/js/show_pokemon.js"></script>
 {% endblock %}

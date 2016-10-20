@@ -53,7 +53,7 @@
     </tr>
     <tr ng-repeat="m in moves | orderBy:getSortTerm():getReverse()">
       <td>{{ '{{m.id}}' }}</td>
-      <td><a href="move/{{ '{{m.id}}' }}">{{ '{{m.name}}' }}</a></td>
+      <td><a href="moves/{{ '{{m.id}}' }}">{{ '{{m.name}}' }}</a></td>
       <td>{{ '{{m.flavor_text}}' }}</td>
       <td>{{ '{{m.short_effect}}' }}</td>
       <td>{{ '{{m.effect}}' }}</td>
@@ -69,6 +69,6 @@
 {% block scripts %}
 {{ super() }}
 <!-- Download our scripts after vendor libs -->
-<script src="/static/js/moves.js"></script>
+<script src="/static/js/index_moves.js"></script>
 <script src="/static/js/tables.js"></script>
 {% endblock %}
