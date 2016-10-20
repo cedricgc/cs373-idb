@@ -1,6 +1,6 @@
 angular.module('pokemonApp', ['tableApp'])
   .controller('pokemonController', function($scope, $http, tableService) {
-    $http.get('static/testdata.json').success(function(data) {
+    $http.get('/static/testdata.json').success(function(data) {
       $scope.pokemon = data["pokemon"];
     });
 

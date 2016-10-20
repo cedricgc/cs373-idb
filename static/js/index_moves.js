@@ -1,6 +1,6 @@
 angular.module('movesApp', ['tableApp'])
   .controller('movesController', function($scope, $http, tableService) {
-    $http.get('static/testdata.json').success(function(data) {
+    $http.get('/static/testdata.json').success(function(data) {
       $scope.moves = data["moves"];
     });
 

@@ -1,6 +1,6 @@
 angular.module('pokedexesApp', ['tableApp'])
   .controller('pokedexesController', function($scope, $http, tableService) {
-    $http.get('static/testdata.json').success(function(data) {
+    $http.get('/static/testdata.json').success(function(data) {
       $scope.pokedexes = data["pokedexes"];
     });
 
