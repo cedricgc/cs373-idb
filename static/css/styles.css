@@ -34,11 +34,21 @@ table th span {
 	width: 7%;
 }
 
+.panel-instance {
+	width:50%;
+	margin: 0 auto;
+	margin-bottom:2%;
+}
+
+.instance-text {
+	text-align:center;
+}
+
 .boxed {
 	padding: 1;
 	padding-left: 2;
 	margin-left: 2;
-  border: 1px  solid gray ;
+	border: 1px  solid gray ;
 }
 
 .navbar-default {
