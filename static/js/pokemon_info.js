@@ -30,6 +30,8 @@ angular.module('pokemonInfoApp', [])
                         $scope.moves.push(value);
                     }
                 });
+
+                $scope.pokemonLower = $scope.pokemon[0]["name"].toLowerCase();
             });
         }
 	});

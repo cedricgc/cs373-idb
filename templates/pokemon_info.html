@@ -1,49 +1,64 @@
 {% extends "layout.html" %}
 {% block title %}Pokemon{% endblock %}
 {% block content %}
-<p>Information about pokemon {{ id }}</p>
 <div ng-app="pokemonInfoApp">
-  <div ng-controller="pokemonInfoController">
-  <table class="table table-bordered table-striped table-responsive" ng-init="getData({{id}})">
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Flavor Text</th>
-      <th>Habitat</th>
-      <th>Color</th>
-      <th>Shape</th>
-    </tr>
-    <tr ng-repeat="p in pokemon">
-      <td>{{ '{{p.id}}' }}</td>
-      <td>{{ '{{p.name}}' }}</td>
-      <td>{{ '{{p.flavor_text}}' }}</td>
-      <td>{{ '{{p.habitat}}' }}</td>
-      <td>{{ '{{p.color}}' }}</td>
-      <td>{{ '{{p.shape}}' }}</td>
-    </tr>
-  </table>
-  <table class="table table-bordered table-striped table-responsive">
-    <tr>
-      <th>Id</th>
-      <th>Pokedex Name</th>
-    </tr>
-    <tr ng-repeat="p in pokedexes">
-      <td>{{ '{{p.id}}' }}</td>
-      <td>{{ '{{p.official_name}}' }}</td>
-    </tr>
-  </table>
-  <table class="table table-bordered table-striped table-responsive">
-    <tr>
-      <th>Id</th>
-      <th>Move Name</th>
-      <th>Effect</th>
-    </tr>
-    <tr ng-repeat="m in moves">
-      <td>{{ '{{m.id}}' }}</td>
-      <td>{{ '{{m.name}}' }}</td>
-      <td>{{ '{{m.effect}}' }}</td>
-    </tr>
-  </table>
+  <div ng-controller="pokemonInfoController" ng-init="getData({{id}})">
+  <div class="panel panel-primary" ng-repeat="p in pokemon">
+    <div class="panel-heading"><h3>{{'{{p.name}}'}}</h3></div>
+      <div class="panel-body">{{'{{p.flavor_text}}'}}</div>
+      <div>
+        <table class="table table-bordered">
+          
+        </table>
+      </div>
+      <div>
+      <table class="table table-bordered">
+        <tr>
+          <td style="text-align:center;" colspan="2"><a href="http://pokemondb.net/pokedex/{{'{{pokemonLower}}'}}"><img src="https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/{{'{{pokemonLower}}'}}.png" alt="{{'{{p.name}}'}}"></a></td>
+        </tr>
+        <tr>
+          <th class="list-group-item-heading">Id</th>
+          <td>{{'{{p.id}}'}}</td>
+        </tr>
+        <tr>
+          <th class="list-group-item-heading">Habitat</th>
+          <td>{{'{{p.habitat}}'}}</td>
+        </tr>
+        <tr>
+          <th class="list-group-item-heading">Color</th>
+          <td>{{'{{p.color}}'}}</td>
+        </tr>
+        <tr>
+          <th class="list-group-item-heading">Shape</th>
+          <td>{{'{{p.shape}}'}}</td>
+        </tr>
+      </table>
+      </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading"><h3>Pokedexes</h3></div>
+      <table class="table table-bordered">
+        <tr>
+          <th>Name</th>
+        </tr>
+        <tr ng-repeat="p in pokedexes">
+          <td><a href="../pokedex/{{ '{{p.id}}' }}">{{ '{{p.official_name}}' }}</td>
+        </tr>
+      </table>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading"><h3>Moves</h3></div>
+      <table class="table table-bordered">
+        <tr>
+          <th>Name</th>
+          <th>Effect</th>
+        </tr>
+        <tr ng-repeat="m in moves">
+          <td><a href="../move/{{ '{{m.id}}' }}">{{ '{{m.name}}' }}</td>
+          <td>{{ '{{m.effect}}' }}</td>
+        </tr>
+      </table>
+  </div>
   </div>
 </div>
 {% endblock %}
