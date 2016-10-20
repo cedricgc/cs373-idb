@@ -1,43 +1,53 @@
 {% extends "layout.html" %}
 {% block title %}Move{% endblock %}
 {% block content %}
-<p>Information about move {{ id }}</p>
 <div ng-app="moveApp">
-  <div ng-controller="moveController">
-  <table class="table table-bordered table-striped table-responsive" ng-init="getData({{id}})">
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Flavor Text</th>
-      <th>Short Effect</th>
-      <th>Effect</th>
-      <th>Damage Class</th>
-      <th>Power</th>
-      <th>Power Points</th>
-      <th>Accuracy</th>
-    </tr>
-    <tr ng-repeat="m in moves">
-      <td>{{ '{{m.id}}' }}</td>
-      <td>{{ '{{m.name}}' }}</td>
-      <td>{{ '{{m.flavor_text}}' }}</td>
-      <td>{{ '{{m.short_effect}}' }}</td>
-      <td>{{ '{{m.effect}}' }}</td>
-      <td>{{ '{{m.damage_class}}' }}</td>
-      <td>{{ '{{m.power}}' }}</td>
-      <td>{{ '{{m.power_points}}' }}</td>
-      <td>{{ '{{m.accuracy}}' }}</td>
-    </tr>
-  </table>
-  <table class="table table-bordered table-striped table-responsive">
-    <tr>
-      <th>Id</th>
-      <th>Pokemon Name</th>
-    </tr>
-    <tr ng-repeat="p in pokemon">
-      <td>{{ '{{p.id}}' }}</td>
-      <td>{{ '{{p.name}}' }}</td>
-    </tr>
-  </table>
+  <div ng-controller="moveController" ng-init="getData({{id}})">
+  <div class="panel panel-primary" ng-repeat="m in moves">
+    <div class="panel-heading"><h3>{{'{{m.name}}'}}</h3></div>
+      <div class="panel-body">{{'{{m.flavor_text}}'}}</div>
+      <table class="table table-bordered">
+        <tr>
+          <th class="list-group-item-heading">Id:</th>
+          <td>{{'{{m.id}}'}}</td>
+        </tr>
+        <tr>
+          <th class="list-group-item-heading">Short Effect:</th>
+          <td>{{'{{m.short_effect}}'}}</td>
+        </tr>
+        <tr>
+          <th class="list-group-item-heading">Effect:</th>
+          <td>{{'{{m.effect}}'}}</td>
+        </tr>
+        <tr>
+          <th class="list-group-item-heading">Damage Class:</th>
+          <td>{{'{{m.damage_class}}'}}</td>
+        </tr>
+        <tr>
+          <th class="list-group-item-heading">Power:</th>
+          <td>{{'{{m.power}}'}}</td>
+        </tr>
+        <tr>
+          <th class="list-group-item-heading">Power Points:</th>
+          <td>{{'{{m.power_points}}'}}</td>
+        </tr>
+        <tr>
+          <th classm"list-group-item-heading">Accuracy:</th>
+          <td>{{'{{m.accuracy}}'}}</td>
+        </tr>
+      </table>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading"><h3>Pokemon</h3></div>
+      <table class="table table-bordered">
+        <tr>
+          <th>Name</th>
+        </tr>
+        <tr ng-repeat="p in pokemon">
+          <td>{{ '{{p.name}}' }}</td>
+        </tr>
+      </table>
+  </div>
   </div>
 </div>
 {% endblock %}
