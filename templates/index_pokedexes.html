@@ -2,8 +2,8 @@
 {% block title %}Pokedexes{% endblock %}
 {% block content %}
 <div ng-app="pokedexesApp">
-	<div ng-controller="pokedexesController">
-	<table class="table table-bordered table-striped table-responsive">
+  <div ng-controller="pokedexesController">
+  <table class="table table-bordered table-striped table-responsive">
     <tr>
       <th class="table-id-row">
         <a href="#" ng-click="switch('id')">
@@ -37,8 +37,8 @@
       <td>{{ '{{p.official_name}}' }}</td>
       <td>{{ '{{p.region}}' }}</td>
       <td>{{ '{{p.description}}' }}</td>
-	</table>
-	</div>
+  </table>
+  </div>
 </div>
 {% endblock %}
 {% block scripts %}

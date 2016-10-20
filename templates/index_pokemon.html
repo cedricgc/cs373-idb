@@ -2,8 +2,8 @@
 {% block title %}Pokemon{% endblock %}
 {% block content %}
 <div ng-app="pokemonApp">
-	<div ng-controller="pokemonController">
-	<table class="table table-bordered table-striped table-responsive">
+  <div ng-controller="pokemonController">
+  <table class="table table-bordered table-striped table-responsive">
     <tr>
       <th class="table-id-row">
         <a href="#" ng-click="switch('id')">
@@ -44,8 +44,8 @@
       <td>{{ '{{p.color}}' }}</td>
       <td>{{ '{{p.shape}}' }}</td>
       </tr>
-	</table>
-	</div>
+  </table>
+  </div>
 </div>
 {% endblock %}
 {% block scripts %}
