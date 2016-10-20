@@ -1,33 +1,27 @@
 angular.module('tableApp', [])
-    .controller('tableController', function($scope) {
-        $scope.sortTerm = 'id';
-        $scope.reverse = false;
-
-        $scope.switch = function (column_name) {
-            console.log("switching to " + column_name)
-            if(column_name != $scope.sortTerm) {
-                $scope.sortTerm = column_name;
-                $scope.reverse = false;
+    .service('tableService', function() {
+        this.sortSwitch = function (column_name, tableVars) {
+            if(column_name != tableVars["sortTerm"]) {
+                tableVars["sortTerm"] = column_name;
+                tableVars["reverse"] = false;
             } else {
-                $scope.reverse = !$scope.reverse;
+                tableVars["reverse"] = !tableVars["reverse"];
             }
         }
 
-        $scope.isAscending = function(column_name) {
-            if(column_name == $scope.sortTerm && $scope.reverse) {
-                console.log("True!!!");
+        this.isAscending = function(column_name, tableVars) {
+            if(column_name == tableVars["sortTerm"] && tableVars["reverse"]) {
                 return true;
             }
 
             return false;
         }
 
-        $scope.isDescending = function(column_name) {
-            if(column_name == $scope.sortTerm && !$scope.reverse) {
+        this.isDescending = function(column_name, tableVars) {
+            if(column_name == tableVars["sortTerm"] && !tableVars["reverse"]) {
                 return true;
             }
 
             return false;
         }
-
     });

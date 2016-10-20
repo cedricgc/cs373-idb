@@ -37,7 +37,7 @@
         </a>
       </th>
     </tr>
-    <tr ng-repeat="p in pokemon | orderBy:sortTerm:reverse">
+    <tr ng-repeat="p in pokemon | orderBy:getSortTerm():getReverse()">
       <td>{{ '{{p.id}}' }}</td>
       <td><a href="pokemon_info/{{ '{{p.id}}' }}">{{ '{{p.name}}' }}</a></td>
       <td>{{ '{{p.flavor_text}}' }}</td>
