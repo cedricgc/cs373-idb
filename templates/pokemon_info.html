@@ -32,7 +32,7 @@
           <th>Name</th>
         </tr>
         <tr ng-repeat="p in pokedexes">
-          <td>{{ '{{p.official_name}}' }}</td>
+          <td><a href="../pokedex/{{ '{{p.id}}' }}">{{ '{{p.official_name}}' }}</td>
         </tr>
       </table>
   </div>
@@ -44,7 +44,7 @@
           <th>Effect</th>
         </tr>
         <tr ng-repeat="m in moves">
-          <td>{{ '{{m.name}}' }}</td>
+          <td><a href="../move/{{ '{{m.id}}' }}">{{ '{{m.name}}' }}</td>
           <td>{{ '{{m.effect}}' }}</td>
         </tr>
       </table>
