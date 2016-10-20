@@ -2,6 +2,10 @@ table th span {
     padding: 0px 0px 0px 2px;
 }
 
+.header-centered {
+	text-align: center;
+}
+
 .table-color-row {
 	width: 5%;
 }
@@ -30,14 +34,13 @@ table th span {
 	width: 7%;
 }
 
-<<<<<<< HEAD
-.boxed 
-{
+.boxed {
 	padding: 1;
 	padding-left: 2;
 	margin-left: 2;
   	border: 1px  solid gray ;
 }
+
 .box {
 width: 400px;
 margin: 0 auto;
@@ -46,7 +49,7 @@ padding: 2px;
 text-align: justify;
 background: transparent;
 }
-=======
+
 .panel-instance {
 	width:50%;
 	margin: 0 auto;
@@ -73,4 +76,3 @@ background: transparent;
 .navbar-default .navbar-brand {
   color: #ecf0f1;
 }
->>>>>>> 35752b6c45990acfed9c92ecf661720111fe6eab
