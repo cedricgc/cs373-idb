@@ -30,6 +30,7 @@ table th span {
 	width: 7%;
 }
 
+<<<<<<< HEAD
 .boxed 
 {
 	padding: 1;
@@ -46,3 +47,37 @@ padding: 2px;
 text-align: justify;
 background: transparent;
 }
+=======
+.panel-instance {
+	width:50%;
+	margin: 0 auto;
+	margin-bottom:2%;
+}
+
+.instance-text {
+	text-align:center;
+}
+
+.boxed {
+	padding: 1;
+	padding-left: 2;
+	margin-left: 2;
+	border: 1px  solid gray ;
+}
+
+.navbar-default {
+    background-color: #5fa3ee;
+    border-color: #4c81bb;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #ecf0f1;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    background-color: #4c81bb;
+    color: #99bde5;
+}
+
+.navbar-default .navbar-brand {
+  color: #ecf0f1;
+}
+>>>>>>> 35752b6c45990acfed9c92ecf661720111fe6eab

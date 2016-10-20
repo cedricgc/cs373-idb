@@ -3,48 +3,48 @@
 {% block content %}
 <div ng-app="moveApp">
   <div ng-controller="moveController" ng-init="getData({{id}})">
-  <div class="panel panel-primary" ng-repeat="m in moves">
-    <div class="panel-heading"><h3>{{'{{m.name}}'}}</h3></div>
-      <div class="panel-body">{{'{{m.flavor_text}}'}}</div>
+  <div class="panel panel-primary panel-instance" ng-repeat="m in moves">
+    <div class="panel-heading instance-text"><h3>{{'{{m.name}}'}}</h3></div>
+      <div class="panel-body instance-text">{{'{{m.flavor_text}}'}}</div>
       <table class="table table-bordered">
         <tr>
-          <th class="list-group-item-heading">Id</th>
-          <td>{{'{{m.id}}'}}</td>
+          <th class="list-group-item-heading instance-text">Id</th>
+          <td class="instance-text">{{'{{m.id}}'}}</td>
         </tr>
         <tr>
-          <th class="list-group-item-heading">Short Effect</th>
-          <td>{{'{{m.short_effect}}'}}</td>
+          <th class="list-group-item-heading instance-text">Short Effect</th>
+          <td class="instance-text">{{'{{m.short_effect}}'}}</td>
         </tr>
         <tr>
-          <th class="list-group-item-heading">Effect</th>
-          <td>{{'{{m.effect}}'}}</td>
+          <th class="list-group-item-heading instance-text">Effect</th>
+          <td class="instance-text">{{'{{m.effect}}'}}</td>
         </tr>
         <tr>
-          <th class="list-group-item-heading">Damage Class</th>
-          <td>{{'{{m.damage_class}}'}}</td>
+          <th class="list-group-item-heading instance-text">Damage Class</th>
+          <td class="instance-text">{{'{{m.damage_class}}'}}</td>
         </tr>
         <tr>
-          <th class="list-group-item-heading">Power</th>
-          <td>{{'{{m.power}}'}}</td>
+          <th class="list-group-item-heading instance-text">Power</th>
+          <td class="instance-text">{{'{{m.power}}'}}</td>
         </tr>
         <tr>
-          <th class="list-group-item-heading">Power Points</th>
-          <td>{{'{{m.power_points}}'}}</td>
+          <th class="list-group-item-heading instance-text">Power Points</th>
+          <td class="instance-text">{{'{{m.power_points}}'}}</td>
         </tr>
         <tr>
-          <th classm"list-group-item-heading">Accuracy</th>
-          <td>{{'{{m.accuracy}}'}}</td>
+          <th class="list-group-item-heading instance-text">Accuracy</th>
+          <td class="instance-text">{{'{{m.accuracy}}'}}</td>
         </tr>
       </table>
   </div>
-  <div class="panel panel-default">
-    <div class="panel-heading"><h3>Pokemon</h3></div>
+  <div class="panel panel-default panel-instance">
+    <div class="panel-heading instance-text"><h3>Pokemon</h3></div>
       <table class="table table-bordered">
         <tr>
-          <th>Name</th>
+          <th class="instance-text">Name</th>
         </tr>
         <tr ng-repeat="p in pokemon">
-          <td><a href="../pokemon/{{ '{{p.id}}' }}">{{ '{{p.name}}' }}</td>
+          <td class="instance-text"><a href="../pokemon/{{ '{{p.id}}' }}">{{ '{{p.name}}' }}</a></td>
         </tr>
       </table>
   </div>
