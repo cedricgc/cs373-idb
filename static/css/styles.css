@@ -41,7 +41,6 @@ table th span {
 .box {
 width: 400px;
 margin: 0 auto;
-overflow: auto;
 border: 1px solid #0f0;
 padding: 2px;
 text-align: justify;
@@ -58,12 +57,6 @@ background: transparent;
 	text-align:center;
 }
 
-.boxed {
-	padding: 1;
-	padding-left: 2;
-	margin-left: 2;
-	border: 1px  solid gray ;
-}
 
 .navbar-default {
     background-color: #5fa3ee;
