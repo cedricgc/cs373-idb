@@ -7,5 +7,25 @@ table th span {
 }
 
 .table-id-row {
-	width:3%;
+	width: 3%;
+}
+
+.table-name-row {
+	width: 5%;
+}
+
+.table-damage-class-row {
+	width: 10%;
+}
+
+.table-power-points-row {
+	width: 9%;
+}
+
+.table-power-row {
+	width: 6%;
+}
+
+.table-accuracy-row {
+	width: 7%;
 }

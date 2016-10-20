@@ -6,17 +6,53 @@
 	<div ng-controller="movesController">
 	<table class="table table-bordered table-striped table-responsive">
     <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Flavor Text</th>
-      <th>Short Effect</th>
-      <th>Effect</th>
-      <th>Damage Class</th>
-      <th>Power</th>
-      <th>Power Points</th>
-      <th>Accuracy</th>
+      <th class="table-id-row">
+        <a href="#" ng-click="switch('id')">
+          Id<span ng-show="isDescending('id')" class="fa fa-caret-down"></span><span ng-show="isAscending('id')" class="fa fa-caret-up"></span>
+        </a>
+      </th>
+      <th class="table-name-row">
+        <a href="#" ng-click="switch('name')">
+          Name<span ng-show="isDescending('name')" class="fa fa-caret-down"></span><span ng-show="isAscending('name')" class="fa fa-caret-up"></span>
+        </a>
+      </th>
+      <th>
+        <a href="#" ng-click="switch('flavor_text')">
+          Flavor Text<span ng-show="isDescending('flavor_text')" class="fa fa-caret-down"></span><span ng-show="isAscending('flavor_text')" class="fa fa-caret-up"></span>
+        </a>
+      </th>
+      <th>
+        <a href="#" ng-click="switch('short_effect')">
+          Short Effect<span ng-show="isDescending('short_effect')" class="fa fa-caret-down"></span><span ng-show="isAscending('short_effect')" class="fa fa-caret-up"></span>
+        </a>
+      </th>
+      <th>
+        <a href="#" ng-click="switch('effect')">
+          Effect<span ng-show="isDescending('effect')" class="fa fa-caret-down"></span><span ng-show="isAscending('effect')" class="fa fa-caret-up"></span>
+        </a>
+      </th>
+      <th class="table-damage-class-row">
+        <a href="#" ng-click="switch('damage_class')">
+          Damage Class<span ng-show="isDescending('damage_class')" class="fa fa-caret-down"></span><span ng-show="isAscending('damage_class')" class="fa fa-caret-up"></span>
+        </a>
+      </th>
+      <th class="table-power-row">
+        <a href="#" ng-click="switch('power')">
+          Power<span ng-show="isDescending('power')" class="fa fa-caret-down"></span><span ng-show="isAscending('power')" class="fa fa-caret-up"></span>
+        </a>
+      </th>
+      <th class="table-power-points-row">
+        <a href="#" ng-click="switch('power_points')">
+          Power Points<span ng-show="isDescending('power_points')" class="fa fa-caret-down"></span><span ng-show="isAscending('power_points')" class="fa fa-caret-up"></span>
+        </a>
+      </th>
+      <th class="table-accuracy-row">
+        <a href="#" ng-click="switch('accuracy')">
+          Accuracy<span ng-show="isDescending('accuracy')" class="fa fa-caret-down"></span><span ng-show="isAscending('accuracy')" class="fa fa-caret-up"></span>
+        </a>
+      </th>
     </tr>
-    <tr ng-repeat="m in moves">
+    <tr ng-repeat="m in moves | orderBy:getSortTerm():getReverse()">
       <td>{{ '{{m.id}}' }}</td>
       <td><a href="move/{{ '{{m.id}}' }}">{{ '{{m.name}}' }}</a></td>
       <td>{{ '{{m.flavor_text}}' }}</td>
@@ -26,13 +62,14 @@
       <td>{{ '{{m.power}}' }}</td>
       <td>{{ '{{m.power_points}}' }}</td>
       <td>{{ '{{m.accuracy}}' }}</td>
-      </tr>
-	</table>
-	</div>
+    </tr>
+  </table>
+  </div>
 </div>
 {% endblock %}
 {% block scripts %}
 {{ super() }}
 <!-- Download our scripts after vendor libs -->
 <script src="/static/js/moves.js"></script>
+<script src="/static/js/tables.js"></script>
 {% endblock %}
