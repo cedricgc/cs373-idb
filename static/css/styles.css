@@ -6,8 +6,8 @@ table th span {
 	text-align: center;
 }
 
-.about-data-row {
-	align-content: center;
+.about-data {
+	margin: 0 auto;
 }
 
 .table-color-row {
