@@ -2,13 +2,11 @@
 {% extends "layout.html" %}
 {% block title %}Pokedexes{% endblock %}
 {% block content %}
-<p>Pokemans About Pages</p>
 <div ng-app="About">
  <!-- CONTAINER -->
   <div class="container">
- 
-    <!-- THE TEAM -->
 
+    <!-- THE TEAM -->
     <div class="row team-bio">
       <h1>About</h1>
 
@@ -26,7 +24,6 @@
         </div>
       </div>
 
-      
 
       <!-- Ali Rasheed-->
       <div class="col-sm-6 col-md-4">
@@ -42,8 +39,7 @@
         </div>
       </div>
 
-     
-      
+
       <!-- Will Truong -->
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
@@ -57,6 +53,7 @@
           </div>
         </div>
       </div>
+
 
       <!-- Cedric Charly -->
       <div class="col-sm-6 col-md-4">
@@ -90,64 +87,40 @@
     <!-- TEAM END -->
 
 
-    
-      <!-- TOOLS START -->
-	    <div class="tools">
-      		<h1>Tools</h1>
-			<div class="row">
-      			<div class="tools-main col-sm-2 col-sm-offset-4">
-        
-			          <p> Flask </p>
-			          <p> Angular JS </p>
-			          <p> Bootstrap </p>
-
-        
-      			</div>
-    		</div>
-    	</div>
-    
+    <!-- TOOLS START -->
+    <div class="tools">
+        <h1>Tools</h1>
+        <div class="row">
+          <div class="tools-main col-sm-2 col-sm-offset-4">
+          <p>Flask</p>
+          <p>Angular JS</p>
+          <p>Bootstrap</p>
+          </div>
+        </div>
+    </div>
 
 
-      
-
-      <!-- Stats START -->
+    <!-- Stats START -->
     <div class="Stats">
-     	<h1>Team Stats</h1>
-      
-      
-
-    	<div class="row">
-      		<div class="stats-main col-sm-2 col-sm-offset-4">
-        
-		          <p>Commits:  </p>
-		          <p>Issues:  </p>
-		          <p>Unit tests: </p>
-		          
-
-        
-      		</div>
+        <h1>Team Stats</h1>
+        <div class="row">
+          <div class="stats-main col-sm-2 col-sm-offset-4">
+              <p>Commits:</p>
+              <p>Issues:</p>
+              <p>Unit tests:</p>
+          </div>
        </div>
     </div>
 
 
     <div id="box">
-		<h4> Links</h4>
-		
-		<p><a href="http://107.170.36.57:5000/" >Apiary API</a></p>
-		<p><a href="https://github.com/cedricgc/cs373-idb/issues" >GitHub Issue Tracker</a></p>
-		<p><a href="https://github.com/cedricgc/cs373-idb" >GitHub Repo</a></p>
-		<p><a href="https://github.com/cedricgc/cs373-idb/wiki" >GitHub Wiki</a></p>
-	</div>
-      
-
-      
-   
-   
-
-
-
-     
-  	</div>
+        <h4> Links</h4>
+        <p><a href="http://docs.pokemans.apiary.io/">Apiary API</a></p>
+        <p><a href="https://github.com/cedricgc/cs373-idb/issues">GitHub Issue Tracker</a></p>
+        <p><a href="https://github.com/cedricgc/cs373-idb">GitHub Repo</a></p>
+        <p><a href="https://github.com/cedricgc/cs373-idb/wiki">GitHub Wiki</a></p>
+    </div>
+  </div>
 </div>
 {% endblock %}
 {% block scripts %}
