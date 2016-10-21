@@ -6,6 +6,10 @@ table th span {
 	text-align: center;
 }
 
+.about-data-row {
+	align-content: center;
+}
+
 .table-color-row {
 	width: 5%;
 }
