@@ -1,0 +1,60 @@
+FORMAT: 1A
+HOST: http://www.pokemans.me/api/v1/
+
+# Pokemans
+
+Pokemans is a simple API allowing clients to retrieve data on pokemon, pokedexes,
+and moves.
+
+## Pokemon Collection [/pokemon]
+
+### List All Pokemon [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 1,
+                "name": "Bulbasaur",
+                "flavor_text": "Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger",
+                "habitat": "grassland",
+                "color": "green",
+                "shape": "quadruped"
+            }
+        ]
+
+## Pokedex Collection [/pokedexes]
+
+### List All Pokedexes [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 2,
+                "name": "kanto",
+                "official_name": "Kanto",
+                "region": "kanto",
+                "description": "Red/Blue/Yellow Kanto dex"
+            }
+        ]
+
+## Moves Collection [/moves]
+
+### List All Moves [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 33,
+                "name": "Tackle",
+                "flavor_text": "A physical attack in which the user charges and slams into the target with its whole body.",
+                "short_effect": "Inflicts regular damage.",
+                "effect": "Inflicts regular damage with no additional effect.",
+                "damage_class": "physical",
+                "power_points": 35,
+                "power": 50,
+                "accuracy": 100,
+            }
+        ]
