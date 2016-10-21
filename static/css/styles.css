@@ -42,12 +42,12 @@ table th span {
 }
 
 .box {
-width: 400px;
-margin: 0 auto;
-border: 1px solid #0f0;
-padding: 2px;
-text-align: justify;
-background: transparent;
+	width: 400px;
+	margin: 0 auto;
+	border: 1px solid #0f0;
+	padding: 2px;
+	text-align: justify;
+	background: transparent;
 }
 
 .panel-instance {
