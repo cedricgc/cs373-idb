@@ -1,0 +1,20 @@
+{
+	"pokemon": 
+		[
+			{"id": 1, "name": "Bulbasaur", "flavor_text": "Bulbasaur can be seen napping in bright sunlight.\nThere is a seed on its back. By soaking up the sun\u2019s rays,\nthe seed grows progressively larger", "habitat": "grassland", "color": "green", "shape": "quadruped", "pokedexes" : [1, 2, 7], "moves" : [33, 15]},
+			{"id": 4, "name": "Charmander", "flavor_text": "The flame that burns at the tip of its tail is an indication\nof its emotions. The flame wavers when Charmander\nis enjoying itself. If the Pok\u00e9mon becomes enraged,\nthe flame burns fiercely.", "habitat": "mountain", "color": "red", "shape": "upright", "pokedexes" : [1, 2, 7], "moves" : [10, 15]},
+			{"id": 7, "name": "Squirtle", "flavor_text": "Squirtle\u2019s shell is not merely used for protection.\nThe shell\u2019s rounded shape and the grooves on its\nsurface help minimize resistance in water,\nenabling this Pok\u00e9mon to swim at high speeds.", "habitat": "waters-edge", "color": "blue", "shape": "upright", "pokedexes" : [1, 2, 7], "moves" : [33]}
+		],
+	"moves":
+		[
+            {"id": 33, "name": "Tackle", "flavor_text": "A physical attack in which the user\ncharges and slams into the target\nwith its whole body.", "short_effect": "Inflicts regular damage with no additional effect.", "effect": "Inflicts regular damage.", "damage_class": "physical", "power_points": 35, "power": 50, "accuracy": 100, "pokemon" : [1, 7]},
+            {"id": 10, "name": "Scratch", "flavor_text": "Hard, pointed, sharp claws rake\nthe target to inflict damage.", "short_effect": "Inflicts regular damage with no additional effect.", "effect": "Inflicts regular damage.", "damage_class": "physical", "power_points": 35, "power": 40, "accuracy": 100, "pokemon" : [4]},
+            {"id": 15, "name": "Cut", "flavor_text": "The target is cut with a scythe or claw.\nThis can also be used to cut down thin trees.", "short_effect": "Inflicts regular damage with no additional effect.", "effect": "Inflicts regular damage.", "damage_class": "physical", "power_points": 30, "power": 50, "accuracy": 95, "pokemon" : [1, 4]}
+        ],
+    "pokedexes":
+		[
+        	{"id": 1, "name": "national", "official_name": "National", "region": null, "description": "Entire National dex", "pokemon" : [1, 4, 7]},
+        	{"id": 2, "name": "kanto", "official_name": "Kanto", "region": "kanto", "description": "Red/Blue/Yellow Kanto dex", "pokemon" : [1, 4, 7]},
+        	{"id": 7, "name": "updated-johto", "official_name": "Updated Johto", "region": "johto", "description": "HeartGold/SoulSilver Johto dex—Gold/Silver/Crystal's, extended to add move-based Generation IV evolutions", "pokemon" : [1, 4, 7]}
+        ]
+}

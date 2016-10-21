@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% block title %}Move{% endblock %}
+{% block content %}
+<div ng-app="moveApp">
+  <div ng-controller="moveController" ng-init="getData({{id}})">
+  <div class="panel panel-primary panel-instance" ng-repeat="m in moves">
+    <div class="panel-heading instance-text"><h3>{{'{{m.name}}'}}</h3></div>
+      <div class="panel-body instance-text">{{'{{m.flavor_text}}'}}</div>
+      <table class="table table-bordered">
+        <tr>
+          <th class="list-group-item-heading instance-text">Id</th>
+          <td class="instance-text">{{'{{m.id}}'}}</td>
+        </tr>
+        <tr>
+          <th class="list-group-item-heading instance-text">Short Effect</th>
+          <td class="instance-text">{{'{{m.short_effect}}'}}</td>
+        </tr>
+        <tr>
+          <th class="list-group-item-heading instance-text">Effect</th>
+          <td class="instance-text">{{'{{m.effect}}'}}</td>
+        </tr>
+        <tr>
+          <th class="list-group-item-heading instance-text">Damage Class</th>
+          <td class="instance-text">{{'{{m.damage_class}}'}}</td>
+        </tr>
+        <tr>
+          <th class="list-group-item-heading instance-text">Power</th>
+          <td class="instance-text">{{'{{m.power}}'}}</td>
+        </tr>
+        <tr>
+          <th class="list-group-item-heading instance-text">Power Points</th>
+          <td class="instance-text">{{'{{m.power_points}}'}}</td>
+        </tr>
+        <tr>
+          <th class="list-group-item-heading instance-text">Accuracy</th>
+          <td class="instance-text">{{'{{m.accuracy}}'}}</td>
+        </tr>
+      </table>
+  </div>
+  <div class="panel panel-default panel-instance">
+    <div class="panel-heading"><h3 class="instance-text">Pokemon</h3></div>
+      <table class="table table-bordered">
+        <tr>
+          <th class="instance-text">Name</th>
+        </tr>
+        <tr ng-repeat="p in pokemon">
+          <td class="instance-text"><a href="../pokemon/{{ '{{p.id}}' }}">{{ '{{p.name}}' }}</a></td>
+        </tr>
+      </table>
+  </div>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+{{ super() }}
+<!-- Download our scripts after vendor libs -->
+<script src="/static/js/show_moves.js"></script>
+{% endblock %}
+

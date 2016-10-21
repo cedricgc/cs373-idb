@@ -1,0 +1,78 @@
+table th span {
+    padding: 0px 0px 0px 2px;
+}
+
+.header-centered {
+	text-align: center;
+}
+
+.table-color-row {
+	width: 5%;
+}
+
+.table-id-row {
+	width: 3%;
+}
+
+.table-name-row {
+	width: 5%;
+}
+
+.table-damage-class-row {
+	width: 10%;
+}
+
+.table-power-points-row {
+	width: 9%;
+}
+
+.table-power-row {
+	width: 6%;
+}
+
+.table-accuracy-row {
+	width: 7%;
+}
+
+.boxed {
+	padding: 1;
+	padding-left: 2;
+	margin-left: 2;
+  	border: 1px  solid gray ;
+}
+
+.box {
+	width: 400px;
+	margin: 0 auto;
+	border: 1px solid #0f0;
+	padding: 2px;
+	text-align: justify;
+	background: transparent;
+}
+
+.panel-instance {
+	width:50%;
+	margin: 0 auto;
+	margin-bottom:2%;
+}
+
+.instance-text {
+	text-align:center;
+}
+
+
+.navbar-default {
+    background-color: #5fa3ee;
+    border-color: #4c81bb;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #ecf0f1;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    background-color: #4c81bb;
+    color: #99bde5;
+}
+
+.navbar-default .navbar-brand {
+  color: #ecf0f1;
+}

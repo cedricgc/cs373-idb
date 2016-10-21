@@ -1,18 +1,42 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Pokemans</title>
-  <meta name="description" content="A Pokemon Website and API">
-  <link rel="stylesheet" href="/static/css/styles.css">
-  <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-  <![endif]-->
-</head>
-<body>
-  <div id="page">
-    {% block body %}{% endblock %}
-  </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-</body>
+  <head>
+    <!-- Declare charset and meta ASAP -->
+    <meta charset="utf-8">
+    <meta name="description" content="A Pokemon Website and API">
+    <title>{% block title %}Pokemans{% endblock title %}</title>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//use.fontawesome.com/5dc0262380.css">
+    <!-- Load Our JS and CSS last -->
+    <link href="/static/css/styles.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Pokemans</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/pokemon">Pokemon</a></li>
+          <li><a href="/pokedexes">Pokedexes</a></li>
+          <li><a href="/moves">Moves</a></li>
+        </ul>
+      </div>
+    </nav>
+    {% block content %}{% endblock %}
+    <!-- Scripts are downloaded last for performance -->
+    {% block scripts %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+    <!-- active selection for navbar -->
+    <script>$('a[href="' + this.location.pathname + '"]').parents('li,ul').addClass('active');</script>
+    {% endblock scripts %}
+  </body>
 </html>

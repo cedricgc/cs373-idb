@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block title %}Pokedexes{% endblock %}
+{% block content %}
+<div ng-app="pokedexesApp">
+  <div ng-controller="pokedexesController">
+  <table class="table table-bordered table-striped table-responsive">
+    <tr>
+      <th class="table-id-row">
+        <a href="#" ng-click="switch('id')">
+          Id<span ng-show="isDescending('id')" class="fa fa-caret-down"></span><span ng-show="isAscending('id')" class="fa fa-caret-up"></span>
+        </a>
+      </th>
+      <th>
+        <a href="#" ng-click="switch('name')">
+          Name<span ng-show="isDescending('name')" class="fa fa-caret-down"></span><span ng-show="isAscending('name')" class="fa fa-caret-up"></span>
+        </a>
+      </th>
+      <th>
+        <a href="#" ng-click="switch('official_name')">
+          Official Name<span ng-show="isDescending('official_name')" class="fa fa-caret-down"></span><span ng-show="isAscending('official_name')" class="fa fa-caret-up"></span>
+        </a>
+      </th>
+      <th>
+        <a href="#" ng-click="switch('region')">
+          Region<span ng-show="isDescending('region')" class="fa fa-caret-down"></span><span ng-show="isAscending('region')" class="fa fa-caret-up"></span>
+        </a>
+      </th>
+      <th>
+        <a href="#" ng-click="switch('description')">
+          Description<span ng-show="isDescending('description')" class="fa fa-caret-down"></span><span ng-show="isAscending('description')" class="fa fa-caret-up"></span>
+        </a>
+      </th>
+    </tr>
+    <tr ng-repeat="p in pokedexes | orderBy:getSortTerm():getReverse()">
+      <td>{{ '{{p.id}}' }}</td>
+      <td><a href="pokedexes/{{ '{{p.id}}' }}">{{ '{{p.name}}' }}</a></td>
+      <td>{{ '{{p.official_name}}' }}</td>
+      <td>{{ '{{p.region}}' }}</td>
+      <td>{{ '{{p.description}}' }}</td>
+  </table>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+{{ super() }}
+<!-- Download our scripts after vendor libs -->
+<script src="/static/js/index_pokedexes.js"></script>
+<script src="/static/js/tables.js"></script>
+{% endblock %}
