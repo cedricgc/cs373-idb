@@ -35,13 +35,14 @@ pokedexes_schema = schemas.PokedexSchema(many=True,
 
 pokemon_exclude = ['pokedexes', 'moves']
 pokemon_schema = schemas.PokemonSchema()
-pokemons_excludes = schemas.PokemonSchema(many=True,
-                                          exclude=pokemon_exclude)
+# ¯\_(ツ)_/¯
+pokemons_schema = schemas.PokemonSchema(many=True,
+                                        exclude=pokemon_exclude)
 
 move_exclude = ['pokemon']
 move_schema = schemas.MoveSchema()
-moves_exclude = schemas.MoveSchema(many=True,
-                                   exclude=move_exclude)
+moves_schema = schemas.MoveSchema(many=True,
+                                  exclude=move_exclude)
 
 
 @api_bp.route('/pokedexes/', methods=['GET'])
@@ -62,14 +63,18 @@ def create_pokedex():
                 'input': ['the server could not read the input as JSON']
             }
         }
+
         return flask.jsonify(bad_request), 400
+
     if 'data' in json_data:
         pokedex, errors = pokedex_schema.load(json_data['data'])
         if errors:
             bad_request = {
                 'errors': errors
             }
+
             return flask.jsonify(bad_request), 422
+
         try:
             db.session.add(pokedex)
             db.session.commit()
@@ -79,16 +84,20 @@ def create_pokedex():
                     'database': ['Unable to add pokedex to database']
                 }
             }
+
             return flask.jsonify(db_error), 422
 
         created, errors = pokedex_schema.dump(pokedex)
+
         return flask.jsonify({'data': created}), 201
+
     else:
         bad_request = {
             'errors': {
                 'input': ['missing required "data" key at top level']
             }
         }
+
         return flask.jsonify(bad_request), 422
 
 
@@ -101,7 +110,9 @@ def show_pokedex(pokedex_id):
                 'pokedex': ['pokedex with id does not exist']
             }
         }
+
         return flask.jsonify(index_error), 404
 
     data, errors = pokedex_schema.dump(pokedex)
+
     return flask.jsonify({'data': data}), 200
