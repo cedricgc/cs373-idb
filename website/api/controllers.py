@@ -165,7 +165,7 @@ def update_pokedex(pokedex_id):
 
             return flask.jsonify(db_error), 422
 
-        updated, errors = pokedex_schema.dump(pokedex)
+        updated, errors = pokedex_schema.dump(updated_pokedex)
 
         return flask.jsonify({'data': updated}), 200
 
@@ -278,3 +278,61 @@ def show_pokemon(pokemon_id):
     data, errors = pokemon_schema.dump(pokemon)
 
     return flask.jsonify({'data': data}), 200
+
+
+@api_bp.route('/pokemon/<int:pokemon_id>', methods=['PUT', 'PATCH'])
+def update_pokemon(pokemon_id):
+    pokemon = models.Pokemon.query.get(pokemon_id)
+    if not pokemon:
+        index_error = {
+            'errors': {
+                'pokemon': ['pokemon with id does not exist']
+            }
+        }
+
+        return flask.jsonify(index_error), 404
+
+    json_data = flask.request.get_json()
+    if not json_data:
+        bad_request = {
+            'errors': {
+                'input': ['the server could not read the input as JSON']
+            }
+        }
+
+        return flask.jsonify(bad_request), 400
+
+    if 'data' in json_data:
+        updated_pokemon, errors = pokemon_schema.load(json_data['data'],
+                                                      instance=pokemon,
+                                                      partial=True)
+        if errors:
+            bad_request = {
+                'errors': errors
+            }
+
+            return flask.jsonify(bad_request), 422
+
+        try:
+            db.session.commit()
+        except sqlalchemy.exc.SQLAlchemyError as e:
+            db_error = {
+                'errors': {
+                    'database': ['Unable to update pokemon in database']
+                }
+            }
+
+            return flask.jsonify(db_error), 422
+
+        updated, errors = pokemon_schema.dump(updated_pokemon)
+
+        return flask.jsonify({'data': updated}), 200
+
+    else:
+        bad_request = {
+            'errors': {
+                'input': ['missing required "data" key at top level']
+            }
+        }
+
+        return flask.jsonify(bad_request), 422
