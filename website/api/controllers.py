@@ -49,9 +49,9 @@ moves_schema = schemas.MoveSchema(many=True,
 def index_pokedexes():
     # Pass the noload option or ORM will do uneccessary queries
     pokedexes = models.Pokedex.query.options(sqlalchemy.orm.noload('*')).all()
-    result = pokedexes_schema.dump(pokedexes)
+    data, errors = pokedexes_schema.dump(pokedexes)
 
-    return flask.jsonify({'data': result.data}), 200
+    return flask.jsonify({'data': data}), 200
 
 
 @api_bp.route('/pokedexes/', methods=['POST'])
@@ -206,3 +206,11 @@ def delete_pokedex(pokedex_id):
     deleted, errors = pokedex_schema.dump(pokedex)
 
     return flask.jsonify({'data': deleted}), 200
+
+
+@api_bp.route('/pokemon/', methods=['GET'])
+def index_pokemon():
+    pokemon = models.Pokemon.query.options(sqlalchemy.orm.noload('*')).all()
+    data, errors = pokemons_schema.dump(pokemon)
+
+    return flask.jsonify({'data': data}), 200
