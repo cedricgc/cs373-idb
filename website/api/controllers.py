@@ -336,3 +336,32 @@ def update_pokemon(pokemon_id):
         }
 
         return flask.jsonify(bad_request), 422
+
+
+@api_bp.route('/pokemon/<int:pokemon_id>', methods=['DELETE'])
+def delete_pokemon(pokemon_id):
+    pokemon = models.Pokemon.query.get(pokemon_id)
+    if not pokemon:
+        index_error = {
+            'errors': {
+                'pokemon': ['pokemon with id does not exist']
+            }
+        }
+
+        return flask.jsonify(index_error), 404
+
+    try:
+        db.session.delete(pokemon)
+        db.session.commit()
+    except sqlalchemy.exc.SQLAlchemyError as e:
+        db_error = {
+            'errors': {
+                'database': ['Unable to delete pokemon in database']
+            }
+        }
+
+        return flask.jsonify(db_error), 422
+
+    deleted, errors = pokemon_schema.dump(pokemon)
+
+    return flask.jsonify({'data': deleted}), 200
