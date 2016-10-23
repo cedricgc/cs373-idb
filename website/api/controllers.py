@@ -30,8 +30,8 @@ See: http://flask.pocoo.org/docs/latest/quickstart/#variable-rules
 
 pokedex_exclude = ['pokemon']
 pokedex_schema = schemas.PokedexSchema()
-pokdexes_schema = schemas.PokemonSchema(many=True,
-                                        exclude=pokedex_exclude)
+pokedexes_schema = schemas.PokedexSchema(many=True,
+                                         exclude=pokedex_exclude)
 
 pokemon_exclude = ['pokedexes', 'moves']
 pokemon_schema = schemas.PokemonSchema()
@@ -44,6 +44,49 @@ moves_exclude = schemas.MoveSchema(many=True,
                                    exclude=move_exclude)
 
 
-@api_bp.route('/hello/', methods=['GET'])
-def hello():
-    return "Hello!"
+@api_bp.route('/pokedexes/', methods=['GET'])
+def index_pokedexes():
+    # Pass the noload option or ORM will do uneccessary queries
+    pokedexes = models.Pokedex.query.options(sqlalchemy.orm.noload('*')).all()
+    result = pokedexes_schema.dump(pokedexes)
+
+    return flask.jsonify({'data': result.data}), 200
+
+
+@api_bp.route('/pokedexes/', methods=['POST'])
+def create_pokedex():
+    json_data = flask.request.get_json()
+    if not json_data:
+        bad_request = {
+            'errors': {
+                'input': ['the server could not read the input as JSON']
+            }
+        }
+        return flask.jsonify(bad_request), 400
+    if 'data' in json_data:
+        pokedex, errors = pokedex_schema.load(json_data['data'])
+        if errors:
+            bad_request = {
+                'errors': errors
+            }
+            return flask.jsonify(bad_request), 422
+        try:
+            db.session.add(pokedex)
+            db.session.commit()
+        except sqlalchemy.exc.SQLAlchemyError as e:
+            db_error = {
+                'errors': {
+                    'database': ['Unable to add pokedex to database']
+                }
+            }
+            return flask.jsonify(db_error), 422
+
+        created, errors = pokedex_schema.dump(pokedex)
+        return flask.jsonify({'data': created}), 201
+    else:
+        bad_request = {
+            'errors': {
+                'input': ['missing required "data" key at top level']
+            }
+        }
+        return flask.jsonify(bad_request), 422
