@@ -90,3 +90,18 @@ def create_pokedex():
             }
         }
         return flask.jsonify(bad_request), 422
+
+
+@api_bp.route('/pokedexes/<int:pokedex_id>', methods=['GET'])
+def show_pokedex(pokedex_id):
+    pokedex = models.Pokedex.query.get(pokedex_id)
+    if not pokedex:
+        index_error = {
+            'errors': {
+                'pokedex': ['pokedex with id does not exist']
+            }
+        }
+        return flask.jsonify(index_error), 404
+
+    data, errors = pokedex_schema.dump(pokedex)
+    return flask.jsonify({'data': data}), 200
