@@ -52,7 +52,7 @@ class PokemonSchema(BaseSchema):
                                           many=True,
                                           dump_only=True,
                                           exclude=['pokemon'])
-    moves = marshmallow.fields.Nested('MoveSchema'
+    moves = marshmallow.fields.Nested('MoveSchema',
                                       many=True,
                                       dump_only=True,
                                       exclude=['pokemon'])
