@@ -15,6 +15,8 @@ import flask
 import sqlalchemy
 
 from website import api_bp, app, db, ma
+import website.api.models as models
+import website.api.schemas as schemas
 
 app.url_map.strict_slashes = False
 """Disables Werkzeug's strict route interpretation
@@ -25,6 +27,21 @@ it is disabled.
 
 See: http://flask.pocoo.org/docs/latest/quickstart/#variable-rules
 """
+
+pokedex_exclude = ['pokemon']
+pokedex_schema = schemas.PokedexSchema()
+pokdexes_schema = schemas.PokemonSchema(many=True,
+                                        exclude=pokedex_exclude)
+
+pokemon_exclude = ['pokedexes', 'moves']
+pokemon_schema = schemas.PokemonSchema()
+pokemons_excludes = schemas.PokemonSchema(many=True,
+                                          exclude=pokemon_exclude)
+
+move_exclude = ['pokemon']
+move_schema = schemas.MoveSchema()
+moves_exclude = schemas.MoveSchema(many=True,
+                                   exclude=move_exclude)
 
 
 @api_bp.route('/hello/', methods=['GET'])
