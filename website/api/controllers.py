@@ -116,3 +116,64 @@ def show_pokedex(pokedex_id):
     data, errors = pokedex_schema.dump(pokedex)
 
     return flask.jsonify({'data': data}), 200
+
+
+@api_bp.route('/pokedexes/<int:pokedex_id>', methods=['PUT', 'PATCH'])
+def update_pokedex(pokedex_id):
+    pokedex = models.Pokedex.query.get(pokedex_id)
+    if not pokedex:
+        index_error = {
+            'errors': {
+                'pokedex': ['pokedex with id does not exist']
+            }
+        }
+
+        return flask.jsonify(index_error), 404
+
+    json_data = flask.request.get_json()
+    if not json_data:
+        bad_request = {
+            'errors': {
+                'input': ['the server could not read the input as JSON']
+            }
+        }
+
+        return flask.jsonify(bad_request), 400
+
+    if 'data' in json_data:
+        # instance keyword arg loads data into existing model
+        # all that needs to be done is to commit the change
+        # partial keyword allows for updating only part of the model
+        updated_pokedex, errors = pokedex_schema.load(json_data['data'],
+                                                      instance=pokedex,
+                                                      partial=True)
+        if errors:
+            bad_request = {
+                'errors': errors
+            }
+
+            return flask.jsonify(bad_request), 422
+
+        try:
+            db.session.commit()
+        except sqlalchemy.exc.SQLAlchemyError as e:
+            db_error = {
+                'errors': {
+                    'database': ['Unable to update pokedex in database']
+                }
+            }
+
+            return flask.jsonify(db_error), 422
+
+        updated, errors = pokedex_schema.dump(pokedex)
+
+        return flask.jsonify({'data': updated}), 200
+
+    else:
+        bad_request = {
+            'errors': {
+                'input': ['missing required "data" key at top level']
+            }
+        }
+
+        return flask.jsonify(bad_request), 422
