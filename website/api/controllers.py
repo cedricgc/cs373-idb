@@ -177,3 +177,32 @@ def update_pokedex(pokedex_id):
         }
 
         return flask.jsonify(bad_request), 422
+
+
+@api_bp.route('/pokedexes/<int:pokedex_id>', methods=['DELETE'])
+def delete_pokedex(pokedex_id):
+    pokedex = models.Pokedex.query.get(pokedex_id)
+    if not pokedex:
+        index_error = {
+            'errors': {
+                'pokedex': ['pokedex with id does not exist']
+            }
+        }
+
+        return flask.jsonify(index_error), 404
+
+    try:
+        db.session.delete(pokedex)
+        db.session.commit()
+    except sqlalchemy.exc.SQLAlchemyError as e:
+        db_error = {
+            'errors': {
+                'database': ['Unable to delete pokedex in database']
+            }
+        }
+
+        return flask.jsonify(db_error), 422
+
+    deleted, errors = pokedex_schema.dump(pokedex)
+
+    return flask.jsonify({'data': deleted}), 200
