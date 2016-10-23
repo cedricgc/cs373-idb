@@ -41,8 +41,8 @@ class Pokedex(Base):
     __tablename__ = 'pokedexes'
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.Text, nullable=False)
-    official_name = db.Column(db.Text, nullable=False)
+    name = db.Column(db.Text, unique=True, nullable=False)
+    official_name = db.Column(db.Text, unique=True, nullable=False)
     region = db.Column(db.Text, nullable=False)
     description = db.Column(db.Text, nullable=False)
 
@@ -59,7 +59,7 @@ class Pokemon(Base):
     __tablename__ = 'pokemon'
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.Text, nullable=False)
+    name = db.Column(db.Text, unique=True, nullable=False)
     flavor_text = db.Column(db.Text, nullable=False)
     habitat = db.Column(db.Text, nullable=False)
     color = db.Column(db.Text, nullable=False)
@@ -81,7 +81,7 @@ class Move(Base):
     __tablename__ = 'moves'
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.Text, nullable=False)
+    name = db.Column(db.Text, unique=True, nullable=False)
     flavor_text = db.Column(db.Text, nullable=False)
     short_effect = db.Column(db.Text, nullable=False)
     effect = db.Column(db.Text, nullable=False)

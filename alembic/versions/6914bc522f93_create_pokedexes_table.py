@@ -20,8 +20,8 @@ def upgrade():
     op.create_table(
         'pokedexes',
         sa.Column('id', sa.Integer, primary_key=True),
-        sa.Column('name', sa.Text, nullable=False),
-        sa.Column('official_name', sa.Text, nullable=False),
+        sa.Column('name', sa.Text, unique=True, nullable=False),
+        sa.Column('official_name', sa.Text, unique=True, nullable=False),
         sa.Column('region', sa.Text, nullable=False),
         sa.Column('description', sa.Text, nullable=False),
 
