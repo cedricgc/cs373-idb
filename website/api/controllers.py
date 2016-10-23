@@ -214,3 +214,50 @@ def index_pokemon():
     data, errors = pokemons_schema.dump(pokemon)
 
     return flask.jsonify({'data': data}), 200
+
+
+@api_bp.route('/pokemon/', methods=['POST'])
+def create_pokemon():
+    json_data = flask.request.get_json()
+    if not json_data:
+        bad_request = {
+            'errors': {
+                'input': ['the server could not read the input as JSON']
+            }
+        }
+
+        return flask.jsonify(bad_request), 400
+
+    if 'data' in json_data:
+        pokemon, errors = pokemon_schema.load(json_data['data'])
+        if errors:
+            bad_request = {
+                'errors': errors
+            }
+
+            return flask.jsonify(bad_request), 422
+
+        try:
+            db.session.add(pokemon)
+            db.session.commit()
+        except sqlalchemy.exc.SQLAlchemyError as e:
+            db_error = {
+                'errors': {
+                    'database': ['Unable to add pokemon to database']
+                }
+            }
+
+            return flask.jsonify(db_error), 422
+
+        created, errors = pokemon_schema.dump(pokemon)
+
+        return flask.jsonify({'data': created}), 201
+
+    else:
+        bad_request = {
+            'errors': {
+                'input': ['missing required "data" key at top level']
+            }
+        }
+
+        return flask.jsonify(bad_request), 422
