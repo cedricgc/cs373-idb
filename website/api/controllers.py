@@ -261,3 +261,20 @@ def create_pokemon():
         }
 
         return flask.jsonify(bad_request), 422
+
+
+@api_bp.route('/pokemon/<int:pokemon_id>', methods=['GET'])
+def show_pokemon(pokemon_id):
+    pokemon = models.Pokemon.query.get(pokemon_id)
+    if not pokemon:
+        index_error = {
+            'errors': {
+                'pokemon': ['pokemon with id does not exist']
+            }
+        }
+
+        return flask.jsonify(index_error), 404
+
+    data, errors = pokemon_schema.dump(pokemon)
+
+    return flask.jsonify({'data': data}), 200
