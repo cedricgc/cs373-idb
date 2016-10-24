@@ -373,3 +373,50 @@ def index_moves():
     data, errors = moves_schema.dump(moves)
 
     return flask.jsonify({'data': data}), 200
+
+
+@api_bp.route('/moves/', methods=['POST'])
+def create_move():
+    json_data = flask.request.get_json()
+    if not json_data:
+        bad_request = {
+            'errors': {
+                'input': ['the server could not read the input as JSON']
+            }
+        }
+
+        return flask.jsonify(bad_request), 400
+
+    if 'data' in json_data:
+        move, errors = move_schema.load(json_data['data'])
+        if errors:
+            bad_request = {
+                'errors': errors
+            }
+
+            return flask.jsonify(bad_request), 422
+
+        try:
+            db.session.add(move)
+            db.session.commit()
+        except sqlalchemy.exc.SQLAlchemyError as e:
+            db_error = {
+                'errors': {
+                    'database': ['Unable to add move to database']
+                }
+            }
+
+            return flask.jsonify(db_error), 422
+
+        created, errors = move_schema.dump(move)
+
+        return flask.jsonify({'data': created}), 201
+
+    else:
+        bad_request = {
+            'errors': {
+                'input': ['missing required "data" key at top level']
+            }
+        }
+
+        return flask.jsonify(bad_request), 422
