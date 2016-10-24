@@ -420,3 +420,20 @@ def create_move():
         }
 
         return flask.jsonify(bad_request), 422
+
+
+@api_bp.route('/moves/<int:move_id>', methods=['GET'])
+def show_move(move_id):
+    move = models.Move.query.get(move_id)
+    if not move:
+        index_error = {
+            'errors': {
+                'move': ['move with id does not exist']
+            }
+        }
+
+        return flask.jsonify(index_error), 404
+
+    data, errors = move_schema.dump(move)
+
+    return flask.jsonify({'data': data}), 200
