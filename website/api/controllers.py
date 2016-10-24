@@ -437,3 +437,61 @@ def show_move(move_id):
     data, errors = move_schema.dump(move)
 
     return flask.jsonify({'data': data}), 200
+
+
+@api_bp.route('/moves/<int:move_id>', methods=['PUT', 'PATCH'])
+def update_move(move_id):
+    move = models.Move.query.get(move_id)
+    if not move:
+        index_error = {
+            'errors': {
+                'move': ['move with id does not exist']
+            }
+        }
+
+        return flask.jsonify(index_error), 404
+
+    json_data = flask.request.get_json()
+    if not json_data:
+        bad_request = {
+            'errors': {
+                'input': ['the server could not read the input as JSON']
+            }
+        }
+
+        return flask.jsonify(bad_request), 400
+
+    if 'data' in json_data:
+        updated_move, errors = move_schema.load(json_data['data'],
+                                                instance=move,
+                                                partial=True)
+        if errors:
+            bad_request = {
+                'errors': errors
+            }
+
+            return flask.jsonify(bad_request), 422
+
+        try:
+            db.session.commit()
+        except sqlalchemy.exc.SQLAlchemyError as e:
+            db_error = {
+                'errors': {
+                    'database': ['Unable to update move in database']
+                }
+            }
+
+            return flask.jsonify(db_error), 422
+
+        updated, errors = move_schema.dump(updated_move)
+
+        return flask.jsonify({'data': updated}), 200
+
+    else:
+        bad_request = {
+            'errors': {
+                'input': ['missing required "data" key at top level']
+            }
+        }
+
+        return flask.jsonify(bad_request), 422
