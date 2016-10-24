@@ -495,3 +495,32 @@ def update_move(move_id):
         }
 
         return flask.jsonify(bad_request), 422
+
+
+@api_bp.route('/moves/<int:move_id>', methods=['DELETE'])
+def delete_move(move_id):
+    move = models.Move.query.get(move_id)
+    if not move:
+        index_error = {
+            'errors': {
+                'move': ['move with id does not exist']
+            }
+        }
+
+        return flask.jsonify(index_error), 404
+
+    try:
+        db.session.delete(move)
+        db.session.commit()
+    except sqlalchemy.exc.SQLAlchemyError as e:
+        db_error = {
+            'errors': {
+                'database': ['Unable to delete move in database']
+            }
+        }
+
+        return flask.jsonify(db_error), 422
+
+    deleted, errors = move_schema.dump(move)
+
+    return flask.jsonify({'data': deleted}), 200
