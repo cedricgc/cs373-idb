@@ -365,3 +365,11 @@ def delete_pokemon(pokemon_id):
     deleted, errors = pokemon_schema.dump(pokemon)
 
     return flask.jsonify({'data': deleted}), 200
+
+
+@api_bp.route('/moves/', methods=['GET'])
+def index_moves():
+    moves = models.Move.query.options(sqlalchemy.orm.noload('*')).all()
+    data, errors = moves_schema.dump(moves)
+
+    return flask.jsonify({'data': data}), 200
