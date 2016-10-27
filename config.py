@@ -11,6 +11,7 @@ TEMPLATES = os.path.join(BASE_DIR, 'templates')
 # Database configuration used by SQLAlchemy and flask_sqlalchemy
 SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
 DATABASE_CONNECT_OPTIONS = {}
+SQLALCHEMY_ECHO = True
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 # Flask configuration: see http://flask.pocoo.org/docs/latest/config/
