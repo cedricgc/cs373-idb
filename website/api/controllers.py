@@ -28,6 +28,8 @@ it is disabled.
 See: http://flask.pocoo.org/docs/latest/quickstart/#variable-rules
 """
 
+ITEMS_PER_PAGE = 20
+
 pokedex_exclude = ['pokemon']
 pokedex_schema = schemas.PokedexSchema()
 pokedexes_schema = schemas.PokedexSchema(many=True,
@@ -47,11 +49,23 @@ moves_schema = schemas.MoveSchema(many=True,
 
 @api_bp.route('/pokedexes/', methods=['GET'])
 def index_pokedexes():
+    # Retrieve page requested, defaults to the first if none given
+    page = flask.request.args.get('page', 1, type=int)
     # Pass the noload option or ORM will do uneccessary queries
-    pokedexes = models.Pokedex.query.options(sqlalchemy.orm.noload('*')).all()
-    data, errors = pokedexes_schema.dump(pokedexes)
+    pokedexes_page = models.Pokedex.query.options(
+        sqlalchemy.orm.noload('*')).paginate(page=page, per_page=ITEMS_PER_PAGE)
+    data, errors = pokedexes_schema.dump(pokedexes_page.items)
 
-    return flask.jsonify({'data': data}), 200
+    response = {
+        'page': pokedexes_page.page,
+        'total_pages': pokedexes_page.pages,
+        'total_items': pokedexes_page.total,
+        'has_next': pokedexes_page.has_next,
+        'has_previous': pokedexes_page.has_prev,
+        'data': data
+    }
+
+    return flask.jsonify(response), 200
 
 
 @api_bp.route('/pokedexes/', methods=['POST'])
@@ -210,10 +224,21 @@ def delete_pokedex(pokedex_id):
 
 @api_bp.route('/pokemon/', methods=['GET'])
 def index_pokemon():
-    pokemon = models.Pokemon.query.options(sqlalchemy.orm.noload('*')).all()
-    data, errors = pokemons_schema.dump(pokemon)
+    page = flask.request.args.get('page', 1, type=int)
+    pokemon_page = models.Pokemon.query.options(
+        sqlalchemy.orm.noload('*')).paginate(page=page, per_page=ITEMS_PER_PAGE)
+    data, errors = pokemons_schema.dump(pokemon_page.items)
 
-    return flask.jsonify({'data': data}), 200
+    response = {
+        'page': pokemon_page.page,
+        'total_pages': pokemon_page.pages,
+        'total_items': pokemon_page.total,
+        'has_next': pokemon_page.has_next,
+        'has_previous': pokemon_page.has_prev,
+        'data': data
+    }
+
+    return flask.jsonify(response), 200
 
 
 @api_bp.route('/pokemon/', methods=['POST'])
@@ -369,10 +394,21 @@ def delete_pokemon(pokemon_id):
 
 @api_bp.route('/moves/', methods=['GET'])
 def index_moves():
-    moves = models.Move.query.options(sqlalchemy.orm.noload('*')).all()
-    data, errors = moves_schema.dump(moves)
+    page = flask.request.args.get('page', 1, type=int)
+    moves_page = models.Move.query.options(
+        sqlalchemy.orm.noload('*')).paginate(page=page, per_page=ITEMS_PER_PAGE)
+    data, errors = moves_schema.dump(moves_page.items)
 
-    return flask.jsonify({'data': data}), 200
+    response = {
+        'page': moves_page.page,
+        'total_pages': moves_page.pages,
+        'total_items': moves_page.total,
+        'has_next': moves_page.has_next,
+        'has_previous': moves_page.has_prev,
+        'data': data
+    }
+
+    return flask.jsonify(response), 200
 
 
 @api_bp.route('/moves/', methods=['POST'])
