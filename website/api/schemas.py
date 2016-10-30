@@ -74,3 +74,9 @@ class MoveSchema(BaseSchema):
     class Meta(BaseSchema.Meta):
         model = models.Move
         include_fk = True
+
+
+class PokedexPokemonSchema(marshmallow.Schema):
+
+    pokedex_id = marshmallow.fields.Integer(load_only=True)
+    pokemon_id = marshmallow.fields.Integer(load_only=True)
