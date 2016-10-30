@@ -47,6 +47,7 @@ moves_schema = schemas.MoveSchema(many=True,
                                   exclude=move_exclude)
 
 pokedex_pokemon_schema = schemas.PokedexPokemonSchema()
+pokemon_moves_schema = schemas.PokemonMovesSchema()
 
 
 @api_bp.route('/pokedexes/', methods=['GET'])
@@ -565,7 +566,7 @@ def delete_move(move_id):
 
 
 @api_bp.route('/pokedex_pokemon/', methods=['POST'])
-def associate_pokdex_pokemon():
+def associate_pokedex_pokemon():
     json_data = flask.request.get_json()
     if not json_data:
         bad_request = {
@@ -613,6 +614,77 @@ def associate_pokdex_pokemon():
             db_error = {
                 'errors': {
                     'database': ['Unable to associate pokedex and pokemon']
+                }
+            }
+
+            return flask.jsonify(db_error), 422
+
+        response = {
+            'data': {
+                'success': True
+            }
+        }
+        return flask.jsonify(response), 200
+
+    else:
+        bad_request = {
+            'errors': {
+                'input': ['missing required "data" key at top level']
+            }
+        }
+
+        return flask.jsonify(bad_request), 422
+
+
+@api_bp.route('/pokemon_moves/', methods=['POST'])
+def associate_pokemon_moves():
+    json_data = flask.request.get_json()
+    if not json_data:
+        bad_request = {
+            'errors': {
+                'input': ['the server could not read the input as JSON']
+            }
+        }
+
+        return flask.jsonify(bad_request), 400
+
+    if 'data' in json_data:
+        relationship, errors = pokemon_moves_schema.load(json_data['data'])
+        if errors:
+            bad_request = {
+                'errors': errors
+            }
+
+            return flask.jsonify(bad_request), 422
+
+        pokemon = models.Pokemon.query.get(relationship['pokemon_id'])
+        if not pokemon:
+            index_error = {
+                'errors': {
+                    'pokemon': ['pokemon with id does not exist']
+                }
+            }
+
+            return flask.jsonify(index_error), 404
+
+        move = models.Move.query.get(relationship['move_id'])
+        if not move:
+            index_error = {
+                'errors': {
+                    'move': ['move with id does not exist']
+                }
+            }
+
+            return flask.jsonify(index_error), 404
+
+        try:
+            # Row created in association table implicitly
+            pokemon.moves.append(move)
+            db.session.commit()
+        except sqlalchemy.exc.SQLAlchemyError as e:
+            db_error = {
+                'errors': {
+                    'database': ['Unable to associate pokemon and move']
                 }
             }
 
