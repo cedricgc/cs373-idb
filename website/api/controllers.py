@@ -46,6 +46,8 @@ move_schema = schemas.MoveSchema()
 moves_schema = schemas.MoveSchema(many=True,
                                   exclude=move_exclude)
 
+pokedex_pokemon_schema = schemas.PokedexPokemonSchema()
+
 
 @api_bp.route('/pokedexes/', methods=['GET'])
 def index_pokedexes():
@@ -560,3 +562,74 @@ def delete_move(move_id):
     deleted, errors = move_schema.dump(move)
 
     return flask.jsonify({'data': deleted}), 200
+
+
+@api_bp.route('/pokedex_pokemon/', methods=['POST'])
+def associate_pokdex_pokemon():
+    json_data = flask.request.get_json()
+    if not json_data:
+        bad_request = {
+            'errors': {
+                'input': ['the server could not read the input as JSON']
+            }
+        }
+
+        return flask.jsonify(bad_request), 400
+
+    if 'data' in json_data:
+        relationship, errors = pokedex_pokemon_schema.load(json_data['data'])
+        if errors:
+            bad_request = {
+                'errors': errors
+            }
+
+            return flask.jsonify(bad_request), 422
+
+        pokedex = models.Pokedex.query.get(relationship['pokedex_id'])
+        if not pokedex:
+            index_error = {
+                'errors': {
+                    'pokedex': ['pokedex with id does not exist']
+                }
+            }
+
+            return flask.jsonify(index_error), 404
+
+        pokemon = models.Pokemon.query.get(relationship['pokemon_id'])
+        if not pokemon:
+            index_error = {
+                'errors': {
+                    'pokemon': ['pokemon with id does not exist']
+                }
+            }
+
+            return flask.jsonify(index_error), 404
+
+        try:
+            # Row created in association table implicitly
+            pokedex.pokemon.append(pokemon)
+            db.session.commit()
+        except sqlalchemy.exc.SQLAlchemyError as e:
+            db_error = {
+                'errors': {
+                    'database': ['Unable to associate pokedex and pokemon']
+                }
+            }
+
+            return flask.jsonify(db_error), 422
+
+        response = {
+            'data': {
+                'success': True
+            }
+        }
+        return flask.jsonify(response), 200
+
+    else:
+        bad_request = {
+            'errors': {
+                'input': ['missing required "data" key at top level']
+            }
+        }
+
+        return flask.jsonify(bad_request), 422
