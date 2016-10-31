@@ -9,12 +9,12 @@ angular.module('pokedexApp', [])
           console.log($scope.pokedex);
           var pokemon_ids = data["data"]["pokemon"];
 
-        // angular.forEach(all_pokemon, function(value, index) {
-        //   var pokemon_id_index = $scope.pokedex[0]["pokemon"].indexOf(value["id"]);
-        //   if(pokemon_id_index != -1) {
-        //     $scope.pokemon.push(value);
-        //   }
-        // });
+          angular.forEach(pokemon_ids, function(value, index) {
+            $http.get('/static/testdata/pokemon/' + value + '.json')
+              .success(function(pokemon_data) {
+                $scope.pokemon.push(pokemon_data["data"]);
+              });
+          });
       });
     }
   });

@@ -1,7 +1,7 @@
 angular.module('pokemonApp', ['tableApp'])
   .controller('pokemonController', function($scope, $http, tableService) {
-    $http.get('/static/testdata.json').success(function(data) {
-      $scope.pokemon = data["pokemon"];
+    $http.get('/static/testdata/pokemon.json').success(function(data) {
+      $scope.pokemon = data["data"];
     });
 
     var tableVars = {"sortTerm" : 'id', "reverse" : false};

@@ -1,0 +1,12 @@
+{
+  "data": {
+    "flavor_text": "The flame that burns at the tip of its tail is an indication\nof its emotions. The flame wavers when Charmander\nis enjoying itself. If the Pok\u00e9mon becomes enraged,\nthe flame burns fiercely.",
+    "id": 4,
+    "habitat" : "mountain",
+    "color" : "red",
+    "shape" : "upright", 
+    "name" : "Charmander",
+    "pokedexes" : [1, 2, 7],
+    "moves" : [10, 15]
+  }
+}

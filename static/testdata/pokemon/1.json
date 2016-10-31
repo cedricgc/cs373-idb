@@ -1,0 +1,12 @@
+{
+  "data": {
+    "flavor_text": "Bulbasaur can be seen napping in bright sunlight.\nThere is a seed on its back. By soaking up the sun\u2019s rays,\nthe seed grows progressively larger",
+    "id": 1,
+    "habitat" : "grassland",
+    "color" : "green",
+    "shape" : "quadruped", 
+    "name" : "Bulbasaur",
+    "pokedexes" : [1, 2, 7],
+    "moves" : [33, 15]
+  }
+}
