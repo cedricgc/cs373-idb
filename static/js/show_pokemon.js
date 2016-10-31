@@ -4,32 +4,27 @@ angular.module('pokemonInfoApp', [])
     $scope.pokedexes = [];
     $scope.moves = [];
     $scope.getData = function (pokemon_id) {
-      $http.get('/static/testdata.json')
+      $http.get('/static/testdata/pokemon/' + pokemon_id + '.json')
         .success(function(data) {
-          var all_pokemon = data["pokemon"];
-          var all_pokedexes = data["pokedexes"];
-          var all_moves = data["moves"];
-          angular.forEach(all_pokemon, function(value, index) {
-            if(value["id"] == pokemon_id) {
-              $scope.pokemon.push(value);
-            }
-        });
+          $scope.pokemon.push(data["data"]);
+          var pokedex_ids = data["data"]["pokedexes"];
+          var move_ids = data["data"]["moves"];
 
-        angular.forEach(all_pokedexes, function(value, index) {
-          var pokedex_id_index = $scope.pokemon[0]["pokedexes"].indexOf(value["id"]);
-          if(pokedex_id_index != -1) {
-            $scope.pokedexes.push(value);
-          }
-        });
+          angular.forEach(pokedex_ids, function(value, index) {
+            $http.get('/static/testdata/pokedexes/' + value + '.json')
+              .success(function(pokedex_data) {
+                $scope.pokedexes.push(pokedex_data["data"]);
+              });
+          });
 
-        angular.forEach(all_moves, function(value, index) {
-          var move_id_index = $scope.pokemon[0]["moves"].indexOf(value["id"]);
-            if(move_id_index != -1) {
-              $scope.moves.push(value);
-            }
-        });
+          angular.forEach(move_ids, function(value, index) {
+            $http.get('/static/testdata/moves/' + value + '.json')
+              .success(function(move_data) {
+                $scope.moves.push(move_data["data"]);
+              });
+          });
 
-        $scope.pokemonLower = $scope.pokemon[0]["name"].toLowerCase();
+          $scope.pokemonLower = $scope.pokemon[0]["name"].toLowerCase();
       });
     }
   });
