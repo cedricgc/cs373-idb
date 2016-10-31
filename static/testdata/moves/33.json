@@ -1,0 +1,14 @@
+{
+  "data": {
+    "flavor_text": "A physical attack in which the user\ncharges and slams into the target\nwith its whole body.",
+    "id": 33,
+    "short_effect" : "Inflicts regular damage with no additional effect.",
+    "effect" : "Inflicts regular damage.",
+    "damage_class" : "physical",
+    "power_points" : 35,
+    "power" : 50,
+    "accuracy" : 100, 
+    "name" : "Tackle",
+    "pokemon" : [1, 7]
+  }
+}

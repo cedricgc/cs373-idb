@@ -1,7 +1,7 @@
 angular.module('movesApp', ['tableApp'])
   .controller('movesController', function($scope, $http, tableService) {
-    $http.get('/static/testdata.json').success(function(data) {
-      $scope.moves = data["moves"];
+    $http.get('/static/testdata/moves.json').success(function(data) {
+      $scope.moves = data["data"];
     });
 
     var tableVars = {"sortTerm" : 'id', "reverse" : false};
