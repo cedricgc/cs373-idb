@@ -1,12 +1,19 @@
 angular.module('pokedexesApp', ['tableApp'])
   .controller('pokedexesController', function($scope, $http, tableService) {
-    $scope.currentPage = 4;
-    $scope.totalPages = 10;
 
+    $scope.loadData = function(page_id) {
+      $http.get('/static/testdata/pokedexes' + page_id + '.json').success(function(data) {
+        $scope.pokedexes = data["data"];
+        console.log(data["has_previous"]);
+        $scope.totalPages = data["total_pages"];
+      });
+    }
 
-    $http.get('/static/testdata/pokedexes.json').success(function(data) {
-      $scope.pokedexes = data["data"];
-    });
+    //default page to 1
+    $scope.currentPage = 1;
+
+    //load data initially
+    $scope.loadData($scope.currentPage);
 
     $scope.pageRange = function () {
       if ($scope.currentPage <= 2) {
@@ -22,24 +29,29 @@ angular.module('pokedexesApp', ['tableApp'])
       if($scope.currentPage < $scope.totalPages){
         $scope.currentPage++;
       }
+      $scope.loadData($scope.currentPage);
     }
 
     $scope.prevPage = function() {
       if($scope.currentPage > 1){
         $scope.currentPage--;
       }
+      $scope.loadData($scope.currentPage);
     }
 
     $scope.skipBack = function() {
       $scope.currentPage -= 2;
+      $scope.loadData($scope.currentPage);
     }
 
     $scope.skipForward = function() {
       $scope.currentPage += 2;
+      $scope.loadData($scope.currentPage);
     }
 
     $scope.setPage = function(page) {
       $scope.currentPage = page;
+      $scope.loadData($scope.currentPage);
     }
 
     var tableVars = {"sortTerm" : 'id', "reverse" : false};
