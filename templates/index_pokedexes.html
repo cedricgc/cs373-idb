@@ -37,6 +37,28 @@
       <td>{{ '{{p.official_name}}' }}</td>
       <td>{{ '{{p.region}}' }}</td>
       <td>{{ '{{p.description}}' }}</td>
+    <tfoot>
+      <td colspan="6">
+        <div class="text-center">
+          <ul class="pagination">
+            <li ng-class="{disabled: currentPage == 1}">
+              <a href ng-click="prevPage()">« Prev</a>
+            </li>
+           <li ng-hide="currentPage <= 2">
+             <a href ng-click="skipBack()">...</a>
+           </li>
+           <li ng-repeat="n in pageRange()" ng-class="{active: n == currentPage}" ng-click="setPage()">
+             <a href ng-bind="n">1</a>
+           </li>
+           <li ng-hide="totalPages - currentPage <= 2">
+             <a href ng-click="skipForward()">...</a>
+           <li ng-class="{disabled: currentPage == totalPages}">
+             <a href ng-click="nextPage()">Next »</a>
+           </li>
+          </ul>
+        </div>
+      </td>
+    </tfoot>
   </table>
   </div>
 </div>
