@@ -4,7 +4,8 @@ angular.module('pokedexesApp', ['tableApp'])
     $scope.loadData = function(page_id) {
       $http.get('/static/testdata/pokedexes' + page_id + '.json').success(function(data) {
         $scope.pokedexes = data["data"];
-        console.log(data["has_previous"]);
+        $scope.hasPrevious = data["has_previous"];
+        $scope.hasNext = data["has_next"];
         $scope.totalPages = data["total_pages"];
       });
     }
