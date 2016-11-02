@@ -38,6 +38,10 @@ angular.module('pokedexesApp', ['tableApp'])
       $scope.currentPage += 2;
     }
 
+    $scope.setPage = function(page) {
+      $scope.currentPage = page;
+    }
+
     var tableVars = {"sortTerm" : 'id', "reverse" : false};
 
     $scope.switch = function (column_name) {
