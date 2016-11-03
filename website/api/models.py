@@ -43,7 +43,7 @@ class Pokedex(Base):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.Text, unique=True, nullable=False)
     official_name = db.Column(db.Text, unique=True, nullable=False)
-    region = db.Column(db.Text, nullable=False)
+    region = db.Column(db.Text, nullable=True, default=None)
     description = db.Column(db.Text, nullable=False)
 
     pokemon = db.relationship('Pokemon',
