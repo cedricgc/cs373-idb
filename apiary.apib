@@ -6,55 +6,224 @@ HOST: http://www.pokemans.me/api/v1/
 Pokemans is a simple API allowing clients to retrieve data on pokemon, pokedexes,
 and moves.
 
-## Pokemon Collection [/pokemon]
+# Group Pokemon
+
+## Pokemon Collection [/pokemon?page={page}]
++ Parameters
+    + page (number) - (optional, default: 1) the page number. 
 
 ### List All Pokemon [GET]
 
 + Response 200 (application/json)
 
-        [
-            {
-                "id": 1,
-                "name": "Bulbasaur",
-                "flavor_text": "Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger",
-                "habitat": "grassland",
-                "color": "green",
-                "shape": "quadruped"
-            }
-        ]
+        {
+            "data": [
+                {
+                    "flavor_text": "Bulbasaur can be seen napping in bright sunlight.\nThere is a seed on its back. By soaking up the sun\u2019s rays,\nthe seed grows progressively larger",
+                    "id": 1,
+                    "habitat" : "grassland",
+                    "color" : "green",
+                    "shape" : "quadruped", 
+                    "name" : "Bulbasaur"
+                },
+                {
+                    "flavor_text": "The flame that burns at the tip of its tail is an indication\nof its emotions. The flame wavers when Charmander\nis enjoying itself. If the Pok\u00e9mon becomes enraged,\nthe flame burns fiercely.",
+                    "id": 4,
+                    "habitat" : "mountain",
+                    "color" : "red",
+                    "shape" : "upright", 
+                    "name" : "Charmander"
+                },
+                {
+                    "flavor_text": "Squirtle\u2019s shell is not merely used for protection.\nThe shell\u2019s rounded shape and the grooves on its\nsurface help minimize resistance in water,\nenabling this Pok\u00e9mon to swim at high speeds.",
+                    "id": 7,
+                    "habitat" : "waters-edge",
+                    "color" : "blue",
+                    "shape" : "upright", 
+                    "name" : "Squirtle"
+                }
+            ],
+            "has_next": true,
+            "has_previous": false,
+            "page": 1,
+            "total_items": 9,
+            "total_pages": 3
+        }
 
-## Pokedex Collection [/pokedexes]
+## Pokemon [/pokemon/{pokemon_id}]
++ Parameters
+    + pokemon_id (number) - the ID of a Pokemon
+
+### Get all the attributes of a particular Pokemon. [GET]
++ Response 200 (application/json)
+
+        {
+          "data": {
+            "flavor_text": "Bulbasaur can be seen napping in bright sunlight.\nThere is a seed on its back. By soaking up the sun\u2019s rays,\nthe seed grows progressively larger",
+            "id": 1,
+            "habitat" : "grassland",
+            "color" : "green",
+            "shape" : "quadruped", 
+            "name" : "Bulbasaur",
+            "pokedexes" : [1, 2, 7],
+            "moves" : [33, 15]
+          }
+        }
+
++ Response 404 (application/json)
+
+        {
+            errors': {
+                'pokemon': ['pokemon with id does not exist']
+            }
+        }
+
+# Group Pokedexes
+
+## Pokedex Collection [/pokedexes?page={page}]
++ Parameters
+    + page (number) - (optional, default: 1) the page number. 
 
 ### List All Pokedexes [GET]
 
 + Response 200 (application/json)
 
-        [
+        {
+          "data": [
             {
-                "id": 2,
-                "name": "kanto",
-                "official_name": "Kanto",
-                "region": "kanto",
-                "description": "Red/Blue/Yellow Kanto dex"
+              "description": "Entire National Dex",
+              "id": 1,
+              "name": "national",
+              "official_name": "National",
+              "region": null
+            },
+            {
+              "description": "Red/Blue/Yellow Kanto dexDex",
+              "id": 2,
+              "name": "kanto",
+              "official_name": "Kanto",
+              "region": "kanto"
+            },
+            {
+              "description": "HeartGold/SoulSilver Johto dex—Gold/Silver/Crystal's, extended to add move-based Generation IV evolutions",
+              "id": 7,
+              "name": "updated-johto",
+              "official_name": "Updated Johto",
+              "region": "johto"
             }
-        ]
+          ],
+          "has_next": true,
+          "has_previous": false,
+          "page": 1,
+          "total_items": 15,
+          "total_pages": 5
+        }
 
-## Moves Collection [/moves]
+## Pokedex [/pokedex/{pokedex_id}]
++ Parameters
+    + pokedex_id (number) - the ID of a Pokedex
+
+### Get all the attributes of a particular Pokedex. [GET]
++ Response 200 (application/json)
+
+        {
+          "data": {
+            "description": "Entire National Dex",
+            "id": 1,
+            "name": "national",
+            "official_name": "National",
+            "pokemon": [1, 4, 7],
+            "region": null
+          }
+        }
+
++ Response 404 (application/json)
+
+        {
+            errors': {
+                'pokedex': ['pokedex with id does not exist']
+            }
+        }
+
+# Group Moves
+
+## Moves Collection [/moves?page={page}]
++ Parameters
+    + page (number) - (optional, default: 1) the page number. 
 
 ### List All Moves [GET]
 
 + Response 200 (application/json)
 
-        [
+        {
+          "data": [
             {
-                "id": 33,
-                "name": "Tackle",
-                "flavor_text": "A physical attack in which the user charges and slams into the target with its whole body.",
-                "short_effect": "Inflicts regular damage.",
-                "effect": "Inflicts regular damage with no additional effect.",
-                "damage_class": "physical",
-                "power_points": 35,
-                "power": 50,
-                "accuracy": 100,
+              "flavor_text": "A physical attack in which the user\ncharges and slams into the target\nwith its whole body.",
+              "id": 33,
+              "short_effect" : "Inflicts regular damage with no additional effect.",
+              "effect" : "Inflicts regular damage.",
+              "damage_class" : "physical",
+              "power_points" : 35,
+              "power" : 50,
+              "accuracy" : 100, 
+              "name" : "Tackle"
+            },
+            {
+              "flavor_text": "Hard, pointed, sharp claws rake\nthe target to inflict damage.",
+              "id": 10,
+              "short_effect" : "Inflicts regular damage with no additional effect.",
+              "effect" : "Inflicts regular damage.",
+              "damage_class" : "physical",
+              "power_points" : 35,
+              "power" : 40,
+              "accuracy" : 100, 
+              "name" : "Scratch"
+            },
+            {
+              "flavor_text": "The target is cut with a scythe or claw.\nThis can also be used to cut down thin trees.",
+              "id": 15,
+              "short_effect" : "Inflicts regular damage with no additional effect.",
+              "effect" : "Inflicts regular damage.",
+              "damage_class" : "physical",
+              "power_points" : 30,
+              "power" : 50,
+              "accuracy" : 95, 
+              "name" : "Cut"
             }
-        ]
+          ],
+          "has_next": true,
+          "has_previous": false,
+          "page": 1,
+          "total_items": 9,
+          "total_pages": 3
+        }
+
+## Move [/moves/{move_id}]
++ Parameters
+    + move_id (number) - the ID of a move
+
+### Get all the attributes of a particular Move. [GET]
++ Response 200 (application/json)
+
+        {
+          "data": {
+            "flavor_text": "Hard, pointed, sharp claws rake\nthe target to inflict damage.",
+            "id": 10,
+            "short_effect" : "Inflicts regular damage with no additional effect.",
+            "effect" : "Inflicts regular damage.",
+            "damage_class" : "physical",
+            "power_points" : 35,
+            "power" : 40,
+            "accuracy" : 100, 
+            "name" : "Scratch",
+            "pokemon" : [4]
+          }
+        }
+
++ Response 404 (application/json)
+
+        {
+            errors': {
+                'move': ['move with id does not exist']
+            }
+        }
