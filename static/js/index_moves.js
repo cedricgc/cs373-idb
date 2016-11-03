@@ -1,7 +1,7 @@
 angular.module('movesApp', ['tableApp'])
   .controller('movesController', function($scope, $http, tableService) {
     $scope.loadData = function(page_id) {
-      $http.get('/static/testdata/moves' + page_id + '.json').success(function(data) {
+      $http.get('/api/v1/moves?page=' + page_id).success(function(data) {
         $scope.moves = data["data"];
         $scope.hasPrevious = data["has_previous"];
         $scope.hasNext = data["has_next"];
