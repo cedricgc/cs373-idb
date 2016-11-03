@@ -1,0 +1,42 @@
+{
+  "data": [
+    {
+      "flavor_text": "test data for pagination",
+      "id": 50,
+      "short_effect" : "test data.",
+      "effect" : "test.",
+      "damage_class" : "physical",
+      "power_points" : 35,
+      "power" : 50,
+      "accuracy" : 100, 
+      "name" : "Test Move 1"
+    },
+    {
+      "flavor_text": "test data for pagination",
+      "id": 51,
+      "short_effect" : "test data.",
+      "effect" : "test.",
+      "damage_class" : "physical",
+      "power_points" : 35,
+      "power" : 50,
+      "accuracy" : 100, 
+      "name" : "Test Move 2"
+    },
+    {
+      "flavor_text": "test data for pagination",
+      "id": 52,
+      "short_effect" : "test data.",
+      "effect" : "test.",
+      "damage_class" : "physical",
+      "power_points" : 35,
+      "power" : 50,
+      "accuracy" : 100, 
+      "name" : "Test Move 3"
+    }
+  ],
+  "has_next": true,
+  "has_previous": true,
+  "page": 2,
+  "total_items": 9,
+  "total_pages": 3
+}

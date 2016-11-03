@@ -1,0 +1,10 @@
+{
+  "data": {
+    "description": "Entire National Dex",
+    "id": 1,
+    "name": "national",
+    "official_name": "National",
+    "pokemon": [1, 4, 7],
+    "region": null
+  }
+}

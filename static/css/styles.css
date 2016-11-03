@@ -34,6 +34,34 @@ table th span {
 	width: 7%;
 }
 
+.team-bio {
+	text-align: center;
+}
+
+.unit-tests-row {
+	padding-bottom: 10%;
+}
+
+.about-team-member {
+	width: 25%;
+	height: 100%;
+	display: inline-block;
+    float: none;
+}
+
+.about-photo {
+	width: 90%;
+}
+
+.row.match-my-cols {
+    overflow: hidden; 
+}
+
+.row.match-my-cols [class*="col-"]{
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
+}
+
 .boxed {
 	padding: 1;
 	padding-left: 2;
