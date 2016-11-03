@@ -1,7 +1,7 @@
 angular.module('pokemonApp', ['tableApp'])
   .controller('pokemonController', function($scope, $http, tableService) {
     $scope.loadData = function(page_id) {
-      $http.get('/static/testdata/pokemon' + page_id + '.json').success(function(data) {
+      $http.get('/api/v1/pokemon?page=' + page_id).success(function(data) {
         $scope.pokemon = data["data"];
         $scope.hasPrevious = data["has_previous"];
         $scope.hasNext = data["has_next"];
@@ -11,6 +11,8 @@ angular.module('pokemonApp', ['tableApp'])
 
     //default page to 1
     $scope.currentPage = 1;
+
+    $scope.totalPages = 1;
 
     //load data initially
     $scope.loadData($scope.currentPage);
