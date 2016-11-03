@@ -50,6 +50,51 @@ and moves.
             "total_pages": 3
         }
 
+### Add a Pokemon to the Database [POST]
++ Request (application/json)
+
+        {
+            "flavor_text": "Bulbasaur can be seen napping in bright sunlight.\nThere is a seed on its back. By soaking up the sun\u2019s rays,\nthe seed grows progressively larger",
+            "id": 1,
+            "habitat" : "grassland",
+            "color" : "green",
+            "shape" : "quadruped", 
+            "name" : "Bulbasaur"
+        }
+
++ Response 201 (application/json)
+
+        {
+          "data": {
+            "flavor_text": "Bulbasaur can be seen napping in bright sunlight.\nThere is a seed on its back. By soaking up the sun\u2019s rays,\nthe seed grows progressively larger",
+            "id": 1,
+            "habitat" : "grassland",
+            "color" : "green",
+            "shape" : "quadruped", 
+            "name" : "Bulbasaur",
+            "pokedexes" : [1, 2, 7],
+            "moves" : [33, 15]
+          }
+        }
+
++ Response 400
+
+        {
+            errors': {
+                'input': ['the server could not read the input as JSON']
+            }
+        }
+
++ Response 422
+
+        {
+            errors': {
+                'database': ['Unable to add pokemon to database']
+            }
+        }
+
+
+
 ## Pokemon [/pokemon/{pokemon_id}]
 + Parameters
     + pokemon_id (number) - the ID of a Pokemon
@@ -77,6 +122,87 @@ and moves.
                 'pokemon': ['pokemon with id does not exist']
             }
         }
+
+### Update a Pokemon  [PUT]
++ Request (application/json)
+
+        {
+          "data": {
+            "color" : "red"
+          }
+        }
+
++ Response 200 (application/json)
+
+        {
+          "data": {
+            "flavor_text": "Bulbasaur can be seen napping in bright sunlight.\nThere is a seed on its back. By soaking up the sun\u2019s rays,\nthe seed grows progressively larger",
+            "id": 1,
+            "habitat" : "grassland",
+            "color" : "red",
+            "shape" : "quadruped", 
+            "name" : "Bulbasaur",
+            "pokedexes" : [1, 2, 7],
+            "moves" : [33, 15]
+          }
+        }
+
++ Response 404 (application/json)
+
+        {
+            errors': {
+                'pokemon': ['pokemon with id does not exist']
+            }
+        }
+
++ Response 400 (application/json)
+
+        {
+            errors': {
+                'input': ['the server could not read the input as JSON']
+            }
+        }
+
++ Response 422 (application/json)
+
+        {
+            errors': {
+                'database': ['Unable to update pokemon in database']
+            }
+        }
+
+### Delete a Pokemon [DELETE]
++ Response 200
+
+        {
+          "data": {
+            "flavor_text": "Bulbasaur can be seen napping in bright sunlight.\nThere is a seed on its back. By soaking up the sun\u2019s rays,\nthe seed grows progressively larger",
+            "id": 1,
+            "habitat" : "grassland",
+            "color" : "red",
+            "shape" : "quadruped", 
+            "name" : "Bulbasaur",
+            "pokedexes" : [1, 2, 7],
+            "moves" : [33, 15]
+          }
+        }
+
++ Response 404 (application/json)
+
+        {
+            errors': {
+                'pokemon': ['pokemon with id does not exist']
+            }
+        }
+
++ Response 422 (application/json)
+
+        {
+            errors': {
+                'database': ['Unable to update pokemon in database']
+            }
+        }
+
 
 # Group Pokedexes
 
@@ -119,6 +245,49 @@ and moves.
           "total_pages": 5
         }
 
+### Add a Pokedex to the Database [POST]
++ Request (application/json)
+
+        {
+          "data": {
+            "description": "Entire National Dex",
+            "id": 1,
+            "name": "national",
+            "official_name": "National",
+            "pokemon": [1, 4, 7],
+            "region": null
+          }
+        }
+
++ Response 201 (application/json)
+
+        {
+          "data": {
+            "description": "Entire National Dex",
+            "id": 1,
+            "name": "national",
+            "official_name": "National",
+            "pokemon": [1, 4, 7],
+            "region": null
+          }
+        }
+
++ Response 400
+
+        {
+            errors': {
+                'input': ['the server could not read the input as JSON']
+            }
+        }
+
++ Response 422
+
+        {
+            errors': {
+                'database': ['Unable to add pokedex to database']
+            }
+        }
+
 ## Pokedex [/pokedex/{pokedex_id}]
 + Parameters
     + pokedex_id (number) - the ID of a Pokedex
@@ -144,6 +313,83 @@ and moves.
                 'pokedex': ['pokedex with id does not exist']
             }
         }
+
+### Update a Pokedex  [PUT]
++ Request (application/json)
+
+        {
+          "data": {
+            "region" : "kanto"
+          }
+        }
+
++ Response 200 (application/json)
+
+        {
+          "data": {
+            "description": "Entire National Dex",
+            "id": 1,
+            "name": "national",
+            "official_name": "National",
+            "pokemon": [1, 4, 7],
+            "region": "kanto"
+          }
+        }
+
++ Response 404 (application/json)
+
+        {
+            errors': {
+                'pokedex': ['pokedex with id does not exist']
+            }
+        }
+
++ Response 400 (application/json)
+
+        {
+            errors': {
+                'input': ['the server could not read the input as JSON']
+            }
+        }
+
++ Response 422 (application/json)
+
+        {
+            errors': {
+                'database': ['Unable to update pokedex in database']
+            }
+        }
+
+### Delete a Pokedex [DELETE]
++ Response 200
+
+        {
+          "data": {
+            "description": "Entire National Dex",
+            "id": 1,
+            "name": "national",
+            "official_name": "National",
+            "pokemon": [1, 4, 7],
+            "region": null
+          }
+        }
+
++ Response 404 (application/json)
+
+        {
+            errors': {
+                'pokedex': ['pokedex with id does not exist']
+            }
+        }
+
++ Response 422 (application/json)
+
+        {
+            errors': {
+                'pokedex': ['Unable to update pokedex in database']
+            }
+        }
+
 
 # Group Moves
 
@@ -198,6 +444,59 @@ and moves.
           "total_pages": 3
         }
 
+### Add a Move to the Database [POST]
++ Request (application/json)
+
+        {
+          "data": {
+            "flavor_text": "Hard, pointed, sharp claws rake\nthe target to inflict damage.",
+            "id": 10,
+            "short_effect" : "Inflicts regular damage with no additional effect.",
+            "effect" : "Inflicts regular damage.",
+            "damage_class" : "physical",
+            "power_points" : 35,
+            "power" : 40,
+            "accuracy" : 100, 
+            "name" : "Scratch",
+            "pokemon" : [4]
+          }
+        }
+
+
++ Response 201 (application/json)
+
+        {
+          "data": {
+            "flavor_text": "Hard, pointed, sharp claws rake\nthe target to inflict damage.",
+            "id": 10,
+            "short_effect" : "Inflicts regular damage with no additional effect.",
+            "effect" : "Inflicts regular damage.",
+            "damage_class" : "physical",
+            "power_points" : 35,
+            "power" : 40,
+            "accuracy" : 100, 
+            "name" : "Scratch",
+            "pokemon" : [4]
+          }
+        }
+
+
++ Response 400
+
+        {
+            errors': {
+                'input': ['the server could not read the input as JSON']
+            }
+        }
+
++ Response 422
+
+        {
+            errors': {
+                'database': ['Unable to add move to database']
+            }
+        }
+
 ## Move [/moves/{move_id}]
 + Parameters
     + move_id (number) - the ID of a move
@@ -225,5 +524,91 @@ and moves.
         {
             errors': {
                 'move': ['move with id does not exist']
+            }
+        }
+
+### Update a Move  [PUT]
++ Request (application/json)
+
+        {
+          "data": {
+            "name" : "Fire Blast"
+          }
+        }
+
++ Response 200 (application/json)
+
+        {
+          "data": {
+            "flavor_text": "Hard, pointed, sharp claws rake\nthe target to inflict damage.",
+            "id": 10,
+            "short_effect" : "Inflicts regular damage with no additional effect.",
+            "effect" : "Inflicts regular damage.",
+            "damage_class" : "physical",
+            "power_points" : 35,
+            "power" : 40,
+            "accuracy" : 100, 
+            "name" : "Fire Blast",
+            "pokemon" : [4]
+          }
+        }
+
+
++ Response 404 (application/json)
+
+        {
+            errors': {
+                'move': ['move with id does not exist']
+            }
+        }
+
++ Response 400 (application/json)
+
+        {
+            errors': {
+                'input': ['the server could not read the input as JSON']
+            }
+        }
+
++ Response 422 (application/json)
+
+        {
+            errors': {
+                'database': ['Unable to update move in database']
+            }
+        }
+
+### Delete a Move [DELETE]
++ Response 200
+
+        {
+          "data": {
+            "flavor_text": "Hard, pointed, sharp claws rake\nthe target to inflict damage.",
+            "id": 10,
+            "short_effect" : "Inflicts regular damage with no additional effect.",
+            "effect" : "Inflicts regular damage.",
+            "damage_class" : "physical",
+            "power_points" : 35,
+            "power" : 40,
+            "accuracy" : 100, 
+            "name" : "Scratch",
+            "pokemon" : [4]
+          }
+        }
+
+
++ Response 404 (application/json)
+
+        {
+            errors': {
+                'move': ['move with id does not exist']
+            }
+        }
+
++ Response 422 (application/json)
+
+        {
+            errors': {
+                'move': ['Unable to update move in database']
             }
         }
