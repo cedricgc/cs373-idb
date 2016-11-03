@@ -38,6 +38,10 @@ table th span {
 	text-align: center;
 }
 
+.unit-tests-row {
+	padding-bottom: 10%;
+}
+
 .about-team-member {
 	width: 25%;
 	height: 100%;
