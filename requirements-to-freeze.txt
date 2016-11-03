@@ -10,4 +10,5 @@ gunicorn
 marshmallow-sqlalchemy
 pytest
 pytest-cov
+pytest-flask
 psycopg2
