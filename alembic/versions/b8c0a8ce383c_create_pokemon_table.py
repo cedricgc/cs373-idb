@@ -22,7 +22,7 @@ def upgrade():
         sa.Column('id', sa.Integer, primary_key=True),
         sa.Column('name', sa.Text, unique=True, nullable=False),
         sa.Column('flavor_text', sa.Text, nullable=False),
-        sa.Column('habitat', sa.Text, nullable=False),
+        sa.Column('habitat', sa.Text, nullable=True, default=None),
         sa.Column('color', sa.Text, nullable=False),
         sa.Column('shape', sa.Text, nullable=False),
 

@@ -61,7 +61,7 @@ class Pokemon(Base):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.Text, unique=True, nullable=False)
     flavor_text = db.Column(db.Text, nullable=False)
-    habitat = db.Column(db.Text, nullable=False)
+    habitat = db.Column(db.Text, nullable=True, default=None)
     color = db.Column(db.Text, nullable=False)
     shape = db.Column(db.Text, nullable=False)
 
