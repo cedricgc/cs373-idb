@@ -2,7 +2,7 @@ angular.module('pokedexesApp', ['tableApp'])
   .controller('pokedexesController', function($scope, $http, tableService) {
 
     $scope.loadData = function(page_id) {
-      $http.get('/static/testdata/pokedexes' + page_id + '.json').success(function(data) {
+      $http.get('/api/v1/pokedexes?page=' + page_id).success(function(data) {
         $scope.pokedexes = data["data"];
         $scope.hasPrevious = data["has_previous"];
         $scope.hasNext = data["has_next"];
