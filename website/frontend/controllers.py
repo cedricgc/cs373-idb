@@ -17,6 +17,8 @@ to render data from the controller to the template
 """
 
 
+import subprocess
+
 import flask
 
 from website import frontend_bp
@@ -60,3 +62,11 @@ def index_moves():
 @frontend_bp.route('/moves/<id>', methods=['GET'])
 def show_move(id=None):
     return flask.render_template('show_move.html', id=id)
+
+
+@frontend_bp.route('/test/', methods=['GET'])
+def run_tests():
+    proc = subprocess.run(['make', 'test'], stdout=subprocess.PIPE)
+    stdout = proc.stdout.decode('utf-8')
+
+    return flask.Response(stdout, mimetype='text/plain'), 200
