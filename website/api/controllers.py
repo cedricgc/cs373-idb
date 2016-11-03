@@ -15,6 +15,8 @@ import flask
 import sqlalchemy
 
 from website import api_bp, app, db, ma
+import website.api.models as models
+import website.api.schemas as schemas
 
 app.url_map.strict_slashes = False
 """Disables Werkzeug's strict route interpretation
@@ -26,7 +28,680 @@ it is disabled.
 See: http://flask.pocoo.org/docs/latest/quickstart/#variable-rules
 """
 
+ITEMS_PER_PAGE = 20
 
-@api_bp.route('/hello/', methods=['GET'])
-def hello():
-    return "Hello!"
+pokedex_exclude = ['pokemon']
+pokedex_schema = schemas.PokedexSchema()
+pokedexes_schema = schemas.PokedexSchema(many=True,
+                                         exclude=pokedex_exclude)
+
+pokemon_exclude = ['pokedexes', 'moves']
+pokemon_schema = schemas.PokemonSchema()
+# ¯\_(ツ)_/¯
+pokemons_schema = schemas.PokemonSchema(many=True,
+                                        exclude=pokemon_exclude)
+
+move_exclude = ['pokemon']
+move_schema = schemas.MoveSchema()
+moves_schema = schemas.MoveSchema(many=True,
+                                  exclude=move_exclude)
+
+pokedex_pokemon_schema = schemas.PokedexPokemonSchema()
+pokemon_moves_schema = schemas.PokemonMovesSchema()
+
+
+@api_bp.route('/pokedexes/', methods=['GET'])
+def index_pokedexes():
+    # Retrieve page requested, defaults to the first if none given
+    page = flask.request.args.get('page', 1, type=int)
+    # Pass the noload option or ORM will do uneccessary queries
+    pokedexes_page = models.Pokedex.query.options(
+        sqlalchemy.orm.noload('*')).paginate(page=page, per_page=ITEMS_PER_PAGE)
+    data, errors = pokedexes_schema.dump(pokedexes_page.items)
+
+    response = {
+        'page': pokedexes_page.page,
+        'total_pages': pokedexes_page.pages,
+        'total_items': pokedexes_page.total,
+        'has_next': pokedexes_page.has_next,
+        'has_previous': pokedexes_page.has_prev,
+        'data': data
+    }
+
+    return flask.jsonify(response), 200
+
+
+@api_bp.route('/pokedexes/', methods=['POST'])
+def create_pokedex():
+    json_data = flask.request.get_json()
+    if not json_data:
+        bad_request = {
+            'errors': {
+                'input': ['the server could not read the input as JSON']
+            }
+        }
+
+        return flask.jsonify(bad_request), 400
+
+    if 'data' in json_data:
+        pokedex, errors = pokedex_schema.load(json_data['data'])
+        if errors:
+            bad_request = {
+                'errors': errors
+            }
+
+            return flask.jsonify(bad_request), 422
+
+        try:
+            db.session.add(pokedex)
+            db.session.commit()
+        except sqlalchemy.exc.SQLAlchemyError as e:
+            db_error = {
+                'errors': {
+                    'database': ['Unable to add pokedex to database']
+                }
+            }
+
+            return flask.jsonify(db_error), 422
+
+        created, errors = pokedex_schema.dump(pokedex)
+
+        return flask.jsonify({'data': created}), 201
+
+    else:
+        bad_request = {
+            'errors': {
+                'input': ['missing required "data" key at top level']
+            }
+        }
+
+        return flask.jsonify(bad_request), 422
+
+
+@api_bp.route('/pokedexes/<int:pokedex_id>', methods=['GET'])
+def show_pokedex(pokedex_id):
+    pokedex = models.Pokedex.query.get(pokedex_id)
+    if not pokedex:
+        index_error = {
+            'errors': {
+                'pokedex': ['pokedex with id does not exist']
+            }
+        }
+
+        return flask.jsonify(index_error), 404
+
+    data, errors = pokedex_schema.dump(pokedex)
+
+    return flask.jsonify({'data': data}), 200
+
+
+@api_bp.route('/pokedexes/<int:pokedex_id>', methods=['PUT', 'PATCH'])
+def update_pokedex(pokedex_id):
+    pokedex = models.Pokedex.query.get(pokedex_id)
+    if not pokedex:
+        index_error = {
+            'errors': {
+                'pokedex': ['pokedex with id does not exist']
+            }
+        }
+
+        return flask.jsonify(index_error), 404
+
+    json_data = flask.request.get_json()
+    if not json_data:
+        bad_request = {
+            'errors': {
+                'input': ['the server could not read the input as JSON']
+            }
+        }
+
+        return flask.jsonify(bad_request), 400
+
+    if 'data' in json_data:
+        # instance keyword arg loads data into existing model
+        # all that needs to be done is to commit the change
+        # partial keyword allows for updating only part of the model
+        updated_pokedex, errors = pokedex_schema.load(json_data['data'],
+                                                      instance=pokedex,
+                                                      partial=True)
+        if errors:
+            bad_request = {
+                'errors': errors
+            }
+
+            return flask.jsonify(bad_request), 422
+
+        try:
+            db.session.commit()
+        except sqlalchemy.exc.SQLAlchemyError as e:
+            db_error = {
+                'errors': {
+                    'database': ['Unable to update pokedex in database']
+                }
+            }
+
+            return flask.jsonify(db_error), 422
+
+        updated, errors = pokedex_schema.dump(updated_pokedex)
+
+        return flask.jsonify({'data': updated}), 200
+
+    else:
+        bad_request = {
+            'errors': {
+                'input': ['missing required "data" key at top level']
+            }
+        }
+
+        return flask.jsonify(bad_request), 422
+
+
+@api_bp.route('/pokedexes/<int:pokedex_id>', methods=['DELETE'])
+def delete_pokedex(pokedex_id):
+    pokedex = models.Pokedex.query.get(pokedex_id)
+    if not pokedex:
+        index_error = {
+            'errors': {
+                'pokedex': ['pokedex with id does not exist']
+            }
+        }
+
+        return flask.jsonify(index_error), 404
+
+    try:
+        db.session.delete(pokedex)
+        db.session.commit()
+    except sqlalchemy.exc.SQLAlchemyError as e:
+        db_error = {
+            'errors': {
+                'database': ['Unable to delete pokedex in database']
+            }
+        }
+
+        return flask.jsonify(db_error), 422
+
+    deleted, errors = pokedex_schema.dump(pokedex)
+
+    return flask.jsonify({'data': deleted}), 200
+
+
+@api_bp.route('/pokemon/', methods=['GET'])
+def index_pokemon():
+    page = flask.request.args.get('page', 1, type=int)
+    pokemon_page = models.Pokemon.query.options(
+        sqlalchemy.orm.noload('*')).paginate(page=page, per_page=ITEMS_PER_PAGE)
+    data, errors = pokemons_schema.dump(pokemon_page.items)
+
+    response = {
+        'page': pokemon_page.page,
+        'total_pages': pokemon_page.pages,
+        'total_items': pokemon_page.total,
+        'has_next': pokemon_page.has_next,
+        'has_previous': pokemon_page.has_prev,
+        'data': data
+    }
+
+    return flask.jsonify(response), 200
+
+
+@api_bp.route('/pokemon/', methods=['POST'])
+def create_pokemon():
+    json_data = flask.request.get_json()
+    if not json_data:
+        bad_request = {
+            'errors': {
+                'input': ['the server could not read the input as JSON']
+            }
+        }
+
+        return flask.jsonify(bad_request), 400
+
+    if 'data' in json_data:
+        pokemon, errors = pokemon_schema.load(json_data['data'])
+        if errors:
+            bad_request = {
+                'errors': errors
+            }
+
+            return flask.jsonify(bad_request), 422
+
+        try:
+            db.session.add(pokemon)
+            db.session.commit()
+        except sqlalchemy.exc.SQLAlchemyError as e:
+            db_error = {
+                'errors': {
+                    'database': ['Unable to add pokemon to database']
+                }
+            }
+
+            return flask.jsonify(db_error), 422
+
+        created, errors = pokemon_schema.dump(pokemon)
+
+        return flask.jsonify({'data': created}), 201
+
+    else:
+        bad_request = {
+            'errors': {
+                'input': ['missing required "data" key at top level']
+            }
+        }
+
+        return flask.jsonify(bad_request), 422
+
+
+@api_bp.route('/pokemon/<int:pokemon_id>', methods=['GET'])
+def show_pokemon(pokemon_id):
+    pokemon = models.Pokemon.query.get(pokemon_id)
+    if not pokemon:
+        index_error = {
+            'errors': {
+                'pokemon': ['pokemon with id does not exist']
+            }
+        }
+
+        return flask.jsonify(index_error), 404
+
+    data, errors = pokemon_schema.dump(pokemon)
+
+    return flask.jsonify({'data': data}), 200
+
+
+@api_bp.route('/pokemon/<int:pokemon_id>', methods=['PUT', 'PATCH'])
+def update_pokemon(pokemon_id):
+    pokemon = models.Pokemon.query.get(pokemon_id)
+    if not pokemon:
+        index_error = {
+            'errors': {
+                'pokemon': ['pokemon with id does not exist']
+            }
+        }
+
+        return flask.jsonify(index_error), 404
+
+    json_data = flask.request.get_json()
+    if not json_data:
+        bad_request = {
+            'errors': {
+                'input': ['the server could not read the input as JSON']
+            }
+        }
+
+        return flask.jsonify(bad_request), 400
+
+    if 'data' in json_data:
+        updated_pokemon, errors = pokemon_schema.load(json_data['data'],
+                                                      instance=pokemon,
+                                                      partial=True)
+        if errors:
+            bad_request = {
+                'errors': errors
+            }
+
+            return flask.jsonify(bad_request), 422
+
+        try:
+            db.session.commit()
+        except sqlalchemy.exc.SQLAlchemyError as e:
+            db_error = {
+                'errors': {
+                    'database': ['Unable to update pokemon in database']
+                }
+            }
+
+            return flask.jsonify(db_error), 422
+
+        updated, errors = pokemon_schema.dump(updated_pokemon)
+
+        return flask.jsonify({'data': updated}), 200
+
+    else:
+        bad_request = {
+            'errors': {
+                'input': ['missing required "data" key at top level']
+            }
+        }
+
+        return flask.jsonify(bad_request), 422
+
+
+@api_bp.route('/pokemon/<int:pokemon_id>', methods=['DELETE'])
+def delete_pokemon(pokemon_id):
+    pokemon = models.Pokemon.query.get(pokemon_id)
+    if not pokemon:
+        index_error = {
+            'errors': {
+                'pokemon': ['pokemon with id does not exist']
+            }
+        }
+
+        return flask.jsonify(index_error), 404
+
+    try:
+        db.session.delete(pokemon)
+        db.session.commit()
+    except sqlalchemy.exc.SQLAlchemyError as e:
+        db_error = {
+            'errors': {
+                'database': ['Unable to delete pokemon in database']
+            }
+        }
+
+        return flask.jsonify(db_error), 422
+
+    deleted, errors = pokemon_schema.dump(pokemon)
+
+    return flask.jsonify({'data': deleted}), 200
+
+
+@api_bp.route('/moves/', methods=['GET'])
+def index_moves():
+    page = flask.request.args.get('page', 1, type=int)
+    moves_page = models.Move.query.options(
+        sqlalchemy.orm.noload('*')).paginate(page=page, per_page=ITEMS_PER_PAGE)
+    data, errors = moves_schema.dump(moves_page.items)
+
+    response = {
+        'page': moves_page.page,
+        'total_pages': moves_page.pages,
+        'total_items': moves_page.total,
+        'has_next': moves_page.has_next,
+        'has_previous': moves_page.has_prev,
+        'data': data
+    }
+
+    return flask.jsonify(response), 200
+
+
+@api_bp.route('/moves/', methods=['POST'])
+def create_move():
+    json_data = flask.request.get_json()
+    if not json_data:
+        bad_request = {
+            'errors': {
+                'input': ['the server could not read the input as JSON']
+            }
+        }
+
+        return flask.jsonify(bad_request), 400
+
+    if 'data' in json_data:
+        move, errors = move_schema.load(json_data['data'])
+        if errors:
+            bad_request = {
+                'errors': errors
+            }
+
+            return flask.jsonify(bad_request), 422
+
+        try:
+            db.session.add(move)
+            db.session.commit()
+        except sqlalchemy.exc.SQLAlchemyError as e:
+            db_error = {
+                'errors': {
+                    'database': ['Unable to add move to database']
+                }
+            }
+
+            return flask.jsonify(db_error), 422
+
+        created, errors = move_schema.dump(move)
+
+        return flask.jsonify({'data': created}), 201
+
+    else:
+        bad_request = {
+            'errors': {
+                'input': ['missing required "data" key at top level']
+            }
+        }
+
+        return flask.jsonify(bad_request), 422
+
+
+@api_bp.route('/moves/<int:move_id>', methods=['GET'])
+def show_move(move_id):
+    move = models.Move.query.get(move_id)
+    if not move:
+        index_error = {
+            'errors': {
+                'move': ['move with id does not exist']
+            }
+        }
+
+        return flask.jsonify(index_error), 404
+
+    data, errors = move_schema.dump(move)
+
+    return flask.jsonify({'data': data}), 200
+
+
+@api_bp.route('/moves/<int:move_id>', methods=['PUT', 'PATCH'])
+def update_move(move_id):
+    move = models.Move.query.get(move_id)
+    if not move:
+        index_error = {
+            'errors': {
+                'move': ['move with id does not exist']
+            }
+        }
+
+        return flask.jsonify(index_error), 404
+
+    json_data = flask.request.get_json()
+    if not json_data:
+        bad_request = {
+            'errors': {
+                'input': ['the server could not read the input as JSON']
+            }
+        }
+
+        return flask.jsonify(bad_request), 400
+
+    if 'data' in json_data:
+        updated_move, errors = move_schema.load(json_data['data'],
+                                                instance=move,
+                                                partial=True)
+        if errors:
+            bad_request = {
+                'errors': errors
+            }
+
+            return flask.jsonify(bad_request), 422
+
+        try:
+            db.session.commit()
+        except sqlalchemy.exc.SQLAlchemyError as e:
+            db_error = {
+                'errors': {
+                    'database': ['Unable to update move in database']
+                }
+            }
+
+            return flask.jsonify(db_error), 422
+
+        updated, errors = move_schema.dump(updated_move)
+
+        return flask.jsonify({'data': updated}), 200
+
+    else:
+        bad_request = {
+            'errors': {
+                'input': ['missing required "data" key at top level']
+            }
+        }
+
+        return flask.jsonify(bad_request), 422
+
+
+@api_bp.route('/moves/<int:move_id>', methods=['DELETE'])
+def delete_move(move_id):
+    move = models.Move.query.get(move_id)
+    if not move:
+        index_error = {
+            'errors': {
+                'move': ['move with id does not exist']
+            }
+        }
+
+        return flask.jsonify(index_error), 404
+
+    try:
+        db.session.delete(move)
+        db.session.commit()
+    except sqlalchemy.exc.SQLAlchemyError as e:
+        db_error = {
+            'errors': {
+                'database': ['Unable to delete move in database']
+            }
+        }
+
+        return flask.jsonify(db_error), 422
+
+    deleted, errors = move_schema.dump(move)
+
+    return flask.jsonify({'data': deleted}), 200
+
+
+@api_bp.route('/pokedex_pokemon/', methods=['POST'])
+def associate_pokedex_pokemon():
+    json_data = flask.request.get_json()
+    if not json_data:
+        bad_request = {
+            'errors': {
+                'input': ['the server could not read the input as JSON']
+            }
+        }
+
+        return flask.jsonify(bad_request), 400
+
+    if 'data' in json_data:
+        relationship, errors = pokedex_pokemon_schema.load(json_data['data'])
+        if errors:
+            bad_request = {
+                'errors': errors
+            }
+
+            return flask.jsonify(bad_request), 422
+
+        pokedex = models.Pokedex.query.get(relationship['pokedex_id'])
+        if not pokedex:
+            index_error = {
+                'errors': {
+                    'pokedex': ['pokedex with id does not exist']
+                }
+            }
+
+            return flask.jsonify(index_error), 404
+
+        pokemon = models.Pokemon.query.get(relationship['pokemon_id'])
+        if not pokemon:
+            index_error = {
+                'errors': {
+                    'pokemon': ['pokemon with id does not exist']
+                }
+            }
+
+            return flask.jsonify(index_error), 404
+
+        try:
+            # Row created in association table implicitly
+            pokedex.pokemon.append(pokemon)
+            db.session.commit()
+        except sqlalchemy.exc.SQLAlchemyError as e:
+            db_error = {
+                'errors': {
+                    'database': ['Unable to associate pokedex and pokemon']
+                }
+            }
+
+            return flask.jsonify(db_error), 422
+
+        response = {
+            'data': {
+                'success': True
+            }
+        }
+        return flask.jsonify(response), 200
+
+    else:
+        bad_request = {
+            'errors': {
+                'input': ['missing required "data" key at top level']
+            }
+        }
+
+        return flask.jsonify(bad_request), 422
+
+
+@api_bp.route('/pokemon_moves/', methods=['POST'])
+def associate_pokemon_moves():
+    json_data = flask.request.get_json()
+    if not json_data:
+        bad_request = {
+            'errors': {
+                'input': ['the server could not read the input as JSON']
+            }
+        }
+
+        return flask.jsonify(bad_request), 400
+
+    if 'data' in json_data:
+        relationship, errors = pokemon_moves_schema.load(json_data['data'])
+        if errors:
+            bad_request = {
+                'errors': errors
+            }
+
+            return flask.jsonify(bad_request), 422
+
+        pokemon = models.Pokemon.query.get(relationship['pokemon_id'])
+        if not pokemon:
+            index_error = {
+                'errors': {
+                    'pokemon': ['pokemon with id does not exist']
+                }
+            }
+
+            return flask.jsonify(index_error), 404
+
+        move = models.Move.query.get(relationship['move_id'])
+        if not move:
+            index_error = {
+                'errors': {
+                    'move': ['move with id does not exist']
+                }
+            }
+
+            return flask.jsonify(index_error), 404
+
+        try:
+            # Row created in association table implicitly
+            pokemon.moves.append(move)
+            db.session.commit()
+        except sqlalchemy.exc.SQLAlchemyError as e:
+            db_error = {
+                'errors': {
+                    'database': ['Unable to associate pokemon and move']
+                }
+            }
+
+            return flask.jsonify(db_error), 422
+
+        response = {
+            'data': {
+                'success': True
+            }
+        }
+        return flask.jsonify(response), 200
+
+    else:
+        bad_request = {
+            'errors': {
+                'input': ['missing required "data" key at top level']
+            }
+        }
+
+        return flask.jsonify(bad_request), 422

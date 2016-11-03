@@ -2,166 +2,193 @@
 {% extends "layout.html" %}
 {% block title %}About{% endblock %}
 {% block content %}
-<div ng-app="About">
- <!-- CONTAINER -->
-  <div class="container">
+<div ng-app="aboutApp">
+  <div ng-controller="aboutController">
+    <!-- CONTAINER -->
+    <div class="container">
 
-    <!-- THE TEAM -->
-    <div class="row team-bio">
-      <h1 class="header-centered">About</h1>
+      <h1 class="header-centered">About Team Pokemans</h1>
+      <hr>
 
-      <!-- Paola Jara-->
-      <div class="col-sm-6 col-md-4 about-team-member">
-        <div class="thumbnail">
-          <img src="/static/images/paola.jpg">
-          <div class="caption">
-            <h3>Pokemon Trainer: Paola Jara</h3>
-            <hr>
-            <p class="header-centered"><b>Bio</b></p>
-            <p class="header-centered">Senior. Web and Application Developer</p>
-            <p class="header-centered"><b>Major Responsibilities</b></p>
-            <p class="header-centered">Front End</p>
-            <p class="header-centered"><b>Stats</b></p>
-            <p class="header-centered"><b># of commits: </b>5</p>
-            <p class="header-centered"><b># of issues: </b>1</p>
-            <p class="header-centered"><b># of unit tests: </b>0</p>
+      <!-- THE TEAM -->
+      <div class="row team-bio match-my-cols">
+
+        <!-- Paola Jara-->
+        <div class="col-sm-6 about-team-member">
+            <img class="about-photo img-circle" src="/static/images/paola.jpg">
+            <div class="caption">
+              <h3>Pokemon Trainer: Paola Jara</h3>
+              <hr>
+              <p class="header-centered"><b>Bio</b></p>
+              <p class="header-centered">Senior. Web and Application Developer</p>
+              <p class="header-centered"><b>Major Responsibilities</b></p>
+              <p class="header-centered">Front End</p>
+              <p class="header-centered"><b>Stats</b></p>
+              <p class="header-centered"><b># of commits: </b>5</p>
+              <p class="header-centered"><b># of issues: </b>1</p>
+              <p class="header-centered"><b># of unit tests: </b>0</p>
+            </div>
+        </div>
+
+
+        <!-- Ali Rashed-->
+        <div class="col-sm-6 about-team-member">
+            <img class="about-photo img-circle" src="/static/images/ali.jpg">
+            <div class="caption">
+              <h3>Pokemon Trainer: Ali Rashed</h3>
+              <hr>
+              <p class="header-centered"><b>Bio</b></p>
+              <p class="header-centered">Senior, graduating this fall</p>
+              <p class="header-centered"><b>Major Responsibilities</b></p>
+              <p class="header-centered">Front End</p>
+              <p class="header-centered"><b>Stats</b></p>
+              <p class="header-centered"><b># of commits: </b>37</p>
+              <p class="header-centered"><b># of issues: </b>10</p>
+              <p class="header-centered"><b># of unit tests: </b>0</p>
+            </div>
+        </div>
+
+
+        <!-- Will Truong -->
+        <div class="col-sm-6 about-team-member">
+            <img class="about-photo img-circle" src="/static/images/will.jpg">
+            <div class="caption">
+              <h3>Pokemon Trainer: Will Truong </h3>
+              <hr>
+              <p class="header-centered"><b>Bio</b></p>
+              <p class="header-centered">Senior, working at Google</p>
+              <p class="header-centered"><b>Major Responsibilities</b></p>
+              <p class="header-centered">Front End, hosting</p>
+              <p class="header-centered"><b>Stats</b></p>
+              <p class="header-centered"><b># of commits: </b>2</p>
+              <p class="header-centered"><b># of issues: </b>1</p>
+              <p class="header-centered"><b># of unit tests: </b>0</p>
+            </div>
+        </div>
+      </div>
+
+      <div class="row team-bio match-my-cols">
+
+        <!-- Cedric Charly -->
+        <div class="col-sm-6 about-team-member">
+            <img class="about-photo img-circle" src="/static/images/cedric.jpg">
+            <div class="caption">
+              <h3>Pokemon Trainer: Cedric Charly</h3>
+              <hr>
+              <p class="header-centered"><b>Bio</b></p>
+              <p class="header-centered">Senior, works at Intel</p>
+              <p class="header-centered"><b>Major Responsibilities</b></p>
+              <p class="header-centered">Built the backend, API, and deployment tooling</p>
+              <p class="header-centered"><b>Stats</b></p>
+              <p class="header-centered"><b># of commits:</b>42</p>
+              <p class="header-centered"><b># of issues:</b>7</p>
+              <p class="header-centered"><b># of unit tests:</b>10</p>
+            </div>
+        </div>
+
+        <!--Samuel Williamson  -->
+        <div class="col-sm-6 about-team-member">
+            <img class="about-photo img-circle" src="/static/images/samuel.jpg">
+            <div class="caption">
+              <h3>Pokemon Trainer: Samuel Williamson</h3>
+              <hr>
+              <p class="header-centered"><b>Bio</b></p>
+              <p class="header-centered">Lifelong Austinite and senior undergraduate</p>
+              <p class="header-centered"><b>Major Responsibilities</b></p>
+              <p class="header-centered">Front End</p>
+              <p class="header-centered"><b>Stats</b></p>
+              <p class="header-centered"><b># of commits:</b> 2</p>
+              <p class="header-centered"><b># of issues:</b> 0</p>
+              <p class="header-centered"><b># of unit tests:</b> 0</p>
+            </div>
+        </div>
+
+      </div>
+      <!-- TEAM END -->
+      <hr>
+      <div class="row">
+        <!-- TOOLS START -->
+  	    <div class="tools col-md-3">
+          <h1 class="header-centered">Tools</h1>
+  			  <div class="row">
+              <h4 class="header-centered">Flask</h4>
+              <h4 class="header-centered">Angular JS</h4>
+              <h4 class="header-centered">Bootstrap</h4>
+              <h4 class="header-centered">Saltstack</h4>
+              <h4 class="header-centered">yUML</h4>
+              <h4 class="header-centered">Apiary</h4>
+              <h4 class="header-centered">Github</h4>
+          </div>
+        </div>
+
+        <!-- Stats START -->
+        <div class="stats col-md-3">
+          <h1 class="header-centered">Team Stats</h1>
+          <div class="row">
+            <h4 class="header-centered">Aggregate Commits: 85</h4>
+            <h4 class="header-centered">Aggregate Issues: 18</h4>
+            <h4 class="header-centered">Aggregate Unit Tests: 10</h4>
+        	</div>
+        </div>
+
+        <!-- Links start -->
+        <div class="links col-md-3">
+          <h1 class="header-centered">Team Stats</h1>
+          <div class="row">
+            <h4 class="header-centered"><a href="http://docs.pokemans.apiary.io/" >Apiary API</a></h4>
+            <h4 class="header-centered"><a href="https://github.com/cedricgc/cs373-idb/issues" >GitHub Issue Tracker</a></h4>
+            <h4 class="header-centered"><a href="https://github.com/cedricgc/cs373-idb" >GitHub Repo</a></h4>
+            <h4 class="header-centered"><a href="https://github.com/cedricgc/cs373-idb/wiki" >GitHub Wiki</a></h4>
+          </div>
+        </div>
+
+        <div class="data col-md-3">
+          <h1 class="header-centered">Data</h1>
+          <div class="row">
+            <h4 class="header-centered"><a href="http://pokeapi.co/">PokeAPI</a></h4>
+            <p class="header-centered">Data for this phase of the project was manually collected from the PokeAPI by hitting the appropriate endpoints and copying over the data.</p>
           </div>
         </div>
       </div>
 
+      <hr>
 
-      <!-- Ali Rashed-->
-      <div class="col-sm-6 col-md-4 about-team-member">
-        <div class="thumbnail">
-          <img src="/static/images/ali.jpg">
-          <div class="caption">
-            <h3>Pokemon Trainer: Ali Rashed</h3>
-            <hr>
-            <p class="header-centered"><b>Bio</b></p>
-            <p class="header-centered">I'm a senior Computer Science major at UT-Austin. After I graduate, I'm starting my career as a software engineer here in Austin.</p>
-            <p class="header-centered"><b>Major Responsibilities</b></p>
-            <p class="header-centered">Front End</p>
-            <p class="header-centered"><b>Stats</b></p>
-            <p class="header-centered"><b># of commits: </b>37</p>
-            <p class="header-centered"><b># of issues: </b>10</p>
-            <p class="header-centered"><b># of unit tests: </b>0</p>
+      <div class="row unit-tests-row">
+        <h1 class="header-centered">Unit Tests</h1>
+
+        <div class="col-sm-12">
+          <div class="text-center">
+            <button class="btn btn-primary" id="unit-tests" data-toggle="modal" data-target="#unitTestModal" ng-click="runUnitTests()">Run Our Unit Tests</button>
           </div>
+
+          <div id="unitTestModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title header-centered">Our Unit Tests</h4>
+                </div>
+                <div class="modal-body">
+                  <p>{{'{{unitTestWelcome}}'}}</p>
+                  <p>{{'{{unitTestResults}}'}}</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
 
-      <!-- Will Truong -->
-      <div class="col-sm-6 col-md-4 about-team-member">
-        <div class="thumbnail">
-          <img src="/static/images/will.jpg">
-          <div class="caption">
-            <h3>Pokemon Trainer: Will Truong </h3>
-            <hr>
-            <p class="header-centered"><b>Bio</b></p>
-            <p class="header-centered">Senior, working at Google</p>
-            <p class="header-centered"><b>Major Responsibilities</b></p>
-            <p class="header-centered">Front End, hosting</p>
-            <p class="header-centered"><b>Stats</b></p>
-            <p class="header-centered"><b># of commits: </b>2</p>
-            <p class="header-centered"><b># of issues: </b>1</p>
-            <p class="header-centered"><b># of unit tests: </b>0</p>
-          </div>
-        </div>
-      </div>
     </div>
-
-    <div class="row team-bio about-team-member">
-
-      <!-- Cedric Charly -->
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <img src="/static/images/cedric.jpg">
-          <div class="caption">
-            <h3>Pokemon Trainer: Cedric Charly</h3>
-            <hr>
-            <p class="header-centered"><b>Bio</b></p>
-            <p class="header-centered">Senior, works at Intel</p>
-            <p class="header-centered"><b>Major Responsibilities</b></p>
-            <p class="header-centered">Built the backend, API, and deployment tooling</p>
-            <p class="header-centered"><b>Stats</b></p>
-            <p class="header-centered"><b># of commits:</b>42</p>
-            <p class="header-centered"><b># of issues:</b>7</p>
-            <p class="header-centered"><b># of unit tests:</b>10</p>
-          </div>
-        </div>
-      </div>
-
-      <!--Samuel Williamson  -->
-      <div class="col-sm-6 col-md-4 about-team-member">
-        <div class="thumbnail">
-          <img src="/static/images/samuel.jpg">
-          <div class="caption">
-            <h3>Pokemon Trainer: Samuel Williamson</h3>
-            <hr>
-            <p class="header-centered"><b>Bio</b></p>
-            <p class="header-centered">Lifelong Austinite and senior undergraduate</p>
-            <p class="header-centered"><b>Major Responsibilities</b></p>
-            <p class="header-centered">Front End</p>
-            <p class="header-centered"><b>Stats</b></p>
-            <p class="header-centered"><b># of commits:</b> 2</p>
-            <p class="header-centered"><b># of issues:</b> 0</p>
-            <p class="header-centered"><b># of unit tests:</b> 0</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- TEAM END -->
-
-    <div class="row">
-      <!-- TOOLS START -->
-	    <div class="tools col-md-3">
-        <h1 class="header-centered">Tools</h1>
-			  <div class="row">
-            <h4 class="header-centered">Flask</h4>
-            <h4 class="header-centered">Angular JS</h4>
-            <h4 class="header-centered">Bootstrap</h4>
-            <h4 class="header-centered">Saltstack</h4>
-            <h4 class="header-centered">yUML</h4>
-            <h4 class="header-centered">Apiary</h4>
-            <h4 class="header-centered">Github</h4>
-        </div>
-      </div>
-
-      <!-- Stats START -->
-      <div class="stats col-md-3">
-        <h1 class="header-centered">Team Stats</h1>
-        <div class="row">
-          <h4 class="header-centered">Aggregate Commits: 85</h4>
-          <h4 class="header-centered">Aggregate Issues: 18</h4>
-          <h4 class="header-centered">Aggregate Unit Tests: 10</h4>
-      	</div>
-      </div>
-
-      <!-- Links start -->
-      <div class="links col-md-3">
-        <h1 class="header-centered">Team Stats</h1>
-        <div class="row">
-          <h4 class="header-centered"><a href="http://docs.pokemans.apiary.io/" >Apiary API</a></h4>
-          <h4 class="header-centered"><a href="https://github.com/cedricgc/cs373-idb/issues" >GitHub Issue Tracker</a></h4>
-          <h4 class="header-centered"><a href="https://github.com/cedricgc/cs373-idb" >GitHub Repo</a></h4>
-          <h4 class="header-centered"><a href="https://github.com/cedricgc/cs373-idb/wiki" >GitHub Wiki</a></h4>
-        </div>
-      </div>
-
-      <div class="data col-md-3">
-        <h1 class="header-centered">Data</h1>
-        <div class="row">
-          <h4 class="header-centered"><a href="http://pokeapi.co/">PokeAPI</a></h4>
-          <p class="header-centered">Data for this phase of the project was manually collected from the PokeAPI by hitting the appropriate endpoints and copying over the data.</p>
-        </div>
-      </div>
-
-    </div>
-
   </div>
 </div>
 {% endblock %}
 {% block scripts %}
 {{ super() }}
-
+<!-- Download our scripts after vendor libs -->
+<script src="/static/js/about.js"></script>
 {% endblock %}

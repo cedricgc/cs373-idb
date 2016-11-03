@@ -1,0 +1,12 @@
+{
+  "data": {
+    "flavor_text": "Squirtle\u2019s shell is not merely used for protection.\nThe shell\u2019s rounded shape and the grooves on its\nsurface help minimize resistance in water,\nenabling this Pok\u00e9mon to swim at high speeds.",
+    "id": 7,
+    "habitat" : "waters-edge",
+    "color" : "blue",
+    "shape" : "upright", 
+    "name" : "Squirtle",
+    "pokedexes" : [1, 2, 7],
+    "moves" : [33]
+  }
+}

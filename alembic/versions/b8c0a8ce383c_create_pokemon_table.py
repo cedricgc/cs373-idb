@@ -20,7 +20,7 @@ def upgrade():
     op.create_table(
         'pokemon',
         sa.Column('id', sa.Integer, primary_key=True),
-        sa.Column('name', sa.Text, nullable=False),
+        sa.Column('name', sa.Text, unique=True, nullable=False),
         sa.Column('flavor_text', sa.Text, nullable=False),
         sa.Column('habitat', sa.Text, nullable=False),
         sa.Column('color', sa.Text, nullable=False),

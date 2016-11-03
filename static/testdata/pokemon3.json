@@ -1,0 +1,33 @@
+{
+  "data": [
+    {
+      "flavor_text": "dummy data for pagination",
+      "id": 11,
+      "habitat" : "test habitat",
+      "color" : "test color",
+      "shape" : "test shape", 
+      "name" : "test pokemon 4"
+    },
+    {
+      "flavor_text": "dummy data for pagination",
+      "id": 12,
+      "habitat" : "test habitat",
+      "color" : "test color",
+      "shape" : "test shape", 
+      "name" : "test pokemon 5"
+    },
+    {
+      "flavor_text": "dummy data for pagination",
+      "id": 13,
+      "habitat" : "test habitat",
+      "color" : "test color",
+      "shape" : "test shape", 
+      "name" : "test pokemon 6"
+    }
+  ],
+  "has_next": true,
+  "has_previous": true,
+  "page": 3,
+  "total_items": 9,
+  "total_pages": 3
+}

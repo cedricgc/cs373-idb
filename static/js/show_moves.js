@@ -3,22 +3,16 @@ angular.module('moveApp', [])
     $scope.moves = [];
     $scope.pokemon = [];
     $scope.getData = function (move_id) {
-      $http.get('/static/testdata.json')
+      $http.get('/static/testdata/moves/' + move_id + '.json')
         .success(function(data) {
-          var all_moves = data["moves"];
-          var all_pokemon = data["pokemon"];
-          angular.forEach(all_moves, function(value, index) {
-            if(value["id"] == move_id) {
-              $scope.moves.push(value);
-            }
-        });
+          $scope.moves.push(data["data"]);
+          var pokemon_ids = data["data"]["pokemon"];
 
-        angular.forEach(all_pokemon, function(value, index) {
-          var pokemon_id_index = $scope.moves[0]["pokemon"].indexOf(value["id"]);
-          if(pokemon_id_index != -1) {
-            $scope.pokemon.push(value);
-           }
-        });
-      });
-    }
+          angular.forEach(pokemon_ids, function(value, index) {
+            $http.get('/static/testdata/pokemon/' + value + '.json')
+              .success(function(pokemon_data) {
+                $scope.pokemon.push(pokemon_data["data"]);
+              });
+          });
+      });    }
   });

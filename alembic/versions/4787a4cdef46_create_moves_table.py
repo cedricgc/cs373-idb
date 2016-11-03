@@ -20,7 +20,7 @@ def upgrade():
     op.create_table(
         'moves',
         sa.Column('id', sa.Integer, primary_key=True),
-        sa.Column('name', sa.Text, nullable=False),
+        sa.Column('name', sa.Text, unique=True, nullable=False),
         sa.Column('flavor_text', sa.Text, nullable=False),
         sa.Column('short_effect', sa.Text, nullable=False),
         sa.Column('effect', sa.Text, nullable=False),

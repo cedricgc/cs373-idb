@@ -1,0 +1,30 @@
+{
+  "data": [
+    {
+      "description": "dummy dex to pad pages",
+      "id": 14,
+      "name": "testdex7",
+      "official_name": "Test Dex 7",
+      "region": null
+    },
+    {
+      "description": "dummy dex to pad pages",
+      "id": 15,
+      "name": "testdex8",
+      "official_name": "Test Dex 8",
+      "region": null
+    },
+    {
+      "description": "dummy dex to pad pages",
+      "id": 16,
+      "name": "testdex9",
+      "official_name": "Test Dex 9",
+      "region": null
+    }
+  ],
+  "has_next": true,
+  "has_previous": true,
+  "page": 4,
+  "total_items": 15,
+  "total_pages": 5
+}

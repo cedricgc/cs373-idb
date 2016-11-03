@@ -1,0 +1,10 @@
+{
+  "data": {
+    "description": "Red/Blue/Yellow Kanto dex",
+    "id": 2,
+    "name": "kanto",
+    "official_name": "Kanto",
+    "pokemon": [1, 4, 7],
+    "region": "kanto"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "data": {
+    "description": "HeartGold/SoulSilver Johto dex—Gold/Silver/Crystal's, extended to add move-based Generation IV evolutions",
+    "id": 7,
+    "name": "updated-johto",
+    "official_name": "Updated Johto",
+    "pokemon": [1, 4, 7],
+    "region": "johto"
+  }
+}

@@ -62,6 +62,35 @@
       <td>{{ '{{m.power_points}}' }}</td>
       <td>{{ '{{m.accuracy}}' }}</td>
     </tr>
+    <tfoot>
+      <td colspan="9">
+        <div class="text-center">
+          <ul class="pagination">
+            <li ng-class="{disabled: !hasPrevious}">
+              <a href ng-click="prevPage()">« Prev</a>
+            </li>
+            <li ng-hide="currentPage <= 2">
+              <a href ng-click="setPage(1)">1</a>
+            </li>
+            <li ng-hide="currentPage <= 2">
+              <a href ng-click="skipBack()">...</a>
+            </li>
+            <li ng-repeat="n in pageRange()" ng-class="{active: n == currentPage}" ng-click="setPage(n)">
+              <a href ng-bind="n">1</a>
+            </li>
+            <li ng-hide="totalPages - currentPage <= 2">
+              <a href ng-click="skipForward()">...</a>
+            </li>
+            <li ng-hide="totalPages - currentPage <= 2">
+              <a href ng-click="setPage(totalPages)">{{'{{totalPages}}'}}</a>
+            </li>
+            <li ng-class="{disabled: !hasNext}">
+              <a href ng-click="nextPage()">Next »</a>
+            </li>
+          </ul>
+        </div>
+      </td>
+    </tfoot>
   </table>
   </div>
 </div>
