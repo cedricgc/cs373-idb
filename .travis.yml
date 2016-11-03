@@ -15,7 +15,7 @@ before_install:
   - make pkgs
 
 script:
-  - make test
+  - make test_all
 
 notifications:
   slack:
