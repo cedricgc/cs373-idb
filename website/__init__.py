@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 
 
+import logging
+import sys
+
 import flask
 import flask_marshmallow
 import flask_sqlalchemy
@@ -43,6 +46,13 @@ ma = flask_marshmallow.Marshmallow(app)
 flask_marshmallow integrates with Flask and SQLAlchemy to allow for
 generation of validators for API inputs directly from a SQLAlchemy model
 """
+
+
+@app.before_first_request
+def setup_logging():
+    app.logger.addHandler(logging.StreamHandler(sys.stdout))
+    app.logger.setLevel(logging.DEBUG)
+
 
 # We import controllers after top level object or interpreter would crash
 # due to circular dependencies
