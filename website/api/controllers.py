@@ -14,19 +14,10 @@ flask converts return values to Response objects.
 import flask
 import sqlalchemy
 
-from website import api_bp, app, db, ma
+from website import api_bp, db, ma
 import website.api.models as models
 import website.api.schemas as schemas
 
-app.url_map.strict_slashes = False
-"""Disables Werkzeug's strict route interpretation
-
-There are good reasons for enforcing strict slashes for form posts and
-indexability, but it is inconvienent when interacting with an API so
-it is disabled.
-
-See: http://flask.pocoo.org/docs/latest/quickstart/#variable-rules
-"""
 
 ITEMS_PER_PAGE = 20
 
