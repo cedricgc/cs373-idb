@@ -612,3 +612,93 @@ and moves.
                 'move': ['Unable to update move in database']
             }
         }
+
+# Group Associations
+
+## Pokemon and Pokedex [/pokedex_pokemon/]
+
+### Associate a Pokemon with a Pokedex [POST]
++ Request (application/json)
+
+        {
+          "data": {
+            "pokemon_id" : 1,
+            "pokedex_id" : 8
+          }
+        }
+
++ Response 200
+
+        {
+          "data": {
+            "success" : True
+          }
+        }
+
++ Response 404 (application/json)
+
+        {
+            errors': {
+                'pokemon': ['pokemon with id does not exist']
+            }
+        }
+
++ Response 400 (application/json)
+
+        {
+            errors': {
+                'input': ['the server could not read the input as JSON']
+            }
+        }
+
++ Response 422 (application/json)
+
+        {
+            errors': {
+                'database': ['Unable to associate pokedex and pokemon']
+            }
+        }
+
+## Pokemon and Move [/pokemon_moves/]
+
+### Associate a Pokemon with a Move [POST]
++ Request (application/json)
+
+        {
+          "data": {
+            "pokemon_id" : 1,
+            "move_id" : 75
+          }
+        }
+
++ Response 200
+
+        {
+          "data": {
+            "success" : True
+          }
+        }
+
++ Response 404 (application/json)
+
+        {
+            errors': {
+                'pokemon': ['pokemon with id does not exist']
+            }
+        }
+
++ Response 400 (application/json)
+
+        {
+            errors': {
+                'input': ['the server could not read the input as JSON']
+            }
+        }
+
++ Response 422 (application/json)
+
+        {
+            errors': {
+                'database': ['Unable to associate pokemon and move']
+            }
+        }
