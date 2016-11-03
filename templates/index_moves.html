@@ -65,7 +65,7 @@
     <tfoot>
       <td colspan="9">
         <div class="text-center">
-          <ul class="pagination">
+          <ul class="pagination" ng-hide="totalPages <= 1">
             <li ng-class="{disabled: !hasPrevious}">
               <a href ng-click="prevPage()">« Prev</a>
             </li>

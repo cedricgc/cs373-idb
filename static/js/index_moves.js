@@ -12,6 +12,8 @@ angular.module('movesApp', ['tableApp'])
     //default page to 1
     $scope.currentPage = 1;
 
+    $scope.totalPages = 1;
+
     //load data initially
     $scope.loadData($scope.currentPage);
 
