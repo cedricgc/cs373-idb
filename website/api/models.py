@@ -43,8 +43,8 @@ class Pokedex(Base):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.Text, unique=True, nullable=False)
     official_name = db.Column(db.Text, unique=True, nullable=False)
-    region = db.Column(db.Text, nullable=False)
-    description = db.Column(db.Text, nullable=False)
+    region = db.Column(db.Text, nullable=True, default=None)
+    description = db.Column(db.Text, nullable=True, default=None)
 
     pokemon = db.relationship('Pokemon',
                               secondary=pokedex_pokemon,
@@ -61,7 +61,7 @@ class Pokemon(Base):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.Text, unique=True, nullable=False)
     flavor_text = db.Column(db.Text, nullable=False)
-    habitat = db.Column(db.Text, nullable=False)
+    habitat = db.Column(db.Text, nullable=True, default=None)
     color = db.Column(db.Text, nullable=False)
     shape = db.Column(db.Text, nullable=False)
 
@@ -82,13 +82,13 @@ class Move(Base):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.Text, unique=True, nullable=False)
-    flavor_text = db.Column(db.Text, nullable=False)
+    flavor_text = db.Column(db.Text, nullable=True, default=None)
     short_effect = db.Column(db.Text, nullable=False)
     effect = db.Column(db.Text, nullable=False)
-    damage_class = db.Column(db.Text, nullable=False)
-    power_points = db.Column(db.Integer, nullable=False)
-    power = db.Column(db.Integer, nullable=False)
-    accuracy = db.Column(db.Integer, nullable=False)
+    damage_class = db.Column(db.Text, nullable=True, default=None)
+    power_points = db.Column(db.Integer, nullable=True, default=None)
+    power = db.Column(db.Integer, nullable=True, default=None)
+    accuracy = db.Column(db.Integer, nullable=True, default=None)
 
     pokemon = db.relationship('Pokemon',
                               secondary=pokemon_moves,
