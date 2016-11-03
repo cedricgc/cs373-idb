@@ -6,9 +6,9 @@ PIPOPTS :=
 PORT ?= 5000
 
 ifeq ($(TRAVIS_CI_BUILD), 1)
-	PYTEST = py.test
+	PYTEST = pytest
 else
-	PYTEST = venv/bin/py.test
+	PYTEST = venv/bin/pytest
 endif
 
 FILES :=                              \
@@ -32,7 +32,10 @@ install: venv
 
 # Set up testing commands here; will be used in git hook
 test:
-	PYTHONPATH="." $(PYTEST) --cov=website tests/unit/*
+	PYTHONPATH="." $(PYTEST) \
+		--cov=website \
+		--no-cov-on-fail \
+		tests/unit/*
 
 # run in production mode, meant to run behind nginx proxy so bind to
 # localhost instead of 0.0.0.0
