@@ -35,7 +35,13 @@ test:
 	$(PYTEST) \
 		--cov=website \
 		--no-cov-on-fail \
-		tests/unit/*
+		tests/unit/
+
+test_all:
+	$(PYTEST) \
+		--cov=website \
+		--no-cov-on-fail \
+		tests/
 
 # run in production mode, meant to run behind nginx proxy so bind to
 # localhost instead of 0.0.0.0
