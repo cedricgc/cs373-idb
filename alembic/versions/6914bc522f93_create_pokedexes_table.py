@@ -23,7 +23,7 @@ def upgrade():
         sa.Column('name', sa.Text, unique=True, nullable=False),
         sa.Column('official_name', sa.Text, unique=True, nullable=False),
         sa.Column('region', sa.Text, nullable=True, default=None),
-        sa.Column('description', sa.Text, nullable=False),
+        sa.Column('description', sa.Text, nullable=True, default=None),
 
         sa.Column('inserted_at', sa.DateTime,
                   default=sa.func.current_timestamp(), nullable=False),
