@@ -5,16 +5,20 @@ import json
 import os.path
 import sys
 
+import flask_sqlalchemy
 import sqlalchemy
 
 base_dir = os.path.abspath(os.path.dirname(
     os.path.dirname(os.path.dirname(__file__))))
 sys.path.insert(0, base_dir)
 
-from website import db
+from website import create_app
 import website.api.models as models
 import website.api.schemas as schemas
 
+
+app = create_app()
+db = flask_sqlalchemy.SQLAlchemy(app)
 
 pokedex_schema = schemas.PokedexSchema()
 pokemon_schema = schemas.PokemonSchema()
