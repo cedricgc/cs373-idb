@@ -19,6 +19,19 @@ def pokedex():
 
 
 @pytest.fixture
+def null_pokedex():
+    """Pokedex instance with null fields"""
+    null_pokedex = {
+        'name': None,
+        'official_name': None,
+        'region': None,
+        'description': None
+    }
+
+    return null_pokedex
+
+
+@pytest.fixture
 def pokemon():
     """Generic pokemon instance"""
     pokemon = {
@@ -31,6 +44,20 @@ def pokemon():
     }
 
     return pokemon
+
+
+@pytest.fixture
+def null_pokemon():
+    """Pokemon instance with null fields"""
+    null_pokemon = {
+        'name': None,
+        'flavor_text': None,
+        'habitat': None,
+        'color': None,
+        'shape': None
+    }
+
+    return null_pokemon
 
 
 @pytest.fixture
@@ -49,3 +76,20 @@ def move():
     }
 
     return move
+
+
+@pytest.fixture
+def null_move():
+    """Move instance with null fields"""
+    null_move = {
+        'name': None,
+        'flavor_text': None,
+        'short_effect': None,
+        'effect': None,
+        'damage_class': None,
+        'power_points': None,
+        'power': None,
+        'accuracy': None,
+    }
+
+    return null_move
