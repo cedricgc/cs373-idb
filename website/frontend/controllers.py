@@ -21,7 +21,12 @@ import subprocess
 
 import flask
 
-from website import frontend_bp
+
+frontend_bp = flask.Blueprint('frontend', __name__)
+"""Flask.Blueprint: Client facing website
+
+Client facing pages scoped to flask.Blueprint with a configurable asset location
+"""
 
 
 @frontend_bp.route('/', methods=['GET'])

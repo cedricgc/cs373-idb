@@ -14,9 +14,15 @@ flask converts return values to Response objects.
 import flask
 import sqlalchemy
 
-from website import api_bp, db, ma
 import website.api.models as models
 import website.api.schemas as schemas
+
+
+api_bp = flask.Blueprint('api', __name__, url_prefix='/api/v1')
+"""Flask.Blueprint: Web API
+
+Initilize API as flask.Blueprint to keep it a modular part of the application
+"""
 
 
 ITEMS_PER_PAGE = 20
@@ -84,8 +90,8 @@ def create_pokedex():
             return flask.jsonify(bad_request), 422
 
         try:
-            db.session.add(pokedex)
-            db.session.commit()
+            models.db.session.add(pokedex)
+            models.db.session.commit()
         except sqlalchemy.exc.SQLAlchemyError as e:
             db_error = {
                 'errors': {
@@ -163,7 +169,7 @@ def update_pokedex(pokedex_id):
             return flask.jsonify(bad_request), 422
 
         try:
-            db.session.commit()
+            models.db.session.commit()
         except sqlalchemy.exc.SQLAlchemyError as e:
             db_error = {
                 'errors': {
@@ -200,8 +206,8 @@ def delete_pokedex(pokedex_id):
         return flask.jsonify(index_error), 404
 
     try:
-        db.session.delete(pokedex)
-        db.session.commit()
+        models.db.session.delete(pokedex)
+        models.db.session.commit()
     except sqlalchemy.exc.SQLAlchemyError as e:
         db_error = {
             'errors': {
@@ -257,8 +263,8 @@ def create_pokemon():
             return flask.jsonify(bad_request), 422
 
         try:
-            db.session.add(pokemon)
-            db.session.commit()
+            models.db.session.add(pokemon)
+            models.db.session.commit()
         except sqlalchemy.exc.SQLAlchemyError as e:
             db_error = {
                 'errors': {
@@ -333,7 +339,7 @@ def update_pokemon(pokemon_id):
             return flask.jsonify(bad_request), 422
 
         try:
-            db.session.commit()
+            models.db.session.commit()
         except sqlalchemy.exc.SQLAlchemyError as e:
             db_error = {
                 'errors': {
@@ -370,8 +376,8 @@ def delete_pokemon(pokemon_id):
         return flask.jsonify(index_error), 404
 
     try:
-        db.session.delete(pokemon)
-        db.session.commit()
+        models.db.session.delete(pokemon)
+        models.db.session.commit()
     except sqlalchemy.exc.SQLAlchemyError as e:
         db_error = {
             'errors': {
@@ -427,8 +433,8 @@ def create_move():
             return flask.jsonify(bad_request), 422
 
         try:
-            db.session.add(move)
-            db.session.commit()
+            models.db.session.add(move)
+            models.db.session.commit()
         except sqlalchemy.exc.SQLAlchemyError as e:
             db_error = {
                 'errors': {
@@ -503,7 +509,7 @@ def update_move(move_id):
             return flask.jsonify(bad_request), 422
 
         try:
-            db.session.commit()
+            models.db.session.commit()
         except sqlalchemy.exc.SQLAlchemyError as e:
             db_error = {
                 'errors': {
@@ -540,8 +546,8 @@ def delete_move(move_id):
         return flask.jsonify(index_error), 404
 
     try:
-        db.session.delete(move)
-        db.session.commit()
+        models.db.session.delete(move)
+        models.db.session.commit()
     except sqlalchemy.exc.SQLAlchemyError as e:
         db_error = {
             'errors': {
@@ -600,7 +606,7 @@ def associate_pokedex_pokemon():
         try:
             # Row created in association table implicitly
             pokedex.pokemon.append(pokemon)
-            db.session.commit()
+            models.db.session.commit()
         except sqlalchemy.exc.SQLAlchemyError as e:
             db_error = {
                 'errors': {
@@ -671,7 +677,7 @@ def associate_pokemon_moves():
         try:
             # Row created in association table implicitly
             pokemon.moves.append(move)
-            db.session.commit()
+            models.db.session.commit()
         except sqlalchemy.exc.SQLAlchemyError as e:
             db_error = {
                 'errors': {

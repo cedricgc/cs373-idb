@@ -12,10 +12,19 @@ complex models and vice versa, which is important when creating a REST JSON API.
 """
 
 
+import flask_marshmallow
 import marshmallow
 
-from website import ma
 import website.api.models as models
+
+
+# Initialize after SQLAlchemy object
+ma = flask_marshmallow.Marshmallow()
+"""Marshmallow: Python Object (de)serialization
+
+flask_marshmallow integrates with Flask and SQLAlchemy to allow for
+generation of validators for API inputs directly from a SQLAlchemy model
+"""
 
 
 class BaseSchema(ma.ModelSchema):
