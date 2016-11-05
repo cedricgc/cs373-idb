@@ -44,7 +44,7 @@ def create_app():
     See http://flask.pocoo.org/docs/latest/patterns/appfactories/ for motivation
     """
     app = flask.Flask(__name__)
-    app.config.from_object('config')
+    app.config.from_object('config.Config')
     app.static_folder = app.config['STATIC_FILES']
     app.template_folder = app.config['TEMPLATES']
 

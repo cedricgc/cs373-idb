@@ -10,5 +10,6 @@ from website import create_app
 def app():
     """Instance of the Flask application available for testing"""
     app = create_app()
+    app.config.from_object('config.TestConfig')
 
     return app
