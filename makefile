@@ -34,12 +34,14 @@ install: venv
 # Set up testing commands here; will be used in git hook
 test:
 	$(PYTEST) \
+		-v \
 		--cov=website \
 		--no-cov-on-fail \
 		tests/unit/
 
 test_all:
 	$(PYTEST) \
+		-v \
 		--cov=website \
 		--no-cov-on-fail \
 		tests/
