@@ -6,8 +6,10 @@ PIPOPTS :=
 PORT ?= 5000
 
 ifeq ($(TRAVIS_CI_BUILD), 1)
+	ALEMBIC = alembic
 	PYTEST = python -m pytest
 else
+	ALEMBIC = venv/bin/alembic
 	PYTEST = venv/bin/python -m pytest
 endif
 
@@ -34,12 +36,14 @@ install: venv
 # Set up testing commands here; will be used in git hook
 test:
 	$(PYTEST) \
+		-v \
 		--cov=website \
 		--no-cov-on-fail \
 		tests/unit/
 
 test_all:
 	$(PYTEST) \
+		-v \
 		--cov=website \
 		--no-cov-on-fail \
 		tests/
@@ -62,13 +66,13 @@ dev_server: venv/bin/python
 		website:app
 
 # Ensure environment vars are set
-db_migrations: venv/bin/alembic
-	venv/bin/alembic upgrade head
+db_migrations:
+	$(ALEMBIC) upgrade head
 
 # Ensure environment vars are set
-db_reset: venv/bin/alembic
-	venv/bin/alembic downgrade base
-	venv/bin/alembic upgrade head
+db_reset:
+	$(ALEMBIC) downgrade base
+	$(ALEMBIC) upgrade head
 
 adddeps: venv pkgs
 	venv/bin/pip install -r requirements-to-freeze.txt $(PIPOPTS)

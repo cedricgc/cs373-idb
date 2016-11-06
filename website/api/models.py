@@ -1,7 +1,16 @@
 # -*- coding: utf-8 -*-
 
 
-from website import db
+import flask_sqlalchemy
+
+
+db = flask_sqlalchemy.SQLAlchemy()
+"""SQLAlchemy: SQLAlchemy with Flask integration
+
+The SQLAlchemy object handles interactions with the application's
+database. the object provides the db.Model class to create Python
+abstractions around resources as well as query execution functions
+"""
 
 
 class Base(db.Model):
