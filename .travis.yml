@@ -18,7 +18,7 @@ before_install:
   - sudo apt-get update -q
   - make pkgs
 
- before_script:
+before_script:
   - psql -c 'create database idb_test;' -U postgres
   - make db_migrations
 
