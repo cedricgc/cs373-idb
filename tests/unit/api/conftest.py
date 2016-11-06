@@ -3,6 +3,8 @@
 
 import pytest
 
+import website.api.models as models
+
 
 @pytest.fixture
 def pokedex():
@@ -93,3 +95,18 @@ def null_move():
     }
 
     return null_move
+
+
+@pytest.fixture
+def pokedex_model(pokedex):
+    return models.Pokedex(**pokedex)
+
+
+@pytest.fixture
+def pokemon_model(pokemon):
+    return models.Pokemon(**pokemon)
+
+
+@pytest.fixture
+def move_model(move):
+    return models.Move(**move)

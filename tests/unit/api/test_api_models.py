@@ -3,23 +3,6 @@
 
 import pytest
 
-import website.api.models as models
-
-
-@pytest.fixture
-def pokedex_model(pokedex):
-    return models.Pokedex(**pokedex)
-
-
-@pytest.fixture
-def pokemon_model(pokemon):
-    return models.Pokemon(**pokemon)
-
-
-@pytest.fixture
-def move_model(move):
-    return models.Move(**move)
-
 
 def test_pokedex_create(pokedex_model):
     assert pokedex_model.id == 1
@@ -66,7 +49,7 @@ def test_move_repr(move_model):
     assert repr(move_model) == '<Move Razor Wind>'
 
 
-def test_move_relationship(move, pokemon_model):
+def test_move_relationship(move_model, pokemon_model):
     move_model.pokemon = [pokemon_model]
 
     assert move_model.pokemon == [pokemon_model]
