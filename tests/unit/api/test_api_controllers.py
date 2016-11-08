@@ -38,6 +38,14 @@ def test_show_pokedex(client, seeds):
     assert res.status_code == 200
 
 
+def test_show_pokedex_index_error(client):
+    res = client.get(flask.url_for('api.show_pokedex', pokedex_id=1))
+
+    assert res.mimetype == 'application/json'
+    assert 'errors' in res.json
+    assert res.status_code == 404
+
+
 def test_update_pokedex(client, seeds, pokedex_json_updated):
     res = client.put(flask.url_for('api.update_pokedex', pokedex_id=1),
                      data=pokedex_json_updated,
@@ -46,6 +54,16 @@ def test_update_pokedex(client, seeds, pokedex_json_updated):
     assert res.mimetype == 'application/json'
     assert 'errors' not in res.json
     assert res.status_code == 200
+
+
+def test_update_pokedex_index_error(client, pokedex_json_updated):
+    res = client.put(flask.url_for('api.update_pokedex', pokedex_id=1),
+                     data=pokedex_json_updated,
+                     content_type='application/json')
+
+    assert res.mimetype == 'application/json'
+    assert 'errors' in res.json
+    assert res.status_code == 404
 
 
 def test_update_pokedex_bad_request(client, seeds):
@@ -64,6 +82,14 @@ def test_delete_pokedex(client, seeds):
     assert res.mimetype == 'application/json'
     assert 'errors' not in res.json
     assert res.status_code == 200
+
+
+def test_delete_pokedex_index_error(client):
+    res = client.delete(flask.url_for('api.delete_pokedex', pokedex_id=1))
+
+    assert res.mimetype == 'application/json'
+    assert 'errors' in res.json
+    assert res.status_code == 404
 
 
 def test_index_pokemon(client, seeds):
@@ -100,6 +126,14 @@ def test_show_pokemon(client, seeds):
     assert res.status_code == 200
 
 
+def test_show_pokemon_index_error(client):
+    res = client.get(flask.url_for('api.show_pokemon', pokemon_id=1))
+
+    assert res.mimetype == 'application/json'
+    assert 'errors' in res.json
+    assert res.status_code == 404
+
+
 def test_update_pokemon(client, seeds, pokemon_json_updated):
     res = client.put(flask.url_for('api.update_pokemon', pokemon_id=1),
                      data=pokemon_json_updated,
@@ -108,6 +142,16 @@ def test_update_pokemon(client, seeds, pokemon_json_updated):
     assert res.mimetype == 'application/json'
     assert 'errors' not in res.json
     assert res.status_code == 200
+
+
+def test_update_pokemon_index_error(client, pokemon_json_updated):
+    res = client.put(flask.url_for('api.update_pokemon', pokemon_id=1),
+                     data=pokemon_json_updated,
+                     content_type='application/json')
+
+    assert res.mimetype == 'application/json'
+    assert 'errors' in res.json
+    assert res.status_code == 404
 
 
 def test_update_pokemon_bad_request(client, seeds):
@@ -126,6 +170,14 @@ def test_delete_pokemon(client, seeds):
     assert res.mimetype == 'application/json'
     assert 'errors' not in res.json
     assert res.status_code == 200
+
+
+def test_delete_pokemon_index_error(client):
+    res = client.delete(flask.url_for('api.delete_pokemon', pokemon_id=1))
+
+    assert res.mimetype == 'application/json'
+    assert 'errors' in res.json
+    assert res.status_code == 404
 
 
 def test_index_moves(client, seeds):
@@ -162,6 +214,14 @@ def test_show_move(client, seeds):
     assert res.status_code == 200
 
 
+def test_show_move_index_error(client):
+    res = client.get(flask.url_for('api.show_move', move_id=1))
+
+    assert res.mimetype == 'application/json'
+    assert 'errors' in res.json
+    assert res.status_code == 404
+
+
 def test_update_move(client, seeds, move_json_updated):
     res = client.put(flask.url_for('api.update_move', move_id=1),
                      data=move_json_updated,
@@ -170,6 +230,16 @@ def test_update_move(client, seeds, move_json_updated):
     assert res.mimetype == 'application/json'
     assert 'errors' not in res.json
     assert res.status_code == 200
+
+
+def test_update_move_index_error(client, move_json_updated):
+    res = client.put(flask.url_for('api.update_move', move_id=1),
+                     data=move_json_updated,
+                     content_type='application/json')
+
+    assert res.mimetype == 'application/json'
+    assert 'errors' in res.json
+    assert res.status_code == 404
 
 
 def test_update_move_bad_request(client, seeds):
@@ -188,3 +258,11 @@ def test_delete_move(client, seeds):
     assert res.mimetype == 'application/json'
     assert 'errors' not in res.json
     assert res.status_code == 200
+
+
+def test_delete_move_index_error(client):
+    res = client.delete(flask.url_for('api.delete_move', move_id=1))
+
+    assert res.mimetype == 'application/json'
+    assert 'errors' in res.json
+    assert res.status_code == 404
