@@ -1,67 +1,7 @@
 # -*- coding: utf-8 -*-
 
 
-import json
-
 import flask
-import pytest
-
-
-@pytest.fixture
-def pokedex_json(pokedex):
-    pokedex_json = {
-        'data': pokedex
-    }
-
-    return json.dumps(pokedex_json)
-
-
-@pytest.fixture
-def pokedex_json_updated(pokedex):
-    pokedex['name'] = 'Updated pokedex name'
-    pokedex_json = {
-        'data': pokedex
-    }
-
-    return json.dumps(pokedex_json)
-
-
-@pytest.fixture
-def pokemon_json(pokemon):
-    pokemon_json = {
-        'data': pokemon
-    }
-
-    return json.dumps(pokemon_json)
-
-
-@pytest.fixture
-def pokemon_json_updated(pokemon):
-    pokemon['name'] = 'Updated pokemon name'
-    pokemon_json = {
-        'data': pokemon
-    }
-
-    return json.dumps(pokemon_json)
-
-
-@pytest.fixture
-def move_json(move):
-    move_json = {
-        'data': move
-    }
-
-    return json.dumps(move_json)
-
-
-@pytest.fixture
-def move_json_updated(move):
-    move['name'] = 'Updated move name'
-    move_json = {
-        'data': move
-    }
-
-    return json.dumps(move_json)
 
 
 def test_index_pokedexes(client):

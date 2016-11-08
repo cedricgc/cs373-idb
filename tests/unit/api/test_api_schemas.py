@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 
 
-import pytest
-
-
 def test_pokedex_schema(pokedex, pokedex_schema):
     pd, errors = pokedex_schema.load(pokedex)
 
