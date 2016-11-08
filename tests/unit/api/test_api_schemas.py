@@ -1,29 +1,6 @@
 # -*- coding: utf-8 -*-
 
 
-import pytest
-
-import website.api.schemas as schemas
-
-
-@pytest.fixture
-def pokedex_schema():
-    """schema for single pokedex"""
-    return schemas.PokedexSchema()
-
-
-@pytest.fixture
-def pokemon_schema():
-    """schema for single pokemon"""
-    return schemas.PokemonSchema()
-
-
-@pytest.fixture
-def move_schema():
-    """schema for single move"""
-    return schemas.MoveSchema()
-
-
 def test_pokedex_schema(pokedex, pokedex_schema):
     pd, errors = pokedex_schema.load(pokedex)
 

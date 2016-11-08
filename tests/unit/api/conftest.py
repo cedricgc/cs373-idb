@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
 
 
+import json
+
 import pytest
 
 import website.api.models as models
+import website.api.schemas as schemas
 
 
 @pytest.fixture
@@ -98,15 +101,112 @@ def null_move():
 
 
 @pytest.fixture
+def pokedex_schema():
+    """schema for single pokedex"""
+    return schemas.PokedexSchema()
+
+
+@pytest.fixture
+def pokemon_schema():
+    """schema for single pokemon"""
+    return schemas.PokemonSchema()
+
+
+@pytest.fixture
+def move_schema():
+    """schema for single move"""
+    return schemas.MoveSchema()
+
+
+@pytest.fixture
+def pokedex_json(pokedex):
+    """JSON serialized pokedex"""
+    pokedex_json = {
+        'data': pokedex
+    }
+
+    return json.dumps(pokedex_json)
+
+
+@pytest.fixture
+def pokedex_json_updated(pokedex):
+    """JSON serialized pokedex"""
+    pokedex['name'] = 'Updated pokedex name'
+    pokedex_json = {
+        'data': pokedex
+    }
+
+    return json.dumps(pokedex_json)
+
+
+@pytest.fixture
+def pokemon_json(pokemon):
+    """JSON serialized pokemon"""
+    pokemon_json = {
+        'data': pokemon
+    }
+
+    return json.dumps(pokemon_json)
+
+
+@pytest.fixture
+def pokemon_json_updated(pokemon):
+    """JSON serialized pokemon"""
+    pokemon['name'] = 'Updated pokemon name'
+    pokemon_json = {
+        'data': pokemon
+    }
+
+    return json.dumps(pokemon_json)
+
+
+@pytest.fixture
+def move_json(move):
+    """JSON serialized move"""
+    move_json = {
+        'data': move
+    }
+
+    return json.dumps(move_json)
+
+
+@pytest.fixture
+def move_json_updated(move):
+    """JSON serialized move"""
+    move['name'] = 'Updated move name'
+    move_json = {
+        'data': move
+    }
+
+    return json.dumps(move_json)
+
+
+@pytest.fixture
 def pokedex_model(pokedex):
+    """Generic SQLAlchemy Pokedex model"""
     return models.Pokedex(**pokedex)
 
 
 @pytest.fixture
 def pokemon_model(pokemon):
+    """Generic SQLAlchemy Pokemon model"""
     return models.Pokemon(**pokemon)
 
 
 @pytest.fixture
 def move_model(move):
+    """Generic SQLAlchemy Move model"""
     return models.Move(**move)
+
+
+@pytest.fixture
+def seeds(db, pokedex_model, pokemon_model, move_model):
+    """Models available to be loaded in the database before test"""
+    pokemon_model.pokemon = [pokemon_model]
+    pokemon_model.moves = [move_model]
+
+    db.session.begin_nested()
+    db.session.add_all([pokedex_model, pokemon_model, move_model])
+    db.session.commit()
+    yield
+    db.session.rollback()

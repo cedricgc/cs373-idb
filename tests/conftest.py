@@ -19,7 +19,8 @@ def app():
 @pytest.fixture(scope='session')
 def db(app):
     """Singleton that returns SQLAlchemy object associated with application"""
-    models.db.init_app(app)
+    models.db.drop_all()
+    models.db.create_all()
     return models.db
 
 
