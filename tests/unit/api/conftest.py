@@ -132,3 +132,16 @@ def pokemon_model(pokemon):
 def move_model(move):
     """Generic SQLAlchemy Move model"""
     return models.Move(**move)
+
+
+@pytest.fixture
+def seeds(db, pokedex_model, pokemon_model, move_model):
+    """Models available to be loaded in the database before test"""
+    pokemon_model.pokemon = [pokemon_model]
+    pokemon_model.moves = [move_model]
+
+    db.session.begin_nested()
+    db.session.add_all([pokedex_model, pokemon_model, move_model])
+    db.session.commit()
+    yield
+    db.session.rollback()
