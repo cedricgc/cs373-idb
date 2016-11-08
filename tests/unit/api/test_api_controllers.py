@@ -7,8 +7,8 @@ import flask
 def test_index_pokedexes(client, seeds):
     res = client.get(flask.url_for('api.index_pokedexes'))
 
-    assert res.status_code == 200
     assert res.mimetype == 'application/json'
+    assert res.status_code == 200
 
 
 def test_create_pokedex(client, pokedex_json):
@@ -16,16 +16,16 @@ def test_create_pokedex(client, pokedex_json):
                       data=pokedex_json,
                       content_type='application/json')
 
+    assert res.mimetype == 'application/json'
     assert 'errors' not in res.json
     assert res.status_code == 201
-    assert res.mimetype == 'application/json'
 
 
 def test_show_pokedex(client, seeds):
     res = client.get(flask.url_for('api.show_pokedex', pokedex_id=1))
 
-    assert res.status_code == 200
     assert res.mimetype == 'application/json'
+    assert res.status_code == 200
 
 
 def test_update_pokedex(client, seeds, pokedex_json_updated):
@@ -33,24 +33,24 @@ def test_update_pokedex(client, seeds, pokedex_json_updated):
                      data=pokedex_json_updated,
                      content_type='application/json')
 
+    assert res.mimetype == 'application/json'
     assert 'errors' not in res.json
     assert res.status_code == 200
-    assert res.mimetype == 'application/json'
 
 
 def test_delete_pokedex(client, seeds):
     res = client.delete(flask.url_for('api.delete_pokedex', pokedex_id=1))
 
+    assert res.mimetype == 'application/json'
     assert 'errors' not in res.json
     assert res.status_code == 200
-    assert res.mimetype == 'application/json'
 
 
 def test_index_pokemon(client, seeds):
     res = client.get(flask.url_for('api.index_pokemon'))
 
-    assert res.status_code == 200
     assert res.mimetype == 'application/json'
+    assert res.status_code == 200
 
 
 def test_create_pokemon(client, pokemon_json):
@@ -58,16 +58,16 @@ def test_create_pokemon(client, pokemon_json):
                       data=pokemon_json,
                       content_type='application/json')
 
+    assert res.mimetype == 'application/json'
     assert 'errors' not in res.json
     assert res.status_code == 201
-    assert res.mimetype == 'application/json'
 
 
 def test_show_pokemon(client, seeds):
     res = client.get(flask.url_for('api.show_pokemon', pokemon_id=1))
 
-    assert res.status_code == 200
     assert res.mimetype == 'application/json'
+    assert res.status_code == 200
 
 
 def test_update_pokemon(client, seeds, pokemon_json_updated):
@@ -75,24 +75,24 @@ def test_update_pokemon(client, seeds, pokemon_json_updated):
                      data=pokemon_json_updated,
                      content_type='application/json')
 
+    assert res.mimetype == 'application/json'
     assert 'errors' not in res.json
     assert res.status_code == 200
-    assert res.mimetype == 'application/json'
 
 
 def test_delete_pokemon(client, seeds):
     res = client.delete(flask.url_for('api.delete_pokemon', pokemon_id=1))
 
+    assert res.mimetype == 'application/json'
     assert 'errors' not in res.json
     assert res.status_code == 200
-    assert res.mimetype == 'application/json'
 
 
 def test_index_moves(client, seeds):
     res = client.get(flask.url_for('api.index_moves'))
 
-    assert res.status_code == 200
     assert res.mimetype == 'application/json'
+    assert res.status_code == 200
 
 
 def test_create_move(client, move_json):
@@ -100,16 +100,16 @@ def test_create_move(client, move_json):
                       data=move_json,
                       content_type='application/json')
 
+    assert res.mimetype == 'application/json'
     assert 'errors' not in res.json
     assert res.status_code == 201
-    assert res.mimetype == 'application/json'
 
 
 def test_show_move(client, seeds):
     res = client.get(flask.url_for('api.show_move', move_id=1))
 
-    assert res.status_code == 200
     assert res.mimetype == 'application/json'
+    assert res.status_code == 200
 
 
 def test_update_move(client, seeds, move_json_updated):
@@ -117,14 +117,14 @@ def test_update_move(client, seeds, move_json_updated):
                      data=move_json_updated,
                      content_type='application/json')
 
+    assert res.mimetype == 'application/json'
     assert 'errors' not in res.json
     assert res.status_code == 200
-    assert res.mimetype == 'application/json'
 
 
 def test_delete_move(client, seeds):
     res = client.delete(flask.url_for('api.delete_move', move_id=1))
 
+    assert res.mimetype == 'application/json'
     assert 'errors' not in res.json
     assert res.status_code == 200
-    assert res.mimetype == 'application/json'
