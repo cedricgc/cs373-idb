@@ -118,14 +118,17 @@ def move_schema():
 
 @pytest.fixture
 def pokedex_model(pokedex):
+    """Generic SQLAlchemy Pokedex model"""
     return models.Pokedex(**pokedex)
 
 
 @pytest.fixture
 def pokemon_model(pokemon):
+    """Generic SQLAlchemy Pokemon model"""
     return models.Pokemon(**pokemon)
 
 
 @pytest.fixture
 def move_model(move):
+    """Generic SQLAlchemy Move model"""
     return models.Move(**move)
