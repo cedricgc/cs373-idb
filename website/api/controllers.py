@@ -45,6 +45,57 @@ moves_schema = schemas.MoveSchema(many=True,
 
 pokedex_pokemon_schema = schemas.PokedexPokemonSchema()
 pokemon_moves_schema = schemas.PokemonMovesSchema()
+search_schema = schemas.SearchSchema()
+
+
+@api_bp.route('/search/', methods=['POST'])
+def search():
+    json_data = flask.request.get_json()
+    if not json_data:
+        bad_request = {
+            'errors': {
+                'input': ['the server could not read the input as JSON']
+            }
+        }
+
+        return flask.jsonify(bad_request), 400
+
+    if 'data' in json_data:
+        search, errors = search_schema.load(json_data['data'])
+        if errors:
+            bad_request = {
+                'errors': errors
+            }
+
+            return flask.jsonify(bad_request), 422
+
+        query = search['query']
+        pokedexes_result = models.Pokedex.query.search(query).limit(5).all()
+        pokemon_result = models.Pokemon.query.search(query).limit(5).all()
+        moves_result = models.Move.query.search(query).limit(5).all()
+
+        pokedexes, errors = pokedexes_schema.dump(pokedexes_result)
+        pokemon, errors = pokemons_schema.dump(pokemon_result)
+        moves, errors = moves_schema.dump(moves_result)
+
+        response = {
+            'data': {
+                'pokedexes': pokedexes,
+                'pokemon': pokemon,
+                'moves': moves
+            }
+        }
+
+        return flask.jsonify(response), 200
+
+    else:
+        bad_request = {
+            'errors': {
+                'input': ['missing required "data" key at top level']
+            }
+        }
+
+        return flask.jsonify(bad_request), 422
 
 
 @api_bp.route('/pokedexes/', methods=['GET'])

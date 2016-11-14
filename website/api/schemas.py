@@ -95,3 +95,8 @@ class PokemonMovesSchema(marshmallow.Schema):
 
     pokemon_id = marshmallow.fields.Integer(load_only=True)
     move_id = marshmallow.fields.Integer(load_only=True)
+
+
+class SearchSchema(marshmallow.Schema):
+
+    query = marshmallow.fields.String(load_only=True)
