@@ -31,7 +31,7 @@ class BaseSchema(ma.ModelSchema):
 
     class Meta:
         # prevent accounting columns showing up in JSON
-        exclude = ['inserted_at', 'updated_at']
+        exclude = ['inserted_at', 'updated_at', 'search_vector']
 
 
 class PokedexSchema(BaseSchema):
