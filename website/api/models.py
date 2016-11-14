@@ -2,6 +2,8 @@
 
 
 import flask_sqlalchemy
+import sqlalchemy_searchable
+from sqlalchemy_utils import TSVectorType
 
 
 db = flask_sqlalchemy.SQLAlchemy()
@@ -13,10 +15,21 @@ abstractions around resources as well as query execution functions
 """
 
 
+sqlalchemy_searchable.make_searchable()
+"""Prepares models to be indexable for later searching"""
+
+
+class CustomQuery(flask_sqlalchemy.BaseQuery, sqlalchemy_searchable.SearchQueryMixin):
+    """Mixin adds search method to query for each model"""
+    pass
+
+
 class Base(db.Model):
     """Abstract Model for defining shared columns between models"""
 
     __abstract__ = True
+
+    query_class = CustomQuery
 
     inserted_at = db.Column(db.DateTime,
                             default=db.func.current_timestamp(),
@@ -55,6 +68,11 @@ class Pokedex(Base):
     region = db.Column(db.Text, nullable=True, default=None)
     description = db.Column(db.Text, nullable=True, default=None)
 
+    search_vector = db.Column(TSVectorType('name',
+                                           'official_name',
+                                           'region',
+                                           'description'))
+
     pokemon = db.relationship('Pokemon',
                               secondary=pokedex_pokemon,
                               back_populates='pokedexes')
@@ -73,6 +91,12 @@ class Pokemon(Base):
     habitat = db.Column(db.Text, nullable=True, default=None)
     color = db.Column(db.Text, nullable=False)
     shape = db.Column(db.Text, nullable=False)
+
+    search_vector = db.Column(TSVectorType('name',
+                                           'flavor_text',
+                                           'habitat',
+                                           'color',
+                                           'shape'))
 
     pokedexes = db.relationship('Pokedex',
                                 secondary=pokedex_pokemon,
@@ -98,6 +122,12 @@ class Move(Base):
     power_points = db.Column(db.Integer, nullable=True, default=None)
     power = db.Column(db.Integer, nullable=True, default=None)
     accuracy = db.Column(db.Integer, nullable=True, default=None)
+
+    search_vector = db.Column(TSVectorType('name',
+                                           'flavor_text',
+                                           'short_effect',
+                                           'effect',
+                                           'damage_class'))
 
     pokemon = db.relationship('Pokemon',
                               secondary=pokemon_moves,
