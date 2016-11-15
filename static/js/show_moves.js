@@ -9,7 +9,7 @@ angular.module('moveApp', [])
           var pokemon_ids = data["data"]["pokemon"];
 
           angular.forEach(pokemon_ids, function(value, index) {
-            $scope.moves.push(value);
+            $scope.pokemon.push(value);
           });
       });    
     }
