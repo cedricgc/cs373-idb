@@ -1,43 +1,69 @@
 {% extends "layout.html" %}
 {% block content %}
-<body style="background-image:url(../static/images/splash-bg.jpg);background-size:cover">
-  <div class="page-header header-centered">
-    <h1>Pokemans<small></small></h1>
-    <h1><small>Explore the world of Pokemon</small></h1>
-    <hr>
-    <div class="splash-search">
-      <h3>What are you looking for?</h3>
-      <div class="input-group search-bar">
-          <input type="text" placeholder="Search" class="form-control" />
-          <div class="input-group-btn">
-            <button class="btn btn-info">
-              <span class="fa fa-search"></span>
-            </button>
+<div ng-app="homeApp">
+  <div ng-controller="homeController">
+    <body style="background-image:url(../static/images/splash-bg.jpg);background-size:cover">
+      <div class="page-header header-centered">
+        <h1>Pokemans<small></small></h1>
+        <h1><small>Explore the world of Pokemon</small></h1>
+        <hr>
+        <div class="splash-search">
+          <h3>What are you looking for?</h3>
+          <div class="input-group search-bar">
+              <input type="text" placeholder="Search" class="form-control" ng-model="searchQuery"/>
+              <div class="input-group-btn">
+                <button class="btn btn-info" data-toggle="modal" data-target="#searchResultsModal" ng-click="getSearchResults()">
+                  <span class="fa fa-search"></span>
+                </button>
+              </div>
           </div>
+        </div>
+        <div id="searchResultsModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title header-centered">Search Results</h4>
+              </div>
+              <div class="modal-body">
+                <p>{{'{{searchResultContext}}'}}</p>
+                <pre>{{'{{unitTestResults}}'}}</pre>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="header-centered">
+              <h3>Pokemon</h3>
+              <h3><small>There may have originally only been 151 Pokemon, but now there are over 700. Find your favorite Pokemon, or discover new ones.</small></h3>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="header-centered">
+              <h3>Pokedexes</h3>
+              <h3><small>Explore the different Pokedexes. Discover the regions a Pokemon lives in.</small></h3>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="header-centered">
+              <h3>Moves</h3>
+              <h3><small>What would Pokemon be without battling? Learn about all the different moves a Pokemon can learn.</small></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
   </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-4">
-        <div class="header-centered">
-          <h3>Pokemon</h3>
-          <h3><small>There may have originally only been 151 Pokemon, but now there are over 700. Find your favorite Pokemon, or discover new ones.</small></h3>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="header-centered">
-          <h3>Pokedexes</h3>
-          <h3><small>Explore the different Pokedexes. Discover the regions a Pokemon lives in.</small></h3>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="header-centered">
-          <h3>Moves</h3>
-          <h3><small>What would Pokemon be without battling? Learn about all the different moves a Pokemon can learn.</small></h3>
-        </div>
-      </div>
-    </div>
-  </div>
-</body>
+</div>
+{% endblock %}
+{% block scripts %}
+{{ super() }}
+<!-- Download our scripts after vendor libs -->
+<script src="/static/js/home.js"></script>
 {% endblock %}
