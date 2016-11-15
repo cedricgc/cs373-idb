@@ -5,9 +5,14 @@ angular.module('homeApp', [])
     $scope.pokemon_and = [];
     $scope.pokedexes_and = [];
     $scope.moves_and = [];
+    $scope.pokemon_or = [];
+    $scope.pokedexes_or = [];
+    $scope.moves_or = [];
 
     $scope.getSearchResults = function() {
       $scope.searchResultContext = "Displaying results for: \"" + $scope.searchQuery + "\"";
+
+      var query_terms = $scope.searchQuery.split(' ');
 
       var request_data = { 'data' : { 'query' : $scope.searchQuery }};
  
@@ -29,6 +34,31 @@ angular.module('homeApp', [])
           });
 
       });
+
+      if(query_terms.length > 1) {
+        $scope.multi = true;
+        var query_or = query_terms.join(" or ");
+        var request_data_or = { 'data' : { 'query' : query_or }};
+        
+        $http.post('api/v1/search', request_data_or).success(function(data) {
+          var pokemon_or_ids = data["data"]["pokemon"];
+          var pokedexes_or_ids = data["data"]["pokedexes"];
+          var moves_or_ids = data["data"]["moves"];
+
+          angular.forEach(pokemon_or_ids, function(value, index) {
+            $scope.pokemon_or.push(value);
+          });
+
+          angular.forEach(pokedexes_or_ids, function(value, index) {
+            $scope.pokedexes_or.push(value);
+          });
+
+          angular.forEach(moves_or_ids, function(value, index) {
+            $scope.moves_or.push(value);
+          });
+
+      });
+      }
       
     }
 
