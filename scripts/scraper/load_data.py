@@ -18,7 +18,6 @@ import website.api.schemas as schemas
 
 
 app = create_app()
-db = flask_sqlalchemy.SQLAlchemy(app)
 
 pokedex_schema = schemas.PokedexSchema()
 pokemon_schema = schemas.PokemonSchema()
@@ -53,9 +52,9 @@ def clean_pokedexes(api_pokedexes):
     return cleaned
 
 
-def clean_pokemon(api_pokemon):
+def clean_pokemon_species(api_pokemon_species):
     cleaned = []
-    for pokeman in api_pokemon:
+    for pokeman in api_pokemon_species:
         habitat = pokeman.get('habitat', None)
         if habitat is not None:
             habitat = habitat['name']
@@ -100,54 +99,105 @@ def clean_moves(api_moves):
 def main():
     data_files = sys.argv
 
-    print('STARTING POKEDEX INSERTS')
+    print('READING POKEDEX JSON')
     with open(data_files[1]) as data:
-        pokedexes = json.load(data)
-        cleaned = clean_pokedexes(pokedexes)
-        for pd in cleaned:
+        pokedex_api = json.load(data)
+        pokedexes = clean_pokedexes(pokedex_api)
+
+    print('READING POKEMON JSON')
+    with open(data_files[2]) as data:
+        pokemon_api = json.load(data)
+
+    print('READING POKEMON-SPECIES JSON')
+    with open(data_files[3]) as data:
+        pokemon_species_api = json.load(data)
+        pokemon_species = clean_pokemon_species(pokemon_species_api)
+
+    print('READING MOVE JSON')
+    with open(data_files[4]) as data:
+        move_api = json.load(data)
+        moves = clean_moves(move_api)
+
+    with app.app_context():
+        print('STARTING POKEDEX INSERTS')
+        for pd in pokedexes:
             pokedex, errors = pokedex_schema.load(pd)
             print(pokedex)
             print(errors)
             try:
-                db.session.add(pokedex)
-                db.session.commit()
+                models.db.session.add(pokedex)
+                models.db.session.commit()
             except sqlalchemy.exc.SQLAlchemyError as e:
                 print("Failed to insert pokedex data")
                 return 1
-    print('FINISHED POKEDEX INSERTS')
+        print('FINISHED POKEDEX INSERTS')
 
-    print('STARTING POKEMON INSERTS')
-    with open(data_files[2]) as data:
-        pokemon = json.load(data)
-        cleaned = clean_pokemon(pokemon)
-        for po in cleaned:
+        print('STARTING POKEMON INSERTS')
+        for po in pokemon_species:
             pokeman, errors = pokemon_schema.load(po)
             print(pokeman)
             print(errors)
             try:
-                db.session.add(pokeman)
-                db.session.commit()
+                models.db.session.add(pokeman)
+                models.db.session.commit()
             except sqlalchemy.exc.SQLAlchemyError as e:
                 print("Failed to insert pokemon data")
                 return 1
-    print('FINISHED POKEMON INSERTS')
+        print('FINISHED POKEMON INSERTS')
 
-    print('STARTING MOVE INSERTS')
-    with open(data_files[3]) as data:
-        moves = json.load(data)
-        cleaned = clean_moves(moves)
-        for mv in cleaned:
+        print('STARTING MOVE INSERTS')
+        for mv in moves:
             print(mv)
+            print(errors)
             move, errors = move_schema.load(mv)
             print(move)
             print(errors)
             try:
-                db.session.add(move)
-                db.session.commit()
+                models.db.session.add(move)
+                models.db.session.commit()
             except sqlalchemy.exc.SQLAlchemyError as e:
                 print("Failed to insert move data")
                 return 1
-    print('FINISHED MOVE INSERTS')
+        print('FINISHED MOVE INSERTS')
+
+        print('ASSOCIATING POKEDEXES AND POKEMON')
+        for pd in pokedex_api:
+            pokemon_models = []
+            for po in pd['pokemon_entries']:
+                name = po['pokemon_species']['name'].title()
+                pokemon_model = models.Pokemon.query.filter(
+                    models.Pokemon.name == name).first()
+                pokemon_models.append(pokemon_model)
+            pokedex_model = models.Pokedex.query.filter(
+                models.Pokedex.name == pd['name']).first()
+            pokemon_models = [p for p in pokemon_models if p != None]
+
+            pokedex_model.pokemon = pokemon_models
+            models.db.session.add(pokedex_model)
+            models.db.session.commit()
+        print('FINISHED ASSOCIATING POKEDEXES AND POKEMON')
+
+        print('ASSOCIATING POKEMON AND MOVES')
+        for po in pokemon_api:
+            move_models = []
+            for mv in po['moves']:
+                name = mv['move']['name']
+                names = name.split('-')
+                names = [nm.title() for nm in names]
+                name = ' '.join(names)
+                move_model = models.Move.query.filter(
+                    models.Move.name == name).first()
+                move_models.append(move_model)
+            move_models = [m for m in move_models if m != None]
+            pokemon_model = models.Pokemon.query.filter(
+                models.Pokemon.name == po['name'].title()).first()
+            if pokemon_model == None:
+                continue
+
+            pokemon_model.moves = move_models
+            models.db.session.add(pokemon_model)
+            models.db.session.commit()
+        print('FINISHED ASSOCIATING POKEMON AND MOVES')
 
     return 0
 
