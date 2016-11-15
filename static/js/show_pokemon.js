@@ -11,17 +11,11 @@ angular.module('pokemonInfoApp', [])
           var move_ids = data["data"]["moves"];
 
           angular.forEach(pokedex_ids, function(value, index) {
-            $http.get('/api/v1/pokedexes/' + value)
-              .success(function(pokedex_data) {
-                $scope.pokedexes.push(pokedex_data["data"]);
-              });
+            $scope.pokedexes.push(value);
           });
 
           angular.forEach(move_ids, function(value, index) {
-            $http.get('/api/v1/moves/' + value)
-              .success(function(move_data) {
-                $scope.moves.push(move_data["data"]);
-              });
+            $scope.moves.push(value);
           });
 
           $scope.pokemonLower = $scope.pokemon[0]["name"].toLowerCase();
