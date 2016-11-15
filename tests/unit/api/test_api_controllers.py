@@ -266,3 +266,70 @@ def test_delete_move_index_error(client):
     assert res.mimetype == 'application/json'
     assert 'errors' in res.json
     assert res.status_code == 404
+
+
+def test_search_single(client, seeds, search_single_query_json):
+    res = client.post(flask.url_for('api.search'),
+                      data=search_single_query_json,
+                      content_type='application/json')
+
+    assert res.mimetype == 'application/json'
+    assert len(res.json['data']['pokedexes']) == 0
+    assert len(res.json['data']['pokemon']) == 1
+    assert len(res.json['data']['moves']) == 0
+    assert res.status_code == 200
+
+
+def test_search_multi_and(client, seeds, search_multi_and_json):
+    res = client.post(flask.url_for('api.search'),
+                      data=search_multi_and_json,
+                      content_type='application/json')
+
+    assert res.mimetype == 'application/json'
+    assert len(res.json['data']['pokedexes']) == 0
+    assert len(res.json['data']['pokemon']) == 0
+    assert len(res.json['data']['moves']) == 1
+    assert res.status_code == 200
+
+
+def test_search_multi_or(client, seeds, search_multi_or_json):
+    res = client.post(flask.url_for('api.search'),
+                      data=search_multi_or_json,
+                      content_type='application/json')
+
+    assert res.mimetype == 'application/json'
+    assert len(res.json['data']['pokedexes']) == 1
+    assert len(res.json['data']['pokemon']) == 1
+    assert len(res.json['data']['moves']) == 0
+    assert res.status_code == 200
+
+
+def test_search_empty_query(client, seeds, search_empty_query_json):
+    res = client.post(flask.url_for('api.search'),
+                      data=search_empty_query_json,
+                      content_type='application/json')
+
+    assert res.mimetype == 'application/json'
+    assert len(res.json['data']['pokedexes']) == 1
+    assert len(res.json['data']['pokemon']) == 1
+    assert len(res.json['data']['moves']) == 1
+    assert res.status_code == 200
+
+
+def test_search_null_query_error(client, seeds, search_null_query_json):
+    res = client.post(flask.url_for('api.search'),
+                      data=search_null_query_json,
+                      content_type='application/json')
+
+    assert res.mimetype == 'application/json'
+    assert 'errors' in res.json
+    assert res.status_code == 422
+
+
+def test_search_empty_body_error(client, seeds, search_single_query_json):
+    res = client.post(flask.url_for('api.search'),
+                      data='',
+                      content_type='application/json')
+
+    assert res.mimetype == 'text/html'
+    assert res.status_code == 400

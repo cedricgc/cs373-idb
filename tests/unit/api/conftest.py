@@ -101,6 +101,16 @@ def null_move():
 
 
 @pytest.fixture
+def search():
+    """Generic search query"""
+    search = {
+        'query': 'Pokemon'
+    }
+
+    return search
+
+
+@pytest.fixture
 def pokedex_schema():
     """schema for single pokedex"""
     return schemas.PokedexSchema()
@@ -179,6 +189,61 @@ def move_json_updated(move):
     }
 
     return json.dumps(move_json)
+
+
+@pytest.fixture
+def search_single_query_json(search):
+    """JSON serialized search query with only one term"""
+    search['query'] = 'Bulbasaur'
+    search_json = {
+        'data': search
+    }
+
+    return json.dumps(search_json)
+
+
+@pytest.fixture
+def search_multi_and_json(search):
+    """JSON serialized search query with only one term"""
+    search['query'] = 'Regular wind'
+    search_json = {
+        'data': search
+    }
+
+    return json.dumps(search_json)
+
+
+@pytest.fixture
+def search_multi_or_json(search):
+    """JSON serialized search query with only one term"""
+    search['query'] = 'Bulbasaur or Kanto'
+    search_json = {
+        'data': search
+    }
+
+    return json.dumps(search_json)
+
+
+@pytest.fixture
+def search_empty_query_json(search):
+    """JSON serialized search query with only one term"""
+    search['query'] = ''
+    search_json = {
+        'data': search
+    }
+
+    return json.dumps(search_json)
+
+
+@pytest.fixture
+def search_null_query_json(search):
+    """JSON serialized search query with only one term"""
+    search['query'] = None
+    search_json = {
+        'data': search
+    }
+
+    return json.dumps(search_json)
 
 
 @pytest.fixture
