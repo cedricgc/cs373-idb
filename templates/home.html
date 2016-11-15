@@ -27,7 +27,30 @@
               </div>
               <div class="modal-body">
                 <p>{{'{{searchResultContext}}'}}</p>
-                <pre>{{'{{unitTestResults}}'}}</pre>
+                <table class="table table-bordered">
+                  <tr>
+                    <th class="instance-text">Pokemon</th>
+                  </tr>
+                  <tr ng-repeat="p in pokemon_and">
+                    <td class="instance-text"><a href="../pokemon/{{ '{{p.id}}' }}">{{ '{{p.name}}' }}</td>
+                  </tr>
+                </table>
+                <table class="table table-bordered">
+                  <tr>
+                    <th class="instance-text">Pokedexes</th>
+                  </tr>
+                  <tr ng-repeat="p in pokedexes_and">
+                    <td class="instance-text"><a href="../pokedexes/{{ '{{p.id}}' }}">{{ '{{p.official_name}}' }}</td>
+                  </tr>
+                </table>
+                <table class="table table-bordered">
+                  <tr>
+                    <th class="instance-text">Moves</th>
+                  </tr>
+                  <tr ng-repeat="p in moves_and">
+                    <td class="instance-text"><a href="../moves/{{ '{{m.id}}' }}">{{ '{{p.name}}' }}</td>
+                  </tr>
+                </table>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
