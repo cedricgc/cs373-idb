@@ -12,3 +12,5 @@ pytest
 pytest-cov
 pytest-flask
 psycopg2
+SQLAlchemy-Searchable
+sqlalchemy_utils

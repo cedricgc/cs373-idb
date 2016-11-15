@@ -31,7 +31,7 @@ class BaseSchema(ma.ModelSchema):
 
     class Meta:
         # prevent accounting columns showing up in JSON
-        exclude = ['inserted_at', 'updated_at']
+        exclude = ['inserted_at', 'updated_at', 'search_vector']
 
 
 class PokedexSchema(BaseSchema):
@@ -95,3 +95,8 @@ class PokemonMovesSchema(marshmallow.Schema):
 
     pokemon_id = marshmallow.fields.Integer(load_only=True)
     move_id = marshmallow.fields.Integer(load_only=True)
+
+
+class SearchSchema(marshmallow.Schema):
+
+    query = marshmallow.fields.String(load_only=True)
