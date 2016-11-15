@@ -18,7 +18,6 @@ import website.api.schemas as schemas
 
 
 app = create_app()
-db = flask_sqlalchemy.SQLAlchemy(app)
 
 pokedex_schema = schemas.PokedexSchema()
 pokemon_schema = schemas.PokemonSchema()
@@ -115,46 +114,64 @@ def main():
         move_api = json.load(data)
         moves = clean_moves(move_api)
 
-    print('STARTING POKEDEX INSERTS')
-    for pd in pokedexes:
-        pokedex, errors = pokedex_schema.load(pd)
-        print(pokedex)
-        print(errors)
-        try:
-            db.session.add(pokedex)
-            db.session.commit()
-        except sqlalchemy.exc.SQLAlchemyError as e:
-            print("Failed to insert pokedex data")
-            return 1
-    print('FINISHED POKEDEX INSERTS')
+    with app.app_context():
+        print('STARTING POKEDEX INSERTS')
+        for pd in pokedexes:
+            pokedex, errors = pokedex_schema.load(pd)
+            print(pokedex)
+            print(errors)
+            try:
+                models.db.session.add(pokedex)
+                models.db.session.commit()
+            except sqlalchemy.exc.SQLAlchemyError as e:
+                print("Failed to insert pokedex data")
+                return 1
+        print('FINISHED POKEDEX INSERTS')
 
-    print('STARTING POKEMON INSERTS')
-    for po in pokemon:
-        pokeman, errors = pokemon_schema.load(po)
-        print(pokeman)
-        print(errors)
-        try:
-            db.session.add(pokeman)
-            db.session.commit()
-        except sqlalchemy.exc.SQLAlchemyError as e:
-            print("Failed to insert pokemon data")
-            return 1
-    print('FINISHED POKEMON INSERTS')
+        print('STARTING POKEMON INSERTS')
+        for po in pokemon:
+            pokeman, errors = pokemon_schema.load(po)
+            print(pokeman)
+            print(errors)
+            try:
+                models.db.session.add(pokeman)
+                models.db.session.commit()
+            except sqlalchemy.exc.SQLAlchemyError as e:
+                print("Failed to insert pokemon data")
+                return 1
+        print('FINISHED POKEMON INSERTS')
 
-    print('STARTING MOVE INSERTS')
-    for mv in moves:
-        print(mv)
-        print(errors)
-        move, errors = move_schema.load(mv)
-        print(move)
-        print(errors)
-        try:
-            db.session.add(move)
-            db.session.commit()
-        except sqlalchemy.exc.SQLAlchemyError as e:
-            print("Failed to insert move data")
-            return 1
-    print('FINISHED MOVE INSERTS')
+        print('STARTING MOVE INSERTS')
+        for mv in moves:
+            print(mv)
+            print(errors)
+            move, errors = move_schema.load(mv)
+            print(move)
+            print(errors)
+            try:
+                models.db.session.add(move)
+                models.db.session.commit()
+            except sqlalchemy.exc.SQLAlchemyError as e:
+                print("Failed to insert move data")
+                return 1
+        print('FINISHED MOVE INSERTS')
+
+        print('ASSOCIATING POKEDEXES AND POKEMON')
+        for pd in pokedex_api:
+            pokemon_models = []
+            for po in pd['pokemon_entries']:
+                name = po['pokemon_species']['name'].title()
+                pokemon_model = models.Pokemon.query.filter(
+                    models.Pokemon.name == name).first()
+                pokemon_models.append(pokemon_model)
+            pokedex_model = models.Pokedex.query.filter(
+                models.Pokedex.name == pd['name']).first()
+            pokemon_models = [p for p in pokemon_models if p != None]
+
+            pokedex_model.pokemon = pokemon_models
+            models.db.session.add(pokedex_model)
+            models.db.session.commit()
+        print('FINISHED ASSOCIATING POKEDEXES AND POKEMON')
 
     return 0
 
