@@ -204,7 +204,7 @@ def search_single_query_json(search):
 
 @pytest.fixture
 def search_multi_and_json(search):
-    """JSON serialized search query with only one term"""
+    """JSON serialized search query with and operator"""
     search['query'] = 'Regular wind'
     search_json = {
         'data': search
@@ -215,7 +215,7 @@ def search_multi_and_json(search):
 
 @pytest.fixture
 def search_multi_or_json(search):
-    """JSON serialized search query with only one term"""
+    """JSON serialized search query with or operator"""
     search['query'] = 'Bulbasaur or Kanto'
     search_json = {
         'data': search
@@ -226,7 +226,7 @@ def search_multi_or_json(search):
 
 @pytest.fixture
 def search_empty_query_json(search):
-    """JSON serialized search query with only one term"""
+    """JSON serialized search query with empty string"""
     search['query'] = ''
     search_json = {
         'data': search
@@ -237,7 +237,7 @@ def search_empty_query_json(search):
 
 @pytest.fixture
 def search_null_query_json(search):
-    """JSON serialized search query with only one term"""
+    """JSON serialized search query with null instead of string"""
     search['query'] = None
     search_json = {
         'data': search
