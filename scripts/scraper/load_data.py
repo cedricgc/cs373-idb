@@ -104,13 +104,17 @@ def main():
         pokedex_api = json.load(data)
         pokedexes = clean_pokedexes(pokedex_api)
 
-    print('READING POKEMON-SPECIES JSON')
+    print('READING POKEMON JSON')
     with open(data_files[2]) as data:
+        pokemon_api = json.load(data)
+
+    print('READING POKEMON-SPECIES JSON')
+    with open(data_files[3]) as data:
         pokemon_species_api = json.load(data)
         pokemon_species = clean_pokemon_species(pokemon_species_api)
 
     print('READING MOVE JSON')
-    with open(data_files[3]) as data:
+    with open(data_files[4]) as data:
         move_api = json.load(data)
         moves = clean_moves(move_api)
 
@@ -172,6 +176,28 @@ def main():
             models.db.session.add(pokedex_model)
             models.db.session.commit()
         print('FINISHED ASSOCIATING POKEDEXES AND POKEMON')
+
+        print('ASSOCIATING POKEMON AND MOVES')
+        for po in pokemon_api:
+            move_models = []
+            for mv in po['moves']:
+                name = mv['move']['name']
+                names = name.split('-')
+                names = [nm.title() for nm in names]
+                name = ' '.join(names)
+                move_model = models.Move.query.filter(
+                    models.Move.name == name).first()
+                move_models.append(move_model)
+            move_models = [m for m in move_models if m != None]
+            pokemon_model = models.Pokemon.query.filter(
+                models.Pokemon.name == po['name'].title()).first()
+            if pokemon_model == None:
+                continue
+
+            pokemon_model.moves = move_models
+            models.db.session.add(pokemon_model)
+            models.db.session.commit()
+        print('FINISHED ASSOCIATING POKEMON AND MOVES')
 
     return 0
 
