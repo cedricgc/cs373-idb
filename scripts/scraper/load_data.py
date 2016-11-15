@@ -52,9 +52,9 @@ def clean_pokedexes(api_pokedexes):
     return cleaned
 
 
-def clean_pokemon(api_pokemon):
+def clean_pokemon_species(api_pokemon_species):
     cleaned = []
-    for pokeman in api_pokemon:
+    for pokeman in api_pokemon_species:
         habitat = pokeman.get('habitat', None)
         if habitat is not None:
             habitat = habitat['name']
@@ -104,10 +104,10 @@ def main():
         pokedex_api = json.load(data)
         pokedexes = clean_pokedexes(pokedex_api)
 
-    print('READING POKEMON JSON')
+    print('READING POKEMON-SPECIES JSON')
     with open(data_files[2]) as data:
-        pokemon_api = json.load(data)
-        pokemon = clean_pokemon(pokemon_api)
+        pokemon_species_api = json.load(data)
+        pokemon_species = clean_pokemon_species(pokemon_species_api)
 
     print('READING MOVE JSON')
     with open(data_files[3]) as data:
@@ -129,7 +129,7 @@ def main():
         print('FINISHED POKEDEX INSERTS')
 
         print('STARTING POKEMON INSERTS')
-        for po in pokemon:
+        for po in pokemon_species:
             pokeman, errors = pokemon_schema.load(po)
             print(pokeman)
             print(errors)
