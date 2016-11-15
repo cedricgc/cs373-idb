@@ -100,53 +100,60 @@ def clean_moves(api_moves):
 def main():
     data_files = sys.argv
 
-    print('STARTING POKEDEX INSERTS')
+    print('READING POKEDEX JSON')
     with open(data_files[1]) as data:
-        pokedexes = json.load(data)
-        cleaned = clean_pokedexes(pokedexes)
-        for pd in cleaned:
-            pokedex, errors = pokedex_schema.load(pd)
-            print(pokedex)
-            print(errors)
-            try:
-                db.session.add(pokedex)
-                db.session.commit()
-            except sqlalchemy.exc.SQLAlchemyError as e:
-                print("Failed to insert pokedex data")
-                return 1
+        pokedex_api = json.load(data)
+        pokedexes = clean_pokedexes(pokedex_api)
+
+    print('READING POKEMON JSON')
+    with open(data_files[2]) as data:
+        pokemon_api = json.load(data)
+        pokemon = clean_pokemon(pokemon_api)
+
+    print('READING MOVE JSON')
+    with open(data_files[3]) as data:
+        move_api = json.load(data)
+        moves = clean_moves(move_api)
+
+    print('STARTING POKEDEX INSERTS')
+    for pd in pokedexes:
+        pokedex, errors = pokedex_schema.load(pd)
+        print(pokedex)
+        print(errors)
+        try:
+            db.session.add(pokedex)
+            db.session.commit()
+        except sqlalchemy.exc.SQLAlchemyError as e:
+            print("Failed to insert pokedex data")
+            return 1
     print('FINISHED POKEDEX INSERTS')
 
     print('STARTING POKEMON INSERTS')
-    with open(data_files[2]) as data:
-        pokemon = json.load(data)
-        cleaned = clean_pokemon(pokemon)
-        for po in cleaned:
-            pokeman, errors = pokemon_schema.load(po)
-            print(pokeman)
-            print(errors)
-            try:
-                db.session.add(pokeman)
-                db.session.commit()
-            except sqlalchemy.exc.SQLAlchemyError as e:
-                print("Failed to insert pokemon data")
-                return 1
+    for po in pokemon:
+        pokeman, errors = pokemon_schema.load(po)
+        print(pokeman)
+        print(errors)
+        try:
+            db.session.add(pokeman)
+            db.session.commit()
+        except sqlalchemy.exc.SQLAlchemyError as e:
+            print("Failed to insert pokemon data")
+            return 1
     print('FINISHED POKEMON INSERTS')
 
     print('STARTING MOVE INSERTS')
-    with open(data_files[3]) as data:
-        moves = json.load(data)
-        cleaned = clean_moves(moves)
-        for mv in cleaned:
-            print(mv)
-            move, errors = move_schema.load(mv)
-            print(move)
-            print(errors)
-            try:
-                db.session.add(move)
-                db.session.commit()
-            except sqlalchemy.exc.SQLAlchemyError as e:
-                print("Failed to insert move data")
-                return 1
+    for mv in moves:
+        print(mv)
+        print(errors)
+        move, errors = move_schema.load(mv)
+        print(move)
+        print(errors)
+        try:
+            db.session.add(move)
+            db.session.commit()
+        except sqlalchemy.exc.SQLAlchemyError as e:
+            print("Failed to insert move data")
+            return 1
     print('FINISHED MOVE INSERTS')
 
     return 0
