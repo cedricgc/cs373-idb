@@ -2,6 +2,18 @@ table th span {
     padding: 0px 0px 0px 2px;
 }
 
+.search-bar {
+	width:50%;
+	margin: 0 auto;
+	padding-top:1%;
+	padding-bottom:1%;
+}
+
+.splash-search {
+	padding-top:1%;
+	padding-bottom:1%;
+}
+
 .header-centered {
 	text-align: center;
 }
