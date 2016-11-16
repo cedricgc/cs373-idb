@@ -11,6 +11,12 @@ angular.module('homeApp', [])
 
     $scope.getSearchResults = function() {
       $scope.searchResultContext = "Displaying results for: \"" + $scope.searchQuery + "\"";
+      $scope.pokemon_and = [];
+      $scope.pokedexes_and = [];
+      $scope.moves_and = [];
+      $scope.pokemon_or = [];
+      $scope.pokedexes_or = [];
+      $scope.moves_or = [];
 
       var query_terms = $scope.searchQuery.split(' ');
 
@@ -56,8 +62,9 @@ angular.module('homeApp', [])
           angular.forEach(moves_or_ids, function(value, index) {
             $scope.moves_or.push(value);
           });
-
-      });
+        });
+      }else {
+        $scope.multi = false;
       }
       
     }
