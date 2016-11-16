@@ -1,43 +1,156 @@
 {% extends "layout.html" %}
 {% block content %}
-<body style="background-image:url(../static/images/splash-bg.jpg);background-size:cover">
-  <div class="page-header header-centered">
-    <h1>Pokemans<small></small></h1>
-    <h1><small>Explore the world of Pokemon</small></h1>
-    <hr>
-    <div class="splash-search">
-      <h3>What are you looking for?</h3>
-      <div class="input-group search-bar">
-          <input type="text" placeholder="Search" class="form-control" />
-          <div class="input-group-btn">
-            <button class="btn btn-info">
-              <span class="fa fa-search"></span>
-            </button>
+<div ng-app="homeApp">
+  <div ng-controller="homeController">
+    <body style="background-image:url(../static/images/splash-bg.jpg);background-size:cover">
+      <div class="page-header header-centered">
+        <h1>Pokemans<small></small></h1>
+        <h1><small>Explore the world of Pokemon</small></h1>
+        <hr>
+        <div class="panel panel-primary header-centered splash-search">
+          <div class="panel-heading">
+            <h3 class="panel-title">What are you looking for?</h3>
           </div>
+          <div class="panel-body">
+            <div class="input-group search-bar">
+                <input type="text" placeholder="Search" class="form-control" ng-model="searchQuery"/>
+                <div class="input-group-btn">
+                  <button class="btn btn-info" data-toggle="modal" data-target="#searchResultsModal" ng-click="getSearchResults()">
+                    <span class="fa fa-search"></span>
+                  </button>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div id="searchResultsModal" class="modal fade" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title header-centered">Search Results</h4>
+              </div>
+              <div class="modal-body">
+                <p>{{'{{searchResultContext}}'}}</p>
+                <hr>
+                <p ng-hide="multi == false">Results for "and"</p>
+                <div class="container-fluid">
+                  <div class="row team-bio row-centered">
+                    <div class="col-md-3 col-centered">
+                      <table class="table table-bordered">
+                        <tr>
+                          <th class="instance-text">Pokemon</th>
+                          </tr>
+                          <tr ng-repeat="p in pokemon_and">
+                            <td class="instance-text"><a href="../pokemon/{{ '{{p.id}}' }}">{{ '{{p.name}}' }}</td>
+                          </tr>
+                      </table>
+                    </div>
+                    <div class="col-md-3 col-centered">
+                      <table class="table table-bordered">
+                        <tr>
+                          <th class="instance-text">Pokedexes</th>
+                        </tr>
+                        <tr ng-repeat="p in pokedexes_and">
+                          <td class="instance-text"><a href="../pokedexes/{{ '{{p.id}}' }}">{{ '{{p.official_name}}' }}</td>
+                        </tr>
+                      </table>
+                    </div>
+                    <div class="col-md-3 col-centered">
+                      <table class="table table-bordered">
+                        <tr>
+                          <th class="instance-text">Moves</th>
+                        </tr>
+                        <tr ng-repeat="m in moves_and">
+                          <td class="instance-text"><a href="../moves/{{ '{{m.id}}' }}">{{ '{{m.name}}' }}</td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <hr ng-hide="multi == false">
+                <p ng-hide="multi == false">Results for "or"</p>
+                <div class="container-fluid" ng-hide="multi == false">
+                  <div class="row team-bio row-centered">
+                    <div class="col-md-3 col-centered">
+                      <table class="table table-bordered">
+                        <tr>
+                          <th class="instance-text">Pokemon</th>
+                          </tr>
+                          <tr ng-repeat="p in pokemon_or">
+                            <td class="instance-text"><a href="../pokemon/{{ '{{p.id}}' }}">{{ '{{p.name}}' }}</td>
+                          </tr>
+                      </table>
+                    </div>
+                    <div class="col-md-3 col-centered">
+                      <table class="table table-bordered">
+                        <tr>
+                          <th class="instance-text">Pokedexes</th>
+                        </tr>
+                        <tr ng-repeat="p in pokedexes_or">
+                          <td class="instance-text"><a href="../pokedexes/{{ '{{p.id}}' }}">{{ '{{p.official_name}}' }}</td>
+                        </tr>
+                      </table>
+                    </div>
+                    <div class="col-md-3 col-centered">
+                      <table class="table table-bordered">
+                        <tr>
+                          <th class="instance-text">Moves</th>
+                        </tr>
+                        <tr ng-repeat="m in moves_or">
+                          <td class="instance-text"><a href="../moves/{{ '{{m.id}}' }}">{{ '{{m.name}}' }}</td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+      <div class="container">
+        <div class="row match-my-cols">
+          <div class="col-sm-4">
+            <div class="panel panel-info header-centered">
+              <div class="panel-heading">
+                <h3 class="panel-title">Pokemon</h3>
+              </div>
+              <div class="panel-body">
+                There are over 700 Pokemon. Find your favorite Pokemon, or discover new ones.
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="panel panel-info header-centered">
+              <div class="panel-heading">
+                <h3 class="panel-title">Pokedexes</h3>
+              </div>
+              <div class="panel-body">
+                Explore the different Pokedexes. Discover the regions a Pokemon lives in.
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="panel panel-info header-centered">
+              <div class="panel-heading">
+                <h3 class="panel-title">Moves</h3>
+              </div>
+              <div class="panel-body">
+                What would Pokemon be without battling? Learn about all the different moves a Pokemon can learn.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
   </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-4">
-        <div class="header-centered">
-          <h3>Pokemon</h3>
-          <h3><small>There may have originally only been 151 Pokemon, but now there are over 700. Find your favorite Pokemon, or discover new ones.</small></h3>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="header-centered">
-          <h3>Pokedexes</h3>
-          <h3><small>Explore the different Pokedexes. Discover the regions a Pokemon lives in.</small></h3>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="header-centered">
-          <h3>Moves</h3>
-          <h3><small>What would Pokemon be without battling? Learn about all the different moves a Pokemon can learn.</small></h3>
-        </div>
-      </div>
-    </div>
-  </div>
-</body>
+</div>
+{% endblock %}
+{% block scripts %}
+{{ super() }}
+<!-- Download our scripts after vendor libs -->
+<script src="/static/js/home.js"></script>
 {% endblock %}
