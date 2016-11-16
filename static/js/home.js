@@ -23,21 +23,21 @@ angular.module('homeApp', [])
       var request_data = { 'data' : { 'query' : $scope.searchQuery }};
  
       $http.post('api/v1/search', request_data).success(function(data) {
-          var pokemon_and_ids = data["data"]["pokemon"];
-          var pokedexes_and_ids = data["data"]["pokedexes"];
-          var moves_and_ids = data["data"]["moves"];
+        var pokemon_and_ids = data["data"]["pokemon"];
+        var pokedexes_and_ids = data["data"]["pokedexes"];
+        var moves_and_ids = data["data"]["moves"];
 
-          angular.forEach(pokemon_and_ids, function(value, index) {
-            $scope.pokemon_and.push(value);
-          });
+        angular.forEach(pokemon_and_ids, function(value, index) {
+          $scope.pokemon_and.push(value);
+        });
 
-          angular.forEach(pokedexes_and_ids, function(value, index) {
-            $scope.pokedexes_and.push(value);
-          });
+        angular.forEach(pokedexes_and_ids, function(value, index) {
+          $scope.pokedexes_and.push(value);
+        });
 
-          angular.forEach(moves_and_ids, function(value, index) {
-            $scope.moves_and.push(value);
-          });
+        angular.forEach(moves_and_ids, function(value, index) {
+          $scope.moves_and.push(value);
+        });
 
       });
 
