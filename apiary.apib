@@ -702,3 +702,51 @@ and moves.
                 'database': ['Unable to associate pokemon and move']
             }
         }
+
+# Group Other
+
+## Search [/search/]
+
+### Search for Pokemon, Pokedexes, and Moves [POST]
++ Request (application/json)
+
+        {
+          "data": {
+            "query" : "Bulbasaur",
+          }
+        }
+
++ Response 200
+
+        {
+          "data": {
+            "pokedexes" : [],
+            "pokemon": [
+                {
+                  "color": "green",
+                  "flavor_text": "Bulbasaur can be seen napping in bright sunlight.\nThere is a seed on its back. By soaking up the sun’s rays,\nthe seed grows progressively larger.",
+                  "habitat": "grassland",
+                  "id": 1,
+                  "name": "Bulbasaur",
+                  "shape": "quadruped"
+                }
+              ],
+            "moves": []
+          }
+        }
+
++ Response 400 (application/json)
+
+        {
+            'errors': {
+                'input': ['the server could not read the input as JSON']
+            }
+        }
+
++ Response 422 (application/json)
+
+        {
+            'errors': {
+                 'input': ['the server could not read the input as JSON']
+            }
+        }
