@@ -7,15 +7,19 @@
         <h1>Pokemans<small></small></h1>
         <h1><small>Explore the world of Pokemon</small></h1>
         <hr>
-        <div class="splash-search">
-          <h3>What are you looking for?</h3>
-          <div class="input-group search-bar">
-              <input type="text" placeholder="Search" class="form-control" ng-model="searchQuery"/>
-              <div class="input-group-btn">
-                <button class="btn btn-info" data-toggle="modal" data-target="#searchResultsModal" ng-click="getSearchResults()">
-                  <span class="fa fa-search"></span>
-                </button>
-              </div>
+        <div class="panel panel-primary header-centered splash-search">
+          <div class="panel-heading">
+            <h3 class="panel-title">What are you looking for?</h3>
+          </div>
+          <div class="panel-body">
+            <div class="input-group search-bar">
+                <input type="text" placeholder="Search" class="form-control" ng-model="searchQuery"/>
+                <div class="input-group-btn">
+                  <button class="btn btn-info" data-toggle="modal" data-target="#searchResultsModal" ng-click="getSearchResults()">
+                    <span class="fa fa-search"></span>
+                  </button>
+                </div>
+            </div>
           </div>
         </div>
         <div id="searchResultsModal" class="modal fade" role="dialog">
@@ -108,23 +112,35 @@
         </div>
       </div>
       <div class="container">
-        <div class="row">
+        <div class="row match-my-cols">
           <div class="col-sm-4">
-            <div class="header-centered">
-              <h3>Pokemon</h3>
-              <h3><small>There may have originally only been 151 Pokemon, but now there are over 700. Find your favorite Pokemon, or discover new ones.</small></h3>
+            <div class="panel panel-info header-centered">
+              <div class="panel-heading">
+                <h3 class="panel-title">Pokemon</h3>
+              </div>
+              <div class="panel-body">
+                There are over 700 Pokemon. Find your favorite Pokemon, or discover new ones.
+              </div>
             </div>
           </div>
           <div class="col-sm-4">
-            <div class="header-centered">
-              <h3>Pokedexes</h3>
-              <h3><small>Explore the different Pokedexes. Discover the regions a Pokemon lives in.</small></h3>
+            <div class="panel panel-info header-centered">
+              <div class="panel-heading">
+                <h3 class="panel-title">Pokedexes</h3>
+              </div>
+              <div class="panel-body">
+                Explore the different Pokedexes. Discover the regions a Pokemon lives in.
+              </div>
             </div>
           </div>
           <div class="col-sm-4">
-            <div class="header-centered">
-              <h3>Moves</h3>
-              <h3><small>What would Pokemon be without battling? Learn about all the different moves a Pokemon can learn.</small></h3>
+            <div class="panel panel-info header-centered">
+              <div class="panel-heading">
+                <h3 class="panel-title">Moves</h3>
+              </div>
+              <div class="panel-body">
+                What would Pokemon be without battling? Learn about all the different moves a Pokemon can learn.
+              </div>
             </div>
           </div>
         </div>
