@@ -1,75 +1,79 @@
 {% extends "layout.html" %}
 {% block content %}
-<body style="background-image:url(../static/images/writers.jpg);background-size:cover">
-  <div class="container">
-    <div class="row row-centered">
-      <div class="col-sm-6 col-centered">
-        <div class="panel panel-primary header-centered">
-          <div class="panel-body">
-            <h1>Team Books' API</h1>
-            <hr>
-            <h1><small>Bored? Explore the world of books</small></h1>
+<div ng-app="otherGroupApp">
+  <div ng-controller="otherGroupController" ng-init="loadData()">
+    <body style="background-image:url(../static/images/writers.jpg);background-size:cover">
+      <div class="container">
+        <div class="row row-centered">
+          <div class="col-sm-6 col-centered">
+            <div class="panel panel-primary header-centered">
+              <div class="panel-body">
+                <h1>Team Books' API</h1>
+                <hr>
+                <h1><small>Bored? Explore the world of books</small></h1>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-    <hr>
-    <div class="row row-centered">
-      <div class="col-sm-6 col-centered">
-        <div class="panel panel-info header-centered">
-          <div class="panel-heading">
-            <h3 class="panel-title">Authors</h3>
-          </div>
-          <div class="panel-body">
-            Click for a random author to discover
-	            
-	        <div class="text-center">
-            	<button class="author-button">Surprise!</button>
-          	</div>
+        <hr>
+        <div class="row row-centered">
+          <div class="col-sm-6 col-centered">
+            <div class="panel panel-info header-centered">
+              <div class="panel-heading">
+                <h3 class="panel-title">Authors</h3>
+              </div>
+              <div class="panel-body">
+                Click for a random author to discover
+    	            
+    	        <div class="text-center">
+                	<button class="author-button">Surprise!</button>
+              	</div>
 
+              </div>
+    	            <div class="panel-footer">
+    	                 <h3><b> Book: book.name</b>  book_id </h3>
+    	                 <h3><b> Author: book.authors</b> author_id </h3>
+    	                 <h3> <b> Published: book.publication_date</b>  published_id </h3>
+    	                 
+    	            </div>
+            </div>
           </div>
-	            <div class="panel-footer">
-	                 <h3><b> Book: {{book.name}}</b> {{ book_id }}</h3>
-	                 <h3><b> Author: {{book.authors}}</b> {{ author_id }}</h3>
-	                 <h3> <b> Published: {{book.publication_date}}</b> {{ published_id }}</h3>
-	                 
-	            </div>
+          <div class="col-sm-6 col-centered">
+            <div class="panel panel-info header-centered">
+              <div class="panel-heading">
+                <h3 class="panel-title">Books</h3>
+              </div>
+              <div class="panel-body">
+                Click for a random book
+    	            <div class="text-center">
+                	<button class="book-button">Surprise!</button>
+              	</div>
+              </div>
+              		 <div class="panel-footer">
+    	                 <h3><b> Book: book.name</b>  book_id </h3>
+    	                 <h3><b> Author: book.authors</b>  author_id </h3>
+    	                 <h3> <b> Published: book.publication_date</b>  published_id </h3>
+    	                 
+    	            </div>
+            </div>
+          </div>
+        </div>
+        <div class="row row-centered">
+          <div class="col-sm-6 col-centered">
+            <div class="panel panel-primary header-centered">
+              <div class="panel-body">
+                <h2>Powered by: <a href="http://litdb.me">LitDB</a></h2>
+              </div>
+            </div>
+          </div>      
         </div>
       </div>
-      <div class="col-sm-6 col-centered">
-        <div class="panel panel-info header-centered">
-          <div class="panel-heading">
-            <h3 class="panel-title">Books</h3>
-          </div>
-          <div class="panel-body">
-            Click for a random book
-	            <div class="text-center">
-            	<button class="book-button">Surprise!</button>
-          	</div>
-          </div>
-          		 <div class="panel-footer">
-	                 <h3><b> Book: {{book.name}}</b> {{ book_id }}</h3>
-	                 <h3><b> Author: {{book.authors}}</b> {{ author_id }}</h3>
-	                 <h3> <b> Published: {{book.publication_date}}</b> {{ published_id }}</h3>
-	                 
-	            </div>
-        </div>
-      </div>
-    </div>
-    <div class="row row-centered">
-      <div class="col-sm-6 col-centered">
-        <div class="panel panel-primary header-centered">
-          <div class="panel-body">
-            <h2>Powered by: <a href="http://litdb.me">LitDB</a><h2>
-          </div>
-        </div>
-      </div>      
-    </div>
+    </body>
   </div>
- </body>
-
-
-
-
- 
+</div>
+{% endblock %}
+{% block scripts %}
+{{ super() }}
+<!-- Download our scripts after vendor libs -->
+<script src="/static/js/otherGroup.js"></script>
 {% endblock %}

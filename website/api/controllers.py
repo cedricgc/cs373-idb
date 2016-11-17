@@ -13,6 +13,8 @@ flask converts return values to Response objects.
 
 import flask
 import sqlalchemy
+import requests
+import json
 
 import website.api.models as models
 import website.api.schemas as schemas
@@ -100,30 +102,11 @@ def search():
 
         return flask.jsonify(bad_request), 422
 
-#@api_bp.route('/otherGroup')
-#def otherGroup():
-#        api_url = "http://"
+@api_bp.route('/otherGroup')
+def otherGroup():
+    authors = requests.get("http://test.litdb.me/authors")
 
-#        book_num = randint(1,30)
-#        author_num = randint(1,60)
-
-
-
-
-#        book = requests.get("http://www.test.litdb.me/books" + str(book_id))
-        
-#        author = requests.get("http://www.test.litdb.me/authors" + str(author_id))
-    
-
-#        resultBookJson = book.json()
-
-
-#    return flask.jsonify('data' : resultBookJson),200   
-
-
-
-
-
+    return flask.jsonify(authors.text), 200
 
 @api_bp.route('/pokedexes/', methods=['GET'])
 def index_pokedexes():

@@ -22,6 +22,7 @@ pytest==3.0.3
 pytest-cov==2.4.0
 pytest-flask==0.10.0
 python-editor==1.0.1
+requests==2.12.1
 six==1.10.0
 SQLAlchemy==1.1.1
 SQLAlchemy-Searchable==0.10.2
