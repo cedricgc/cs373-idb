@@ -10,7 +10,7 @@
               <div class="panel-body">
                 <h1>Team Books' API</h1>
                 <hr>
-                <h1><small>Bored? Explore the world of books</small></h1>
+                <h1><small>Bored? May we suggest a book?</small></h1>
               </div>
             </div>
           </div>
@@ -20,41 +20,19 @@
           <div class="col-sm-6 col-centered">
             <div class="panel panel-info header-centered">
               <div class="panel-heading">
-                <h3 class="panel-title">Authors</h3>
+                <h3 class="panel-title">Our Recommendation</h3>
               </div>
               <div class="panel-body">
-                Click for a random author to discover
-    	            
-    	        <div class="text-center">
-                	<button class="author-button">Surprise!</button>
-              	</div>
-
+                {{ ' {{book}}' }}
+                <hr>
+                By: {{ ' {{authorName}}' }}
               </div>
-    	            <div class="panel-footer">
-    	                 <h3><b> Book: book.name</b>  book_id </h3>
-    	                 <h3><b> Author: book.authors</b> author_id </h3>
-    	                 <h3> <b> Published: book.publication_date</b>  published_id </h3>
-    	                 
-    	            </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-centered">
-            <div class="panel panel-info header-centered">
-              <div class="panel-heading">
-                <h3 class="panel-title">Books</h3>
-              </div>
-              <div class="panel-body">
-                Click for a random book
-    	            <div class="text-center">
-                	<button class="book-button">Surprise!</button>
-              	</div>
-              </div>
-              		 <div class="panel-footer">
-    	                 <h3><b> Book: book.name</b>  book_id </h3>
-    	                 <h3><b> Author: book.authors</b>  author_id </h3>
-    	                 <h3> <b> Published: book.publication_date</b>  published_id </h3>
-    	                 
-    	            </div>
+  	            <div class="panel-footer">
+                  <row class="row-centered">
+                    <button class="btn btn-info" ng-click="getNewBook()">More suggestions from this author</button>
+                    <button class="btn btn-info" ng-click="getNewAuthor()">Surprise me</button>
+                  </row>
+  	            </div>
             </div>
           </div>
         </div>
