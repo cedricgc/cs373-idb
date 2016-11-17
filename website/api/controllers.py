@@ -48,6 +48,9 @@ pokemon_moves_schema = schemas.PokemonMovesSchema()
 search_schema = schemas.SearchSchema()
 
 
+
+
+
 @api_bp.route('/search/', methods=['POST'])
 def search():
     json_data = flask.request.get_json()
@@ -96,6 +99,30 @@ def search():
         }
 
         return flask.jsonify(bad_request), 422
+
+#@api_bp.route('/otherGroup')
+#def otherGroup():
+#        api_url = "http://"
+
+#        book_num = randint(1,30)
+#        author_num = randint(1,60)
+
+
+
+
+#        book = requests.get("http://www.test.litdb.me/books" + str(book_id))
+        
+#        author = requests.get("http://www.test.litdb.me/authors" + str(author_id))
+    
+
+#        resultBookJson = book.json()
+
+
+#    return flask.jsonify('data' : resultBookJson),200   
+
+
+
+
 
 
 @api_bp.route('/pokedexes/', methods=['GET'])
