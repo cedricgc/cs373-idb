@@ -14,7 +14,6 @@ flask converts return values to Response objects.
 import flask
 import sqlalchemy
 import requests
-import json
 
 import website.api.models as models
 import website.api.schemas as schemas
@@ -48,9 +47,6 @@ moves_schema = schemas.MoveSchema(many=True,
 pokedex_pokemon_schema = schemas.PokedexPokemonSchema()
 pokemon_moves_schema = schemas.PokemonMovesSchema()
 search_schema = schemas.SearchSchema()
-
-
-
 
 
 @api_bp.route('/search/', methods=['POST'])
@@ -102,11 +98,13 @@ def search():
 
         return flask.jsonify(bad_request), 422
 
+
 @api_bp.route('/otherGroup')
 def otherGroup():
     authors = requests.get("http://test.litdb.me/authors")
 
     return flask.jsonify(authors.text), 200
+
 
 @api_bp.route('/pokedexes/', methods=['GET'])
 def index_pokedexes():
