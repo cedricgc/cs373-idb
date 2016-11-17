@@ -68,6 +68,11 @@ def index_moves():
 def show_move(id=None):
     return flask.render_template('show_move.html', id=id)
 
+@frontend_bp.route('/otherGroup', methods=['GET'])
+def otherGroup():
+        return flask.render_template('otherGroup.html')
+        
+
 
 @frontend_bp.route('/test/', methods=['GET'])
 def run_tests():
