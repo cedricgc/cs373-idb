@@ -13,6 +13,8 @@ flask converts return values to Response objects.
 
 import flask
 import sqlalchemy
+import requests
+import json
 
 import website.api.models as models
 import website.api.schemas as schemas
@@ -96,6 +98,13 @@ def search():
         }
 
         return flask.jsonify(bad_request), 422
+
+
+@api_bp.route('/otherGroup')
+def otherGroup():
+    authors = requests.get("http://test.litdb.me/authors")
+
+    return flask.jsonify(json.loads(authors.text)), 200
 
 
 @api_bp.route('/pokedexes/', methods=['GET'])
