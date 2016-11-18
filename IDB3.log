@@ -1,0 +1,1893 @@
+commit 8b41f509204579276f6267f28cad913d53e8f399
+Merge: bb938c4 3503798
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 17 21:22:23 2016 -0600
+
+    Merge pull request #87 from cedricgc/update-about-info
+    
+    Update about info
+
+commit 3503798bb2be7996dec4ee6328babf33e1f6dcf1
+Merge: 07f56fc 1ba002d
+Author: alitarekrashed <alitarekrashed@gmail.com>
+Date:   Fri Nov 18 03:14:52 2016 +0000
+
+    Merge branch 'staging' into update-about-info
+
+commit 07f56fc6c68e759062b91036d4b57cf569300f58
+Author: alitarekrashed <alitarekrashed@gmail.com>
+Date:   Fri Nov 18 03:11:54 2016 +0000
+
+    add speakerdeck link and aggregate stats
+
+commit bb938c4b41fa7d35fe12ae639513dd0ae9b59b58
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Fri Nov 18 03:05:26 2016 +0000
+
+    make command to generate IDB3.log
+
+commit 58c35821f05fd244b451d493f758cde5c7ed04f6
+Merge: 1ba002d 2826453
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 17 20:51:51 2016 -0600
+
+    Merge pull request #86 from cedricgc/update-books-litdb
+    
+    update litdb url
+
+commit 282645309dfee21d132cd1616c1ee371122f7c05
+Author: alitarekrashed <alitarekrashed@gmail.com>
+Date:   Fri Nov 18 02:48:21 2016 +0000
+
+    update litdb url
+
+commit 4085552539347e31b90cceca27bf7515a2840051
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 17 18:25:10 2016 -0600
+
+    Update Cedric Info and all unit tests
+
+commit 1ba002dbc4c059619810dfb4d8de69dc58f28c71
+Merge: a8b9e24 8b393bc
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 17 18:19:52 2016 -0600
+
+    Merge pull request #85 from cedricgc/otherGroup
+    
+    Other group
+
+commit b36200c5f8cd496fa5f1c7f82f22fa086d9056f8
+Author: alitarekrashed <alitarekrashed@gmail.com>
+Date:   Thu Nov 17 23:35:21 2016 +0000
+
+    update my stats (ali)
+
+commit 8b393bc57dcf01faa2f4d38dd071e7afac53949c
+Author: alitarekrashed <alitarekrashed@gmail.com>
+Date:   Thu Nov 17 23:27:30 2016 +0000
+
+    use team books' api in an interesting way
+    
+    Closes #65
+
+commit b93b9706cc29bdc61fd0416b4942441f4500befc
+Author: alitarekrashed <alitarekrashed@gmail.com>
+Date:   Thu Nov 17 18:38:21 2016 +0000
+
+    remove unneeded import
+
+commit 18e51d9b21f5689cc1a4ab9471715d08df52cc08
+Author: alitarekrashed <alitarekrashed@gmail.com>
+Date:   Thu Nov 17 18:32:03 2016 +0000
+
+    calling litdb api for authors
+
+commit 9466349ffc85bd0fcdd59e9922a2b913ecb73f9f
+Author: samuelwilliamson77 <samuelwilliamson77@gmail.com>
+Date:   Thu Nov 17 17:59:54 2016 +0000
+
+    Adjusted personal bio and issue/commit counts
+
+commit fa61bd47b16960c054aa636a19650762f5084f3c
+Author: alitarekrashed <alitarekrashed@gmail.com>
+Date:   Thu Nov 17 17:38:20 2016 +0000
+
+    update apiary to show relationships properly
+
+commit a74d43edf3c13c34d9713fb2e838e04d0b32bfb4
+Author: paola <paolajara22@utexas.edu>
+Date:   Thu Nov 17 14:46:21 2016 +0000
+
+    start of getting otherGroup data
+
+commit 04e261b02b9705135eda6a9cab4fc7b2f8c0a5a1
+Author: paola <paolajara22@utexas.edu>
+Date:   Thu Nov 17 07:33:43 2016 +0000
+
+    finished setting up template for otherGroup
+
+commit bbb92ae50ac63c21f38b7a9443fe64f23db30176
+Author: alitarekrashed <alitarekrashed@gmail.com>
+Date:   Thu Nov 17 03:53:44 2016 +0000
+
+    Added panels to improve readability on backtground
+
+commit 6bf2122c2b7886f1f361f207dd83db81eec9fba7
+Author: alitarekrashed <alitarekrashed@gmail.com>
+Date:   Thu Nov 17 03:36:56 2016 +0000
+
+    fixed about page linking
+
+commit 9130a9357ec074e9160064c3115614688811cf5e
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Wed Nov 16 20:43:14 2016 -0600
+
+    Style fixes
+
+commit 32650465df6728a616a945365c0301b9f8474547
+Author: paola <paolajara22@utexas.edu>
+Date:   Thu Nov 17 01:08:38 2016 +0000
+
+    ibdb page
+
+commit a8b9e24b03301b0935c3140a284d2bd71d0d22b6
+Merge: 889d97e f2398ff
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Wed Nov 16 10:19:48 2016 -0600
+
+    Merge pull request #84 from cedricgc/apiary-search
+    
+    Updated apiary with search endpoint
+
+commit f2398ffaf0072aa20fd99d4bf06180e88ab9c4c3
+Author: alitarekrashed <alitarekrashed@gmail.com>
+Date:   Wed Nov 16 14:14:41 2016 +0000
+
+    removed unnecessary comma
+
+commit 692238726c290e80264ebd6370813553aee17355
+Author: alitarekrashed <alitarekrashed@gmail.com>
+Date:   Wed Nov 16 14:04:55 2016 +0000
+
+    Updated apiary with search endpoint
+    
+    Closes #83
+
+commit 889d97edf1182cc5c7e522922723fe797561b055
+Merge: a97c6ec 88eed56
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Tue Nov 15 22:15:51 2016 -0600
+
+    Merge pull request #82 from cedricgc/integrate-search-front
+    
+    Integrate search front
+
+commit 88eed56218f71947bb823b8d9c414f2524e26575
+Author: alitarekrashed <alitarekrashed@gmail.com>
+Date:   Wed Nov 16 00:44:05 2016 +0000
+
+    redesign of home page
+
+commit e5ba64fc940eee6eaa3c5b4e9c70139edb34c3b5
+Author: alitarekrashed <alitarekrashed@gmail.com>
+Date:   Wed Nov 16 00:03:12 2016 +0000
+
+    formatting fix
+
+commit 9eddea1ce9164e62156dc26e7ade128a5ed702fe
+Author: alitarekrashed <alitarekrashed@gmail.com>
+Date:   Wed Nov 16 00:01:52 2016 +0000
+
+    Assorted fixes
+    
+    Clears saved search data between searches
+    Resets whether or not multiple words were searched
+    Fixed linking to moves
+    References #63
+
+commit 421054c1d868022c16ce3193d736384df6f5a773
+Author: alitarekrashed <alitarekrashed@gmail.com>
+Date:   Tue Nov 15 23:55:24 2016 +0000
+
+    logic for OR searches for multi-phrase
+    
+    References #63
+
+commit 0b5c70e71c072ce3f962ca2719a9ac43bf900bdd
+Author: alitarekrashed <alitarekrashed@gmail.com>
+Date:   Tue Nov 15 23:46:28 2016 +0000
+
+    Adds tables for multi-search, hides otherwise
+    
+    References #63
+
+commit 9b8d405ea7903c3861d85ae84ff84675dec03983
+Author: alitarekrashed <alitarekrashed@gmail.com>
+Date:   Tue Nov 15 23:41:49 2016 +0000
+
+    All search columns on one line, centered
+    
+    References #63
+
+commit 2daf74fe860bec0737d981ad14d5e62364402dea
+Author: alitarekrashed <alitarekrashed@gmail.com>
+Date:   Tue Nov 15 23:23:52 2016 +0000
+
+    Retrieving single phrase search results for models
+    
+    References #63
+
+commit a97c6ec8f57a18271cda58ac836325824e465c32
+Merge: 0722d20 16dea6f
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Tue Nov 15 16:03:28 2016 -0600
+
+    Merge pull request #81 from cedricgc/fix-relationship-display
+    
+    Fix relationship display
+
+commit 16dea6f137b15aa0c25872231fe09230a3e33e80
+Author: alitarekrashed <alitarekrashed@gmail.com>
+Date:   Tue Nov 15 21:11:45 2016 +0000
+
+    corrected typo to pull into write model array
+
+commit 965b9f59162675275e3a67987c4f33fe8563ecf2
+Author: alitarekrashed <alitarekrashed@gmail.com>
+Date:   Tue Nov 15 21:09:09 2016 +0000
+
+    Only calls the API once, displays relationships
+
+commit a94cabf6c895843b2592c665c9a954336e7fc86b
+Author: alitarekrashed <alitarekrashed@gmail.com>
+Date:   Tue Nov 15 20:45:54 2016 +0000
+
+    Added modal for search, hitting API now
+    
+    References #63
+
+commit 0722d203689d96c00e3154567fa478a8ab6e6785
+Merge: fcdfc72 911219b
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Tue Nov 15 14:45:11 2016 -0600
+
+    Merge pull request #80 from cedricgc/associate
+    
+    Associate
+
+commit 911219b3d95bdd42a5b80ce2919b6d133e31bc07
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Tue Nov 15 20:25:42 2016 +0000
+
+    build associations between API models
+    
+    closes #73
+
+commit 80f21c6df41a8bb2d9545e4841fa62ee86405410
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Tue Nov 15 19:49:01 2016 +0000
+
+    delienate pokemon and pokemon-species for clarity
+
+commit d5c099f89ba0352e6e00ca83115d8d1d6a9d6843
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Tue Nov 15 19:44:46 2016 +0000
+
+    add back Will's scraper script
+
+commit 6979b16a33ac7d81ffd3f1849ea38b390f029511
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Tue Nov 15 19:01:43 2016 +0000
+
+    Build associations between Pokdexes and Pokemon
+
+commit 37d61dae45de59bc9582285622b9bb1776c7e8a4
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Tue Nov 15 17:03:21 2016 +0000
+
+    refactor data file opening for clarity
+
+commit fcdfc72eaaefbe0080ee400f8ecd115367caabe6
+Merge: bed8cbc caadd47
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Mon Nov 14 23:40:17 2016 -0600
+
+    Merge pull request #77 from cedricgc/search-frontend
+    
+    Search frontend
+
+commit caadd473c70d06b80c03b588b082a2839bad55ee
+Author: William Truong <william.truong@utexas.edu>
+Date:   Mon Nov 14 20:54:14 2016 -0600
+
+    moved background splash from layout to home
+
+commit bed8cbc1a5e674186b97ccc660d455e1a2c18625
+Merge: 5e14a99 cdd3487
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Mon Nov 14 20:02:07 2016 -0600
+
+    Merge pull request #76 from cedricgc/search
+    
+    Search
+
+commit cdd3487c6869fd9cdb9e5aafbf5d920848070e18
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Tue Nov 15 01:58:15 2016 +0000
+
+    More accurate docstrings for search fixtures
+
+commit 0bcfeab02a6a0594c3a8f30b00c407886d076baf
+Author: alitarekrashed <alitarekrashed@gmail.com>
+Date:   Tue Nov 15 01:37:35 2016 +0000
+
+    Adds tests for search route
+    
+    Closes #75
+
+commit 3027b8ef68f978b9cf06fa4b35887f2daaf30bd1
+Author: William Truong <william.truong@utexas.edu>
+Date:   Sun Nov 13 23:32:50 2016 -0600
+
+    added background image, closes #67
+
+commit 835b495d1fbe7141192cac1f3cad2496f0e0bfd9
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Mon Nov 14 02:04:32 2016 +0000
+
+    Implemented search on API models
+    
+    closes #74
+
+commit 6ee0c860e6b844b4e39d402020b08d794e099e91
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Mon Nov 14 01:33:23 2016 +0000
+
+    search_vector field should not be in schema
+
+commit e2aeab046d0744f45355d2a059168cc6336930ff
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Mon Nov 14 01:31:34 2016 +0000
+
+    Update migrations for sqlalchemy_search triggers
+
+commit 31fcdbf356baa988214dc1da3deb6b86d819b5b6
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Mon Nov 14 01:30:02 2016 +0000
+
+    Update models to support Postgres search
+
+commit b1c86ffa73bc81809fb19424f1f51c6885dc5e15
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Mon Nov 14 00:02:07 2016 +0000
+
+    SQLAlchemy extension dependencies for search
+
+commit 3769179a09fa193b55e7f457d7e43c29c278a5c2
+Author: alitarekrashed <alitarekrashed@gmail.com>
+Date:   Sun Nov 13 21:32:10 2016 +0000
+
+    Added a search bar onto the splash page
+    
+    Closes #62
+
+commit 5e14a9941ba70eef356166adab6ff98c3e0861f9
+Merge: 7b324ad 3d69a71
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Mon Nov 7 23:02:06 2016 -0600
+
+    Merge pull request #61 from cedricgc/seeds
+    
+    Seeds
+
+commit 3d69a7132c59bc4f8fc6c4c7bbc71d9c40c43d7f
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Tue Nov 8 04:47:10 2016 +0000
+
+    Test NOT FOUND responses on API routes
+    
+    closes #60
+
+commit a751fd988ec3e5fe44a3d3ac563ceb05791f514f
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Tue Nov 8 04:15:44 2016 +0000
+
+    Test BAD REQUEST responses on API routes
+    
+    closes #59
+
+commit 73859db2d07665052bebb30b58e1b4a3ff0b6630
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Tue Nov 8 03:29:12 2016 +0000
+
+    Reorder API controller test assertions
+
+commit 0c1c4fb62c3f9ea237f1d09cc6b6362b315fdf33
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Tue Nov 8 03:22:08 2016 +0000
+
+    Refactor API controller tests to use seed fixture
+    
+    clases #58
+
+commit 0f2a738539341cdb909d2f55277388ba08160f25
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Tue Nov 8 03:13:23 2016 +0000
+
+    moved API schema fixtures to conftest
+
+commit ef0effba46629b20f7e15e6a81396a284818748f
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Tue Nov 8 03:08:04 2016 +0000
+
+    Seed data fixture
+    
+    When this fixture is used, data is inserted into the database
+    before the test. The insertions are wrapped in a commit and
+    rolled back on cleanup.
+    
+    closes #57
+
+commit e2577dfb7ec64986f4af178a652207859ec35eef
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Tue Nov 8 03:04:27 2016 +0000
+
+    recreate database objects on every test
+
+commit f728d788a040855d1329ba3757887eb47fe7ac3e
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Tue Nov 8 02:56:57 2016 +0000
+
+    Descriptions for fixtures
+
+commit c6f23667dc58a76fd9fc2134e439ed2f4cc0f770
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Tue Nov 8 02:43:43 2016 +0000
+
+    Move all fixtures to conftest.py
+
+commit 7b324ad98f43f7be0187421e535afb54f076dafc
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sun Nov 6 19:38:09 2016 +0000
+
+    Move model fixtures to API level conftest
+
+commit 41a758bcc6e3fa0cd9ad7c3d3ec8475cddcfaf2a
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sun Nov 6 19:35:29 2016 +0000
+
+    Description for fixture
+
+commit b40ef881a0ccc0dd0325b8990b916c4a0bbf63be
+Merge: ff1958c 997248a
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sat Nov 5 23:52:48 2016 -0500
+
+    Merge pull request #56 from cedricgc/advanced-testing
+    
+    Advanced testing
+
+commit 997248ae431feb9e2c606a413a71dcd3b4d95c31
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sun Nov 6 04:36:53 2016 +0000
+
+    Controller tests for success outcomes
+    
+    closes #55
+
+commit 4af70400491f585ae7779e7ab8c342ae68e2cdf3
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sun Nov 6 03:57:42 2016 +0000
+
+    Implement database transaction semantics for testing
+
+commit 45e7caca6632773e05288cd9eb003aa0dbccc978
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sun Nov 6 02:17:46 2016 +0000
+
+    determine alembic invocation based on environment
+
+commit 5c1fab07cf8f8d9bea5a489d408280d5b7c7444d
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sun Nov 6 02:08:39 2016 +0000
+
+    Fix space typo in travis.yml
+
+commit e593150b1d44d057c69801149b97e444c91cd4f1
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sun Nov 6 02:03:18 2016 +0000
+
+    enable controller tests that need database
+
+commit 2caef637633f6249deaaac85d6a44f3adf0f8fa3
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sun Nov 6 02:02:42 2016 +0000
+
+    create test database and run migrations
+
+commit b651437bda8a9328e7657844ba396e24f98b2083
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sat Nov 5 23:21:31 2016 +0000
+
+    Test expected error message from schema
+    
+    closes #52
+
+commit c9821eaf084de2ecb1e71e9f4f5e2af07eb6a0ca
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sat Nov 5 23:13:19 2016 +0000
+
+    verbose output for make test and test_all
+
+commit 4afbcc48b32a450aa748b92ab3a54d9b605ae415
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sat Nov 5 22:36:34 2016 +0000
+
+    Refactor dictionaries from models for simpler testing
+
+commit 669b9f4a5983152a92a069187fd05ec38e3a3e55
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sat Nov 5 22:12:05 2016 +0000
+
+    Move extensions and blueprints to modules
+    
+    Having the extension objects in the modules increases clarity.
+    This structure also conforms better to the app factory pattern
+    used in create_app
+
+commit e61a690086fcb48d7f34ab19f91349136ce7d1e1
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sat Nov 5 21:31:41 2016 +0000
+
+    Load configs based on environment
+
+commit ff1958c3d3b763da2f345db659f8c47a52f40811
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Fri Nov 4 01:35:04 2016 +0000
+
+    update scraper to use app factory pattern
+
+commit 730c3f6689f75b955336da342ce720343039b6e6
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 3 23:56:00 2016 +0000
+
+    IDB2.log
+
+commit 5afb888f1cdd7b9d204545483b178978dcaaffd2
+Merge: a715057 1162e05
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 3 18:48:22 2016 -0500
+
+    Merge pull request #51 from cedricgc/link-fix
+    
+    quick fix
+
+commit 1162e05706904e4882a7c3e2fea18989595c878d
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 3 23:44:47 2016 +0000
+
+    Fixups for everyone
+
+commit 242c5c2ea0a4be6425ddee30516234d134b7caab
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Thu Nov 3 18:25:55 2016 -0500
+
+    quick fix
+
+commit 90ae230b3852518311d51e9318125ca22293051c
+Author: Paola Jara R <paolajara22@utexas.edu>
+Date:   Thu Nov 3 18:18:26 2016 -0500
+
+    updated paola info
+
+commit 284d43daa8010380c1dc06c0e034a8bef216366a
+Author: Paola Jara R <paolajara22@utexas.edu>
+Date:   Thu Nov 3 18:17:42 2016 -0500
+
+    links
+
+commit 88a6ac99116899d054e7e00d9bffc55beadca645
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 3 23:13:01 2016 +0000
+
+    Updated Cedric Info
+
+commit 67957486ca0a7da7e95228b08cc99af26638912c
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Thu Nov 3 17:09:17 2016 -0500
+
+    Update aggregate stats and Ali's stats
+
+commit a715057627eeac5f24c331d95dbc7bcf30251b46
+Merge: 4ca30b1 04fe132
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 3 14:31:59 2016 -0500
+
+    Merge branch 'staging' of github.com:cedricgc/cs373-idb into staging
+
+commit 04fe13229c0f473a768387c03dd0c81e20b98074
+Author: samuelwilliamson77 <samuelwilliamson77@gmail.com>
+Date:   Thu Nov 3 14:21:43 2016 -0500
+
+    Fixed scripts for quickly fetching PokeAPI entries
+
+commit 4ca30b1cc90604278b91abd6e852f2c3d2f504a7
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 3 19:17:57 2016 +0000
+
+    Change symbolic link at app/tests.py
+
+commit 5b05ad4002f3b86bd87bf8078897cd2abd9bd12c
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 3 19:16:09 2016 +0000
+
+    IDB2.log make command
+
+commit d7d1c5dadce6490c7021ede54931a036dfbb0b6c
+Merge: 76a9f04 c363bd2
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 3 13:51:21 2016 -0500
+
+    Merge pull request #48 from cedricgc/apiary-phase2
+    
+    updated apiary
+
+commit 76a9f047cc3b25c6821a8f16d390b81c449c9d17
+Merge: 6194342 86a3a74
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 3 13:47:40 2016 -0500
+
+    Merge pull request #50 from cedricgc/scraper2
+    
+    Scraper2
+
+commit 6194342942c2383b342e634c5c38ba902b33ce46
+Merge: f0f058f 2a7f1c7
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 3 13:43:04 2016 -0500
+
+    Merge pull request #44 from cedricgc/integrate-front-api-2
+    
+    Integrate front and api for phase 2
+
+commit c363bd266755571e679283cb9821bf0ebcbd797e
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Thu Nov 3 13:34:48 2016 -0500
+
+    missed one
+
+commit a431917cca5e164680e2b097a3093ddc26116b97
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Thu Nov 3 13:32:52 2016 -0500
+
+    added missing single quotes to apiary
+
+commit f0f058fb261a7d6b7090d4c4befb26bb8ce9a412
+Merge: 187555f 240ff93
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 3 13:32:21 2016 -0500
+
+    Merge pull request #49 from cedricgc/testing
+    
+    Testing
+
+commit 86a3a74a47baad6ca625a681a3af4d03f9395ec5
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 3 18:08:02 2016 +0000
+
+    Import Move to db from JSON
+
+commit dff785f2a4696ddc3f5dbda2f92b5b8ee3589b55
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Thu Nov 3 13:13:38 2016 -0500
+
+    add documentation for association endpoints
+
+commit 4709a518bc1d5fccfee0e425f6fa1ef5419fbb10
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 3 18:06:35 2016 +0000
+
+    Make needed DB fields nullable
+
+commit 40917326cf4b49310cf0ef9e44206841f510adcc
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Thu Nov 3 13:01:16 2016 -0500
+
+    added post/delete/put api documentation
+
+commit 02090d2b9173cd6592888e0b6114f889f47c14ec
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 3 17:19:24 2016 +0000
+
+    Import Pokemon to db from JSON
+
+commit b8b23bb6d6d98c6573020f415faabc75eb239112
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 3 17:17:27 2016 +0000
+
+    habitat field in pokemon table can be null
+
+commit 408cd57b930db4902b98308153e69a4330f57566
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Thu Nov 3 12:04:26 2016 -0500
+
+    updated apiary
+
+commit dc83969513a146cda56e3c6b6072b8a16d43fd13
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 3 16:38:11 2016 +0000
+
+    Import pokedexes to db from JSON
+
+commit 9dd6545ddf8b022dac38f80bdc0ba7c9d764d9f9
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 3 16:35:58 2016 +0000
+
+    region field can be null in Pokedex
+
+commit 240ff935ef2b086f9157cac7420419f194d12107
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 3 06:59:23 2016 +0000
+
+    Temporarily disable API tests
+    
+    Need to get Postgres and test data in Travis CI tests first
+
+commit d014e6f06c64844ade6d6944e8d2515e4a89d16f
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 3 06:50:50 2016 +0000
+
+    Some tests for API controllers
+
+commit af0dd810e6c2628289068413e35de86ddcad93c0
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 3 06:40:41 2016 +0000
+
+    Refactor tests to prevent collisions
+
+commit 7b5be258a2e97a62f002eaf5e1118839c07ac77d
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 3 06:24:31 2016 +0000
+
+    test frontend templates render correctly
+
+commit f8329c0d2eefb89b74963f5e3cf4094a46a13476
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 3 06:21:26 2016 +0000
+
+    pytest-flask for flask test fixtures
+
+commit 70d1e4a70ed9ce3bd6d39718290660f96cac6a93
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 3 05:58:21 2016 +0000
+
+    Move script to proper location
+
+commit 7f7b83b40e0c8ebea9848a75eaf1c7b027da5ff1
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 3 05:53:32 2016 +0000
+
+    Travis will run full test suite
+
+commit f6fb2edd48eb8654880c5da2f584dbb1e2bdd977
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 3 05:49:22 2016 +0000
+
+    Define shared fixtures in conftest.py
+    
+    By convention pytest looks for conftest.py to discover fixtures
+    and hooks to be made available to all tests in the directory
+    and in subdirectories
+
+commit 2593f1d78fec10718a028e6c3a1ab2c42b43e61b
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 3 05:37:47 2016 +0000
+
+    make test_all for longer integration tests
+
+commit 252ad376689056f64a35ada848c6c2a51f11b89b
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 3 05:07:29 2016 +0000
+
+    Flask app created using App Factory pattern
+    
+    closes #46
+
+commit adc936f801f3b3dcdb8a123895739fbcc50658c7
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 3 04:21:45 2016 +0000
+
+    Invoke pytest as python module to include directory in search path
+
+commit 2a7f1c721ee0a3aaaeba62ec06646ddcaab91de5
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Wed Nov 2 23:00:52 2016 -0500
+
+    Hides pagination when only one page is present
+
+commit 1bb3f8c4a284e3d647833b59231a572608ba4a81
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 3 03:36:03 2016 +0000
+
+    Change test_models to use pytest conventions
+    
+    closes #45
+
+commit 8ad493b3e5af00d527765bd1d4258d9afcfccc1a
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Wed Nov 2 22:23:23 2016 -0500
+
+    missing slash in route
+
+commit c19743491b17fe247b8a805901f129cb11136387
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Wed Nov 2 22:21:53 2016 -0500
+
+    pokemon pages call api instead of test data
+    
+    closes #33
+
+commit 273f1bb3b10c9d0a4f717d24c2c406096ce968bc
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Wed Nov 2 22:20:21 2016 -0500
+
+    moves pages call api instead of test data
+    
+    closes #35
+
+commit 3faa3982f815c703f119e1cfb9b24a412809f5a0
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Wed Nov 2 22:18:03 2016 -0500
+
+    pokedex calls api instead of test data
+    
+    closes #34
+
+commit 946bfb7a83f16f83ab5c7d3de87febadaac33cdf
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 3 03:13:23 2016 +0000
+
+    Modify test directory structure
+    
+    test layout matches structure of application package
+
+commit 46d412669b1f6c7ca3b73f90d247b7bda96e259f
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 3 03:08:15 2016 +0000
+
+    modify make test
+
+commit 73b59c7c83fac521f7da2c533afb72181c2739ca
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Wed Nov 2 22:04:29 2016 -0500
+
+    Unit test button on about page calls test endpoint
+    
+    Closes #39
+
+commit 3aab089a3458baa198020dda8da2999c2bb15867
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 3 03:00:15 2016 +0000
+
+    pytest.ini configuration
+    
+    Controls test behaviour and speeds up test discovery; closes #43
+
+commit 187555fae8d0254d52360e626e9f35c696ed33fd
+Merge: 2097f49 305425b
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Wed Nov 2 21:46:31 2016 -0500
+
+    Merge pull request #41 from cedricgc/frontend2
+    
+    Frontend for Phase 2
+
+commit 2097f497d8a16ac017828bd6767a7acfc4d600de
+Merge: 404844c cbcfd3b
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Wed Nov 2 21:46:19 2016 -0500
+
+    Merge pull request #42 from cedricgc/test-route
+    
+    Route on /test to run tests and return output
+
+commit cbcfd3b89dd4d3656c3cc850e24fcf6dbf6cbe4e
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Nov 3 02:41:25 2016 +0000
+
+    Route on /test to run tests and return output
+    
+    closes #39
+
+commit 404844c5dd469f035a2b24c9849faebb2ed4e43c
+Merge: 7d4e4eb 4bbb4f2
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Wed Nov 2 21:17:57 2016 -0500
+
+    Merge pull request #40 from cedricgc/api
+    
+    API routes
+
+commit 305425b3965118afa46639d48af889a56beb7ce2
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Wed Nov 2 19:44:33 2016 -0500
+
+    removes unneeded test data
+
+commit f2ea9fbf21f8006d435f124f1d8e7fcc6ea3133d
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Wed Nov 2 19:44:05 2016 -0500
+
+    Adds pagination to moves index
+    
+    References #35
+
+commit d9e17f156b1d862aa54fad21a27dce935b639451
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Wed Nov 2 19:35:37 2016 -0500
+
+    Adds pagination to pokemon pages
+    
+    References #33
+
+commit e5b1b78a7fb12a07f624ccde9131ef2f889d6000
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Wed Nov 2 19:09:35 2016 -0500
+
+    Add button + modal for unit tests on about page
+    
+    References #39
+
+commit e2119a6479943ff565c014cb2808564d59463f29
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Wed Nov 2 15:59:28 2016 -0500
+
+    Improved about page
+    
+    Closes #32
+
+commit 0a005134a13a054129d0af5fb9510feb9eb492da
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Wed Nov 2 15:58:54 2016 -0500
+
+    cropped images to squares for consistency
+    
+    references #32
+
+commit e6d4f1e4bdbe971c2908ecfc3583f9bb751198d2
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Wed Nov 2 15:06:53 2016 -0500
+
+    Remove unnecessary data file
+
+commit b16b1ee7dd8ff0bc3ad2ed32316c00445aa09c03
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Wed Nov 2 15:03:29 2016 -0500
+
+    checks next/prev page using values from json
+
+commit 31f06970e439bfb7f07c7149c7b0449754dded3a
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Wed Nov 2 14:43:26 2016 -0500
+
+    pokedex pagination working with dummy data
+
+commit 87aecaf0a5e4822a3fb733d412330c53d32441ef
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Wed Nov 2 14:38:27 2016 -0500
+
+    more dummy data to test pagination
+
+commit f75a4340b6bc4dd1d33ea75c50bf9ca64ef72794
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Wed Nov 2 11:27:13 2016 -0500
+
+    pagination element always shows first & last page
+    
+    References #34
+
+commit a30f0dbd3a8526e6a8b5579eef9ba5a3cf095390
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Wed Nov 2 01:15:47 2016 -0500
+
+    pagination elements on pokedex table
+    
+    Currently tracking the current page, and added logic for
+    prev/next pages, skipping pages, etc. currently the total number
+    of pages is hardcoded. References #34
+
+commit e672c474114ce0413b87d083a3b738f59dace323
+Author: samuelwilliamson77 <samuelwilliamson77@gmail.com>
+Date:   Tue Nov 1 21:14:16 2016 -0500
+
+    Created script to generate pokemon json test cases from pokeAPI. Not all pokemon ids parse correctly and not sure why.
+
+commit dddf8114d23ee0a1eb9e6be116c614f260d3ff51
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Mon Oct 31 18:57:44 2016 -0500
+
+    Removes unused .json file
+    
+    Removes the old test data file since it's no longer in use
+
+commit 8e4fc5280f5b0c2ac4d1805c2093536a5e4458a2
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Mon Oct 31 18:56:23 2016 -0500
+
+    Moves instance page now using mock data for API
+    
+    References #35
+
+commit e664a107ce6fcf440a0449d032c3b9946904f14b
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Mon Oct 31 18:52:38 2016 -0500
+
+    Updates pokemon instance page to use new data
+    
+    Pokemon instance page only loads in data for its specific
+    relationships. References #33
+
+commit 9ee326699273949211a4c0acfbc342c2c539c68e
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Mon Oct 31 18:52:01 2016 -0500
+
+    Adds dummy data in proper format for moves
+    
+    References #35
+
+commit 44b38fae1e3e97e32dabb9e781e55688f8e1f794
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Mon Oct 31 18:31:55 2016 -0500
+
+    Adds mock pokemon data and calls it from pokedex
+    
+    References #34, #33
+
+commit e4aa0facf5e0fc1e79cc03a5a0244e2e025a75ad
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Mon Oct 31 18:17:49 2016 -0500
+
+    Refactoring the way the frontend handles mock data
+    
+    Updates to pokedexes. References #34
+
+commit 4bbb4f287ae8e04a7e103b302662471d6282c2f5
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sun Oct 30 06:13:23 2016 +0000
+
+    API route to associate a pokemon and move; closes #38
+
+commit 771a0437d32de1f912d901f8427fc7c1744e86c1
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sun Oct 30 06:12:24 2016 +0000
+
+    Schema for Pokemon and Move association
+
+commit d82cde8feeace996ba7120d74a46993940188092
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sun Oct 30 05:44:29 2016 +0000
+
+    API route to associate a pokedex and pokemon; closes #37
+
+commit 45cda97238d67d48ec080923f47c7189ff5c6f8d
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sun Oct 30 05:43:10 2016 +0000
+
+    Schema for Pokedex and Pokemon association
+
+commit 00f1436564d9fdc95f1ef4831a93c74ce3d33c43
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Oct 27 05:32:15 2016 +0000
+
+    Enable logging of SQLAlchemy queries; closes #31
+
+commit a3a7377a03d9a94ab047e9019e417e3a3fca8abd
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Oct 27 04:08:50 2016 +0000
+
+    Set up logging compatible with gunicorn; closes #30
+
+commit 15d6c7f5a6728ac694c466afb3fc6f83fe95637c
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Oct 27 03:43:06 2016 +0000
+
+    Implement pagination on index controllers; closes #29
+
+commit 79d8313bbaf058e8c87aca12c8e9b1b11f9fe392
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Mon Oct 24 02:36:41 2016 +0000
+
+    Delete Moves controller
+
+commit 2b95a5ab24fe5788823d844e7c226e95fc6d4970
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Mon Oct 24 02:30:09 2016 +0000
+
+    Update Moves controller
+
+commit 89e121882f11a7f8c1e2adff4c2daeb3f0728d9c
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Mon Oct 24 02:20:08 2016 +0000
+
+    Show Moves controller
+
+commit cde645a047eef205a634125247f4b410dedfb0a5
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Mon Oct 24 02:13:31 2016 +0000
+
+    Create Moves controller
+
+commit b807c1fa31aa1f55e1dfd1fe7e7122e962818b16
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Mon Oct 24 02:09:19 2016 +0000
+
+    Index Moves controller
+
+commit 7c8e781d28c0b369a72dbb436a662717e72b60a9
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sun Oct 23 23:32:28 2016 +0000
+
+    Delete Pokemon controller; closes #26
+
+commit 04ee6aced739f9d8bdcdfe48d5401729c452e0d9
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sun Oct 23 23:11:31 2016 +0000
+
+    Update Pokemon controller
+
+commit 68726453cfe55c3fbb3d5a1e027922189d8a3e73
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sun Oct 23 23:02:55 2016 +0000
+
+    Show Pokemon controller
+
+commit 7b9ebeef8ea395dcfeb3e53c617e33fbff8e957b
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sun Oct 23 22:56:45 2016 +0000
+
+    Show controller for Pokemon resource
+
+commit b6904c8fcd0d681d8f0affef357cd1b872b0b5c0
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sun Oct 23 22:50:10 2016 +0000
+
+    Index Controller for Pokemon resource
+
+commit d4dd4de63b9d0689eb45d17195c2938c9c8f308a
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sun Oct 23 16:30:56 2016 +0000
+
+    Delete Pokedex controller
+
+commit c098820387269acd448628b562a48b1c938a6d00
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sun Oct 23 16:19:19 2016 +0000
+
+    Update Pokedex controller
+
+commit 86aebadf673ff4fe2eb635257433b4e809598dfd
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sun Oct 23 15:47:40 2016 +0000
+
+    Typo and style fixes
+
+commit 50474bdbc421a39cede8b26120403d0e78c19edc
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sun Oct 23 15:36:29 2016 +0000
+
+    Show Pokedex controller
+
+commit 6076336618314a28855ac1ae77cbcb54e12b78d4
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sun Oct 23 15:17:06 2016 +0000
+
+    Unique constraints for migrations and models
+
+commit 06797d7116e2c5df11cf50064c74fa6c25eb32cd
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sun Oct 23 04:27:15 2016 +0000
+
+    index and create actions on Pokedex resource
+
+commit 3b3cde87ef5c114bc9697beeec469857641e01cc
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sun Oct 23 03:44:17 2016 +0000
+
+    Fix typo in API schemas
+
+commit 628fcac82ed8895bc5d6c0e829b97b61dc1e7ec5
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sun Oct 23 03:43:50 2016 +0000
+
+    Init schemas for use in API controller
+
+commit c956da5a47e9df765fec19162823347f7ce0a15c
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sun Oct 23 03:34:19 2016 +0000
+
+    Marshmallow schemas to de/serialize and validate JSON
+
+commit 7d4e4eb799b4a846212edc4536284d9b81fbd26a
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Fri Oct 21 02:22:14 2016 +0000
+
+    IDB1.log
+
+commit d0e42775d943012ca3756428687184ea9353a874
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Fri Oct 21 02:19:52 2016 +0000
+
+    models.html and UML.pdf
+
+commit 3ce8ce0529a2d48a85eed0254845fb0d67129269
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Fri Oct 21 02:17:32 2016 +0000
+
+    Create symlinks to pass file checks
+
+commit 4e7c7add78886486b84f517de351cc109e23d04c
+Merge: 463224f 61beaba
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Oct 20 21:11:40 2016 -0500
+
+    Merge pull request #24 from cedricgc/front
+    
+    Frontend of website
+
+commit 61beaba656974173335e257d8980f94339a06117
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Fri Oct 21 02:05:14 2016 +0000
+
+    Add back the Apiary link
+
+commit 66df287db1a02023af63120166674d547d05f383
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Thu Oct 20 20:59:42 2016 -0500
+
+    paola pic
+
+commit 7afbb7f7b19556ac0812932ada47b7462124a394
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Fri Oct 21 01:50:25 2016 +0000
+
+    Bio for will
+
+commit 75249d65b0805826afb4f9ba6aafd2e9d72384f5
+Author: samuelwilliamson77 <samuelwilliamson77@users.noreply.github.com>
+Date:   Thu Oct 20 20:39:18 2016 -0500
+
+    Adding Samuel info, again
+
+commit fe11b00339fadb2760e0d382fa6e0dad34309de6
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Fri Oct 21 01:27:52 2016 +0000
+
+    restructured images location and naming scheme
+
+commit f13011d1b7d9bbfd5de0afd141b57c8e2388a659
+Author: samuelwilliamson77 <samuelwilliamson77@users.noreply.github.com>
+Date:   Thu Oct 20 20:22:44 2016 -0500
+
+    Adding profile pic
+
+commit 18f9e66f179970b19f543a8bd83f6c7c8bdd9697
+Merge: b1c63fa 9f60d24
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Thu Oct 20 20:07:35 2016 -0500
+
+    Merge branch 'front' of github.com:cedricgc/cs373-idb into front
+
+commit b1c63faf2a492bb1a1d21b84da2d1a7b99d1cb6c
+Merge: c7abf5e cfd6694
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Thu Oct 20 20:01:38 2016 -0500
+
+    Merge branch 'front' of github.com:cedricgc/cs373-idb into front
+
+commit 9f60d24247c2fcbece6fcf0bd388793d24fb48be
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Fri Oct 21 00:54:32 2016 +0000
+
+    Add tech to tools list
+
+commit c7abf5e4e8bb9e762fc64d47de15edc56ce93f44
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Thu Oct 20 19:51:05 2016 -0500
+
+    Updated about page
+
+commit cfd6694a0a8de704fdfa0946683e268fcbc94971
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Fri Oct 21 00:49:07 2016 +0000
+
+    Cedric information
+
+commit 3861d2971d6b765bc9d26a67a5b231999ea594ac
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Fri Oct 21 00:33:52 2016 +0000
+
+    Clean up about.html and and apiary link
+
+commit 463224f04d34e9e95dfadd0e99f534f0afd9339f
+Merge: b5aa374 70e2890
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Oct 20 19:12:44 2016 -0500
+
+    Merge pull request #23 from cedricgc/apiary
+    
+    Apiary spec
+
+commit e38a1ea904f998fd764cd41323b7f8e920bb4ec9
+Author: Pikachu94 <paolajara@wireless-10-146-191-163.public.utexas.edu>
+Date:   Thu Oct 20 19:10:30 2016 -0500
+
+    updated about
+
+commit 70e2890f4be8f89a78fc600d72a016db61cc6aac
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Fri Oct 21 00:04:00 2016 +0000
+
+    Define API in apiary apib file; closes #22
+
+commit 73b9f55e3c9935f2b801725311c3daec71433e69
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Thu Oct 20 17:46:14 2016 -0500
+
+    Centers linked models in instance pages
+
+commit 2c496905fad6c08f902b677aa634bddcceb277bd
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Oct 20 22:38:29 2016 +0000
+
+    canonical URL in http.get
+
+commit ed1e57a8a38a883fa11283929c68188237c5d7e7
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Oct 20 20:59:37 2016 +0000
+
+    Minor JS style improvements
+
+commit 5efb3e03c52cc50dcd8be6f3871c515e02e612bc
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Thu Oct 20 20:46:14 2016 +0000
+
+    restructure frontend controllers and templates for consistency and clarity
+
+commit 944e927984143f6a99617cd6f78042316f29508a
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Thu Oct 20 13:46:37 2016 -0500
+
+    fixed merge conflicts
+
+commit d98703178edf905f01e3007f234a2245909ad6d6
+Author: Pikachu94 <paolajara@wireless-10-146-191-163.public.utexas.edu>
+Date:   Thu Oct 20 13:43:48 2016 -0500
+
+    links
+
+commit 3221cd5f0cf5999e0f39476ba2275a58dcbe23b0
+Merge: 73980a7 35752b6
+Author: Pikachu94 <paolajara@wireless-10-146-191-163.public.utexas.edu>
+Date:   Thu Oct 20 13:35:53 2016 -0500
+
+    links
+
+commit 73980a787f67a673434e42390623fd3d04b7022e
+Author: Pikachu94 <paolajara@wireless-10-146-191-163.public.utexas.edu>
+Date:   Thu Oct 20 13:35:14 2016 -0500
+
+    links
+
+commit 35752b6c45990acfed9c92ecf661720111fe6eab
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Thu Oct 20 13:32:12 2016 -0500
+
+    Centers and resizes panels
+    
+    Closes #21
+
+commit 8ff667ef2a2098d3033723ba8489c3a7593fbd10
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Thu Oct 20 13:10:34 2016 -0500
+
+    Update home page with better descriptions
+    
+    Closes #19
+
+commit 99a46f5d6b3e281288951226b01acb120902c56c
+Merge: 72f4c64 d9c7f97
+Author: Pikachu94 <paolajara@wireless-10-146-191-163.public.utexas.edu>
+Date:   Thu Oct 20 13:06:10 2016 -0500
+
+    stats and tools
+
+commit 72f4c64fa8ec1c127bda4c5930acec3829832c49
+Author: Pikachu94 <paolajara@wireless-10-146-191-163.public.utexas.edu>
+Date:   Thu Oct 20 13:05:26 2016 -0500
+
+    stats and tools
+
+commit d9c7f97ea24e414e3ae5a3a87d12636a336d9546
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Thu Oct 20 13:02:35 2016 -0500
+
+    reformatted .js files to have two-space indentation
+
+commit 7722cefe1eb00075bd148cfbefa5bf7e9e477b85
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Thu Oct 20 12:40:07 2016 -0500
+
+    Standard two-space indentation for html files
+
+commit 717941ddedf6e2439e7f91fad7dfddf7d22a2648
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Thu Oct 20 12:23:51 2016 -0500
+
+    getting testdata.json in instance files properly
+
+commit 9f5653956ab61e53e56f026d1b00a791fd4d5bf7
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Thu Oct 20 12:19:26 2016 -0500
+
+    refactors path names + adds splash page content
+    
+    Refactors instance path names to pokemon/{id}, moves/{id},
+    pokedexes{id}.
+    Adds content to the splash page.
+    Adds styling to change the color of the navbar.
+
+commit 06b3742edf596f041fab2c0150ffaf5a7750ef97
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Thu Oct 20 01:35:22 2016 -0500
+
+    fix conflict
+
+commit 24fc1898f26bd2298888a4c5995884b678f788b9
+Merge: dae76ad f0f8f49
+Author: Pikachu94 <paolajara@wireless-10-146-191-163.public.utexas.edu>
+Date:   Thu Oct 20 01:30:16 2016 -0500
+
+    aboutpage
+
+commit dae76ad08d989d7ea82b69e28b093cfa61a4d8c6
+Author: Pikachu94 <paolajara@wireless-10-146-191-163.public.utexas.edu>
+Date:   Thu Oct 20 01:28:56 2016 -0500
+
+    about page
+
+commit f0f8f496fbf83c3e264ada6dbd4e3399b99bfff5
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Thu Oct 20 01:03:52 2016 -0500
+
+    Adds pokemon image to instance page
+
+commit 18df2881cba11bc2128cc75e12ae739496540e21
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Thu Oct 20 00:32:18 2016 -0500
+
+    Removed colons from instance table
+
+commit c619467f140d023b16a398090d9b6ce12ea5873a
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Thu Oct 20 00:07:38 2016 -0500
+
+    Removed placeholder text from model pages
+
+commit 792bed31b88aae27f2cd5138297651cc39f32e40
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Thu Oct 20 00:04:32 2016 -0500
+
+    instance pages link to instances in other models
+    
+    closes #20
+
+commit f62a156df75146a9bcc4aebc183b808c64cb9b49
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Wed Oct 19 23:59:48 2016 -0500
+
+    Improves the layout for the instance pages
+    
+    Adds panels to better present the data on the
+    instance page
+    Closes #18
+
+commit 4a6c445d0a9fbe0961db7385e34ab009194f5aa2
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Wed Oct 19 20:35:58 2016 -0500
+
+    sorting for pokedex model page
+    
+    Closes #17
+
+commit 05cfdb7cd06a3c2364251df6ac97610697b5a0c8
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Wed Oct 19 20:27:44 2016 -0500
+
+    Sorting for Moves model page
+    
+    References #17
+
+commit ffa97bf542d6f1fadcb23900108233bb28815b6d
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Wed Oct 19 19:56:18 2016 -0500
+
+    Injected new table service into page to sort
+    
+    honestly probably a lot more trouble than it was worth,
+    but it isolates the logic behind sorting so maybe it's a good idea?
+
+commit e22a32af432ef414938d3f98d76a20676375d104
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Wed Oct 19 18:06:29 2016 -0500
+
+    Pulled js for sorting into separate controller
+    
+    References #17, so we can pull this into all pages with tables
+
+commit 32fafbf44f2313867b9c5e510742b6de431d10b4
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Wed Oct 19 18:03:33 2016 -0500
+
+    Ascending/Descending sorting for one of the tables
+
+commit 7a411aa1376bac5c5d9455a9e8f60fdca5024189
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Wed Oct 19 17:43:29 2016 -0500
+
+    js layout quick reformat
+
+commit 8b9bae9761df5d4cc9418b8ee5308d62a2020eff
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Wed Oct 19 16:38:26 2016 -0500
+
+    Adds css file for styling
+
+commit 5220fb4d640c73c7a1542e1cf99d99328cba124d
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Wed Oct 19 02:00:29 2016 -0500
+
+    Basic sorting on a table in descending order
+    
+    References #17
+
+commit d9147e50b084f7f41e6d092679fef69b8e7ff6d9
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Wed Oct 19 01:59:55 2016 -0500
+
+    Pulls in font-awesome
+
+commit 2f8192587b6d8b42a59a1c1ff9e8f43fb78a6b2f
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Wed Oct 19 01:12:26 2016 -0500
+
+    Adds pokemon to pokedex instance page
+    
+    Closes #15
+
+commit da695b071fefb8f4385d90bb0198acf70046b4e3
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Wed Oct 19 01:08:22 2016 -0500
+
+    refactor function name to get data
+
+commit d9341cc102eb2a126cb3bdb07fece2040607343e
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Wed Oct 19 01:06:23 2016 -0500
+
+    Adds pokemon to moves instance page
+    
+    References $15
+
+commit 47da64fcfb2c475cb904504231fd9a60e79a53ba
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Wed Oct 19 00:58:48 2016 -0500
+
+    Updated pokemon instance page to other models
+    
+    The page for a Pokemon instance now shows the Pokedexes the
+    Pokemon appears in, as well as the moves the Pokemon has.
+    This references #15.
+
+commit e30f3b4f62837ffdac1329774b2651ae93eb260c
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Tue Oct 18 21:02:55 2016 -0500
+
+    Instance pages now use http get to pull from json
+    
+    Closes #16
+
+commit 2ee9d41cb42d2f765d7fc99b7b50abab25f304b6
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Tue Oct 18 20:24:39 2016 -0500
+
+    Changed model pages to you a static json file
+    
+    This is opposed to hardcoding an array into the .js files
+
+commit cfc0515dac515ecf615baa98351d6ada48aaf175
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Tue Oct 18 19:10:57 2016 -0500
+
+    Added instance pages for pokedex and moves
+
+commit 016882f1c2ab5be417e9b0bbdb16ba16c1109dc1
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Tue Oct 18 18:34:12 2016 -0500
+
+    Accidentally listed wrong description for squirtle
+
+commit 28feccdec801f9691692c9dba2ba1e4cc7a25fa4
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Tue Oct 18 18:28:29 2016 -0500
+
+    Added the model page for pokedexes
+
+commit 06859a6973bece582fece4e6cb24cb1f42db957e
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Tue Oct 18 18:14:38 2016 -0500
+
+    Adds model page for moves
+
+commit 94d3994b99c251cc5077695287c1f6f1d7e9849e
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Tue Oct 18 17:41:02 2016 -0500
+
+    Instance page displays a pokemon's attributes
+    
+    References #15
+
+commit edddc9a29c262ffba7ad2026869f0dbee2798d39
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Tue Oct 18 16:23:47 2016 -0500
+
+    Pokemon in the main table link to their instance
+    
+    References #15
+
+commit 2c581a71f1bdfcf7c4a296cd07c79a33e71d04b7
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Tue Oct 18 15:56:26 2016 -0500
+
+    Adds a new route for a pokemon instance
+    
+    References #15
+
+commit ff41f90fee5abf02fd7ab5b9656ee47d719b6f25
+Author: Ali <alitarekrashed@gmail.com>
+Date:   Tue Oct 18 15:40:50 2016 -0500
+
+    makes navigation tabs active in reference to #14
+
+commit 3b5aeba4d2f5acdd27e2b35f3b2121ba5b126343
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Tue Oct 18 18:05:29 2016 +0000
+
+    add pokemon.js file
+
+commit 720cc7e6ffa787ce64fa994682db6d5718b67d45
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Tue Oct 18 18:01:04 2016 +0000
+
+    Define Base layout.html and show how to extend it in pokemon.html
+
+commit b5aa374e0c6b92ab97d0f58679c2ffd75dc3c9a2
+Merge: 4905314 eab5158
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Tue Oct 18 00:08:51 2016 -0500
+
+    Merge pull request #12 from cedricgc/tooling
+    
+    Tooling
+
+commit eab51583bace8fe34b57f8bc6014fa8a08321d1c
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Tue Oct 18 04:31:43 2016 +0000
+
+    Unit tests for API resource models
+
+commit 1a974d9421737a216369127da5ab4303bb07d75a
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Tue Oct 18 01:51:01 2016 +0000
+
+    modify make test to run in Travis CI
+
+commit 980b1a289bd7e8dcb445406de00e16340e7f4917
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Tue Oct 18 01:43:39 2016 +0000
+
+    Ensure venv and dependencies are installed before Travis tests
+
+commit 62cede003d1de6e3d9b17c58f27ad7c9e882205c
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Tue Oct 18 01:38:57 2016 +0000
+
+    Initialize make test with test stub
+
+commit 7acc25c93fd21150fd6efea5b0d2fa5ab4484cdb
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Tue Oct 18 01:37:18 2016 +0000
+
+    pytest-cov dependency to integrate coverage with pytest
+
+commit 9fb22246a18bbf5ce2d46931beb29290f91ce9dd
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Tue Oct 18 00:29:40 2016 +0000
+
+    make command to generate HTML doc of models
+
+commit aedf262d84147ac25003a912f83369863d0ac1b9
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Tue Oct 18 00:09:22 2016 +0000
+
+    Make commands check clean and IDB1.log
+
+commit 4905314007f3aac67ff7319fd133915e6ddb4570
+Merge: b91771f 0897b98
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Mon Oct 17 16:13:37 2016 -0500
+
+    Merge pull request #11 from cedricgc/frontend
+    
+    Controllers for client facing pages
+
+commit 0897b98b2b9f027d14b3066ccbb866ecfb06089f
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Mon Oct 17 21:05:30 2016 +0000
+
+    Created backend controllers for the client facing pages; closes #8
+
+commit 66d4d05dfacd1d9bba3bbcf389c9536d7c6b2f85
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Mon Oct 17 19:51:38 2016 +0000
+
+    Restructure website package structure for clarity; closes #7
+
+commit c9704a426f3ce623c36dba468f3b313d3792271d
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Mon Oct 17 19:39:36 2016 +0000
+
+    Define blueprint for frontend facing part of website and set up static assests
+
+commit a0df8a4db598a7cf2de5f0fc2c107d6e00fe1e36
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Mon Oct 17 19:35:34 2016 +0000
+
+    Add configuration values used by Flask
+
+commit b91771fcc06f3d9eb9d3eddb5f7231d760901b53
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Mon Oct 17 10:42:20 2016 -0500
+
+    Move Travis CI notifications to Slack builds channel
+
+commit e25a334ff3b582738a081b371945f2cd2b26afc1
+Merge: a7e077e 11ebb7d
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Mon Oct 17 00:17:35 2016 -0500
+
+    Merge pull request #6 from cedricgc/staging
+    
+    Data Models
+
+commit 11ebb7d5c495c5e35ff7fda5bf957187a3cea1b1
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Mon Oct 17 04:43:21 2016 +0000
+
+    Define data models and association tables; closes #4
+
+commit e301890aeba875b890c9a41527e341e8b3e173c8
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Mon Oct 17 04:34:25 2016 +0000
+
+    Association tables for many to many relationships
+
+commit 96b7970243f3e3c7ea93bbad3476b25c0500e236
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Mon Oct 17 03:37:56 2016 +0000
+
+    Add inserted_at and updated_at columns for all tables
+
+commit 02e9d4f96d04e360f01d73508daaf2fec8e2b0b6
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sun Oct 16 18:04:40 2016 +0000
+
+    Migration for Move resource; closes #3
+
+commit fd29d3df9d05386a56a135019efa53c68a4305a4
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sun Oct 16 17:53:05 2016 +0000
+
+    Migrations for Pokemon resource
+
+commit 483d071f6ee8ceb6c00b973c19c510584577c16e
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sun Oct 16 17:33:35 2016 +0000
+
+    Migrations for Pokedex resource
+
+commit c024723174449bcf9771db0acb9fb0fe9fff4afd
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sun Oct 16 17:03:15 2016 +0000
+
+    Initialize Alembic SQLAlchemy; closes #2
+
+commit 5f41e3ee4b67261e7ed6ea25918fb9888edb14d7
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sun Oct 16 02:58:32 2016 +0000
+
+    tweak makefile to have configurable port bindings
+
+commit b9a731e2ad9fb4174233b2434f43ac2add6c0cbb
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sun Oct 16 02:20:12 2016 +0000
+
+    Do not have make install dependent on pkgs (can create deployment issues)
+
+commit 15baba34728e9b9d4c1f37de36694b62d92b2e1d
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sat Oct 15 21:16:56 2016 -0500
+
+    Change makefile name to lowercase
+
+commit a7e077e8ef9232b4c25afa3839d4739b067386bd
+Merge: a827d86 f8a01ef
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sat Oct 15 11:19:58 2016 -0500
+
+    Merge pull request #1 from cedricgc/staging
+    
+    Staging
+
+commit f8a01ef15fce5f1f1d6ebfdff6ef4638d656a61f
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sat Oct 15 16:11:18 2016 +0000
+
+    Slack notifications after Travis build
+
+commit 61f830790c437f95bb97393ece52d1aba8090506
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Sat Oct 15 15:58:24 2016 +0000
+
+    Add Travis CI tests on push
+
+commit a8751e79835944f9726b1962b02cbef45321cf16
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Fri Oct 14 17:18:21 2016 +0000
+
+    Change autopep8 invocation so it can be used wihout source env
+
+commit 985b9c2d09f9d2267066cc611bb9874a45819c0e
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Fri Oct 14 17:17:26 2016 +0000
+
+    Set up minimal Flask API
+
+commit f5af3f1c13b9d296eeab03be1ef5101a5adaa349
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Fri Oct 14 17:15:40 2016 +0000
+
+    indentation on makefile
+
+commit a827d8628ddf574ead27df3b790016eacd51dd9b
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Fri Oct 14 16:36:55 2016 +0000
+
+    Pin dependency versions
+
+commit df3480292db8ff73536e50a8e3e2fdd86a60985a
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Fri Oct 14 11:27:57 2016 -0500
+
+    Set up python Flask application tooling
+
+commit 1d882ba09fb894462a39c4a3418159d9598f2edc
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Fri Oct 14 10:21:01 2016 -0500
+
+    Remove ignore for *.log in python .gitignore
+
+commit af4b645ed38c8a8d1a27fcab6bfdb3d48e295004
+Author: Cedric Charly <cedric.charly@gmail.com>
+Date:   Tue Oct 11 09:58:51 2016 -0500
+
+    Initial commit
