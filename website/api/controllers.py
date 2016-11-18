@@ -102,7 +102,7 @@ def search():
 
 @api_bp.route('/otherGroup')
 def otherGroup():
-    authors = requests.get("http://test.litdb.me/authors")
+    authors = requests.get("http://litdb.me/authors")
 
     return flask.jsonify(json.loads(authors.text)), 200
 
