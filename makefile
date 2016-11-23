@@ -2,16 +2,6 @@
 GIT_HOOKS := scripts/git/pre-commit
 # Set options like proxies here
 PIPOPTS :=
-# Port number to bind gunicorn to; can be overidden in environment
-PORT ?= 5000
-
-ifeq ($(TRAVIS_CI_BUILD), 1)
-	ALEMBIC = alembic
-	PYTEST = python -m pytest
-else
-	ALEMBIC = venv/bin/alembic
-	PYTEST = venv/bin/python -m pytest
-endif
 
 FILES :=                              \
     .gitignore                        \
@@ -28,21 +18,21 @@ init: hooks venv
 
 venv:
 	python3.5 -m venv --copies venv
-	venv/bin/pip install --upgrade pip
+	pip install --upgrade pip
 
 install: venv
-	venv/bin/pip install -r requirements.txt $(PIPOPTS)
+	pip install -r requirements.txt $(PIPOPTS)
 
 # Set up testing commands here; will be used in git hook
 test:
-	$(PYTEST) \
+	python3.5 -m pytest \
 		-v \
 		--cov=website \
 		--no-cov-on-fail \
 		tests/unit/
 
 test_all:
-	$(PYTEST) \
+	python3.5 -m pytest \
 		-v \
 		--cov=website \
 		--no-cov-on-fail \
@@ -50,33 +40,33 @@ test_all:
 
 # run in production mode, meant to run behind nginx proxy so bind to
 # localhost instead of 0.0.0.0
-run: venv/bin/gunicorn
-	venv/bin/gunicorn \
+run:
+	gunicorn \
 		-w 5 \
-		-b localhost:$(PORT) \
+		-b localhost:80 \
 		--log-level=debug \
 		website:app
 
-dev_server: venv/bin/python
-	venv/bin/gunicorn \
+dev_server:
+	gunicorn \
 		-w 5 \
-		-b 0.0.0.0:$(PORT) \
+		-b 0.0.0.0:80 \
 		--log-level=debug \
 		--reload \
 		website:app
 
 # Ensure environment vars are set
 db_migrations:
-	$(ALEMBIC) upgrade head
+	alembic upgrade head
 
 # Ensure environment vars are set
 db_reset:
-	$(ALEMBIC) downgrade base
-	$(ALEMBIC) upgrade head
+	alembic downgrade base
+	alembic upgrade head
 
 adddeps: venv pkgs
-	venv/bin/pip install -r requirements-to-freeze.txt $(PIPOPTS)
-	venv/bin/pip freeze > requirements.txt
+	pip install -r requirements-to-freeze.txt $(PIPOPTS)
+	pip freeze > requirements.txt
 
 # For any system packages need to be installed for project ex: C header files
 pkgs:
@@ -124,4 +114,4 @@ IDB3.log:
 	git log > IDB3.log
 
 models.html:
-	venv/bin/python -m pydoc -w website/api/models.py
+	python3.5 -m pydoc -w website/api/models.py
