@@ -43,16 +43,8 @@ test_all:
 run:
 	gunicorn \
 		-w 5 \
-		-b localhost:80 \
-		--log-level=debug \
-		website:app
-
-dev_server:
-	gunicorn \
-		-w 5 \
 		-b 0.0.0.0:80 \
 		--log-level=debug \
-		--reload \
 		website:app
 
 # Ensure environment vars are set
