@@ -128,7 +128,7 @@ def index_pokedexes():
     return flask.jsonify(response), 200
 
 
-@api_bp.route('/pokedexes/', methods=['POST'])
+# @api_bp.route('/pokedexes/', methods=['POST'])
 def create_pokedex():
     json_data = flask.request.get_json()
     if not json_data:
@@ -192,7 +192,7 @@ def show_pokedex(pokedex_id):
     return flask.jsonify({'data': data}), 200
 
 
-@api_bp.route('/pokedexes/<int:pokedex_id>', methods=['PUT', 'PATCH'])
+# @api_bp.route('/pokedexes/<int:pokedex_id>', methods=['PUT', 'PATCH'])
 def update_pokedex(pokedex_id):
     pokedex = models.Pokedex.query.get(pokedex_id)
     if not pokedex:
@@ -253,7 +253,7 @@ def update_pokedex(pokedex_id):
         return flask.jsonify(bad_request), 422
 
 
-@api_bp.route('/pokedexes/<int:pokedex_id>', methods=['DELETE'])
+# @api_bp.route('/pokedexes/<int:pokedex_id>', methods=['DELETE'])
 def delete_pokedex(pokedex_id):
     pokedex = models.Pokedex.query.get(pokedex_id)
     if not pokedex:
@@ -301,7 +301,7 @@ def index_pokemon():
     return flask.jsonify(response), 200
 
 
-@api_bp.route('/pokemon/', methods=['POST'])
+# @api_bp.route('/pokemon/', methods=['POST'])
 def create_pokemon():
     json_data = flask.request.get_json()
     if not json_data:
@@ -365,7 +365,7 @@ def show_pokemon(pokemon_id):
     return flask.jsonify({'data': data}), 200
 
 
-@api_bp.route('/pokemon/<int:pokemon_id>', methods=['PUT', 'PATCH'])
+# @api_bp.route('/pokemon/<int:pokemon_id>', methods=['PUT', 'PATCH'])
 def update_pokemon(pokemon_id):
     pokemon = models.Pokemon.query.get(pokemon_id)
     if not pokemon:
@@ -423,7 +423,7 @@ def update_pokemon(pokemon_id):
         return flask.jsonify(bad_request), 422
 
 
-@api_bp.route('/pokemon/<int:pokemon_id>', methods=['DELETE'])
+# @api_bp.route('/pokemon/<int:pokemon_id>', methods=['DELETE'])
 def delete_pokemon(pokemon_id):
     pokemon = models.Pokemon.query.get(pokemon_id)
     if not pokemon:
@@ -471,7 +471,7 @@ def index_moves():
     return flask.jsonify(response), 200
 
 
-@api_bp.route('/moves/', methods=['POST'])
+# @api_bp.route('/moves/', methods=['POST'])
 def create_move():
     json_data = flask.request.get_json()
     if not json_data:
@@ -535,7 +535,7 @@ def show_move(move_id):
     return flask.jsonify({'data': data}), 200
 
 
-@api_bp.route('/moves/<int:move_id>', methods=['PUT', 'PATCH'])
+# @api_bp.route('/moves/<int:move_id>', methods=['PUT', 'PATCH'])
 def update_move(move_id):
     move = models.Move.query.get(move_id)
     if not move:
@@ -593,7 +593,7 @@ def update_move(move_id):
         return flask.jsonify(bad_request), 422
 
 
-@api_bp.route('/moves/<int:move_id>', methods=['DELETE'])
+# @api_bp.route('/moves/<int:move_id>', methods=['DELETE'])
 def delete_move(move_id):
     move = models.Move.query.get(move_id)
     if not move:
@@ -622,7 +622,7 @@ def delete_move(move_id):
     return flask.jsonify({'data': deleted}), 200
 
 
-@api_bp.route('/pokedex_pokemon/', methods=['POST'])
+# @api_bp.route('/pokedex_pokemon/', methods=['POST'])
 def associate_pokedex_pokemon():
     json_data = flask.request.get_json()
     if not json_data:
@@ -693,7 +693,7 @@ def associate_pokedex_pokemon():
         return flask.jsonify(bad_request), 422
 
 
-@api_bp.route('/pokemon_moves/', methods=['POST'])
+# @api_bp.route('/pokemon_moves/', methods=['POST'])
 def associate_pokemon_moves():
     json_data = flask.request.get_json()
     if not json_data:
